@@ -39,9 +39,9 @@
 	<p>
 	<li><font size="6"> 
 	<a
-			href="DispatcherServlet?command=search">SEARCH</a></font></li>
+			href="DispatcherServlet.do?command=search&&name=이태규">SEARCH</a></font></li>
 	<p>
-	<li><font size="6"><a href="DispatcherServlet?command=buy">BUY</a></font></li>
+	<li><font size="6"><a href="DispatcherServlet.do?command=buy">BUY</a></font></li>
 
 
 

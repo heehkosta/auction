@@ -40,7 +40,4 @@ public class ModelAndView {
 		return "ModelAndView [path=" + path + ", isRedirect=" + isRedirect
 				+ "]";
 	}
-	
-	
-	
 }

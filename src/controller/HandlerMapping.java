@@ -1,6 +1,5 @@
-package front.servlet;
+package controller;
 
-import controller.Controller;
 
 
 public class HandlerMapping {
@@ -14,10 +13,12 @@ public class HandlerMapping {
 	
 	public Controller createController(String command){
 		Controller controller = null;
-		if(command.equals("")){
-			
-		}else if(command.equals("")){
-			
+		if(command.equals("sell")){
+			controller = new SellController();
+		}else if(command.equals("search")){
+			controller = new SearchController();
+		}else if(command.equals("buy")){
+			controller = new BuyController();
 		}
 		return controller;
 	}

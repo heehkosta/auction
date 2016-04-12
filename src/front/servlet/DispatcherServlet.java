@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
+import controller.HandlerMapping;
 import controller.ModelAndView;
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +24,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		//command값을 받아옴.
 		String command = request.getParameter("command");
-		
+		System.out.println(command);
 		Controller cont=HandlerMapping.getInstance().createController(command);
 		ModelAndView mv = null;
 		try{
