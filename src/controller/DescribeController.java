@@ -17,15 +17,12 @@ public class DescribeController implements Controller {
 		String path = "describe_fail.jsp";
 		String id = request.getParameter("id");
 		
-		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByItemID(id);
-		for(ItemVO i : list) {
-			System.out.println(i.getName());
-		}
+		ItemVO item = ItemDAO.getInstance().selectByID(id);
+	
+	
+			request.setAttribute("item", item);
+			path =  "describe_ok.jsp";
 		
-		if(list != null){
-			request.setAttribute("list", list);
-			path =  "search_ok.jsp";
-		}
 		return new ModelAndView(path);  //forward 방식을 의미함
 	}
 }
