@@ -22,7 +22,7 @@ public class SearchController implements Controller {
 		
 		String path = "search_fail.jsp";
 		String name = request.getParameter("textbox");
-		String pageNo = request.getParameter("pageNo");
+		String pageNo = "1";
 		
 		System.out.println(name);
 		System.out.println(pageNo);
