@@ -523,7 +523,7 @@ img::-moz-selection {
     background: 0 0;
 }
 
-#search {
+.form-control {
 	margin-left: 330px;
 }
 
