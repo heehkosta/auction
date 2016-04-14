@@ -19,6 +19,8 @@ public class HandlerMapping {
 			controller = new SearchController();
 		}else if(command.equals("buy")){
 			controller = new BuyController();
+		}else if(command.equals("describe")){
+			controller = new DescribeController();
 		}
 		return controller;
 	}
