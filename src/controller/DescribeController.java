@@ -17,9 +17,11 @@ public class DescribeController implements Controller {
 		String path = "describe_fail.jsp";
 		String id = request.getParameter("id");
 		
+		System.out.println("Describe: 20" + id);
+		
 		ItemVO item = ItemDAO.getInstance().selectByID(id);
 	
-	
+			System.out.println("DescribeController:24" + item);
 			request.setAttribute("item", item);
 			path =  "describe_ok.jsp";
 		

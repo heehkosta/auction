@@ -70,13 +70,15 @@ public class ItemDAO {
 	
 	/////////ID로 검색////////////
 	public ItemVO selectByID(String id) throws SQLException{
+		System.out.println("ItemDAO: 73: " + id	);
 		ItemVO vo = new ItemVO();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try{
 			conn = getConnection();
-			System.out.println("연결");
+			System.out.println("ItemDAO: 79: " + id	);
+
 			ps = conn.prepareStatement(StringQuery.SEARCH_ITEMS_BY_ID);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
@@ -93,6 +95,7 @@ public class ItemDAO {
 						rs.getString("country"), 
 						rs.getDouble("latitude"),
 						rs.getDouble("longitude"));
+				
 			}
 		}finally{
 			closeAll(rs, ps, conn);
