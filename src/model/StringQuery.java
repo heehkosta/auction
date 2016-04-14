@@ -16,7 +16,7 @@ public interface StringQuery {
 	//판매 물품을 NAME으로 찾기
 	String SEARCH_NAME = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
-			+ "Location, Country, Latitude, Longitude FROM Item WHERE Name=? ";
+			+ "Location, Country, Latitude, Longitude FROM Item WHERE Name LIKE ? ";
 	
 	//전체 물품 정보
 	String TOTAL_COUNT = "SELECT COUNT(-1) FROM Item";

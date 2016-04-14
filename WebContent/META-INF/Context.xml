@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-	<Resource name="jdbc/oracleDB"
+	<Resource name="jdbc/mysqlDB"
 			  auth="container"
 			  type="javax.sql.DataSource"
-			  username="auction"
-			  password="kosta"
-			  driverClassName="oracle.jdbc.driver.OracleDriver"
+			  username="user"
+			  password="my_password"
+
+			  driverClassName="com.mysql.jdbc.Driver"
 			  factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
-			  url="jdbc:oracle:thin:@192.168.0.11:1521:xe"
+			  url="jdbc:mysql://cswiki.net:3306/auction"
+
 			  maxActive="500"
 			  maxIdle="100" />
 </Context>

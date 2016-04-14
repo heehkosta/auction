@@ -18,6 +18,9 @@ public class SearchController implements Controller {
 		String name = request.getParameter("name");
 		
 		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByName(name);
+		for(ItemVO i : list) {
+			System.out.println(i.getName());
+		}
 		
 		if(list != null){
 			request.setAttribute("list", list);

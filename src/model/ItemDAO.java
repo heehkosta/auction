@@ -18,7 +18,7 @@ public class ItemDAO {
 	private ItemDAO(){
 		try{
 			InitialContext ic = new InitialContext();
-			ds=(DataSource) ic.lookup("java:comp/env/jdbc/oracleDB");
+			ds=(DataSource) ic.lookup("java:comp/env/jdbc/mysqlDB");
 		}catch(NamingException e){
 			e.printStackTrace();
 		}
@@ -77,7 +77,7 @@ public class ItemDAO {
 			conn = getConnection();
 			System.out.println("연결");
 			ps = conn.prepareStatement(StringQuery.SEARCH_NAME);
-			ps.setString(1, name);
+			ps.setString(1, "%" + name + "%");
 			rs = ps.executeQuery();
 			while(rs.next()){
 				list.add(new ItemVO(rs.getInt("itemID"),
