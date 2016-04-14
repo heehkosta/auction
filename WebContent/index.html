@@ -1,63 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>HeeH MAll</title>
-    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Codeply">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-analytics-outline"></i>HeeH Mall</a>
-            </div>
-            <div class="navbar-collapse collapse" id="bs-navbar">
-               
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#aboutModal">About</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <header id="first">
-        <div class="header-content">
-            <div class="inner">
-                <h1 class="cursive">HeeH Mall</h1>
-                <h4>Welcome to HwangHeeWorld</h4>
-                <hr>
-                <a href="#video-background" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">판매하기</a> &nbsp; 
-                <a href="#one" class="btn btn-primary btn-xl page-scroll">구매하기</a><br><br><br>
-                <div class="col-md-4">
-                	<label></label>
-                    <input type="text" id="search" class="form-control" placeholder="Search">
-                </div><br><br>
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                <div class="col-md-4 col-md-offset-4">
-                    <label></label>
-                    <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Search</button>
-                </div>
-            </div>
-            </div>
-        </div>
-        <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg" id="video-background">
-            <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
-        </video>
-    </header>
-   <!--  <section class="bg-primary" id="one">
+<head>
+<meta charset="utf-8">
+<title>HeeH MAll</title>
+<script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//버튼과 전송의 차이로 전송을 할 때에는 form의 이름#memberFrm으로 submit()을 사용한다.
+		$('frm').submit(function() { //중요!!!!
+			//alert("전송중");
+			//1. 폼에 입력된 값을 각각 받는다...id,name,addr
+			var search = $('#search').val();
+			//alert(id+","+name+","+addr);
+			return confirm(search + "을(를) 검색하시겠습니까?");
+		});
+	});
+</script>
+
+
+
+<meta name="description"
+	content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Codeply">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+	<nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll" href="#first"><i
+					class="ion-ios-analytics-outline"></i>HeeH Mall</a>
+			</div>
+			<div class="navbar-collapse collapse" id="bs-navbar">
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="page-scroll" data-toggle="modal"
+						title="A free Bootstrap video landing theme" href="#aboutModal">About</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header id="first">
+		<div class="header-content">
+			<div class="inner">
+				<h1 class="cursive">HeeH Mall</h1>
+				<h4>Welcome to HwangHeeWorld</h4>
+				<hr>
+				<a href="#video-background" id="toggleVideo" data-toggle="collapse"
+					class="btn btn-primary btn-xl">판매하기</a> &nbsp; <a href="#one"
+					class="btn btn-primary btn-xl page-scroll">구매하기</a><br>
+				<br>
+				<br>
+				<form action="search.html?command=search" method="get" id="frm">
+					<div class="col-md-4">
+						<label></label> <input type="text" id="search"
+							class="form-control" placeholder="Search">
+					</div>
+					<br>
+					<br>
+					<div class="col-lg-10 col-lg-offset-1 text-center">
+						<div class="col-md-4 col-md-offset-4">
+							<label></label>
+							<button type="submit" form = "frm" value = "Submit" data-toggle="modal"
+								data-target="#alertModal"
+								class="btn btn-primary btn-block btn-lg">Search</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<video autoplay="" loop="" class="fillWidth fadeIn wow collapse in"
+			data-wow-delay="0.5s"
+			poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg"
+			id="video-background">
+			<source
+				src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4"
+				type="video/mp4">
+			Your browser does not support the video tag. I suggest you upgrade
+			your browser.
+		</video>
+	</header>
+
+
+
+
+
+	<!--  <section class="bg-primary" id="one">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
@@ -403,5 +446,5 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
     <script src="js/scripts.js"></script> -->
-  </body>
+</body>
 </html>
