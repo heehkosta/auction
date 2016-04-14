@@ -9,13 +9,13 @@ import model.ItemDAO;
 import model.ItemVO;
 
 
-public class SearchController implements Controller {
+public class DescribeController implements Controller {
 
 	@Override
 	public ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String path = "find_fail.jsp";
-		String name = request.getParameter("name");
+		String path = "describe_fail.jsp";
+		String name = request.getParameter("id");
 		
 		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByName(name);
 		for(ItemVO i : list) {

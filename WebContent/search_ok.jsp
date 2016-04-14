@@ -1,10 +1,4 @@
-<%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
-
+<!-- BOOTSTRAP SECTION -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,35 +21,52 @@
 
 
 
+<!-- JSTL SECTION -->
+
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 
 
+<!-- JQUERY SECTION -->
 
 <script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 
-	});//ready
+	});//ready */
+	
+	
+	
+	jQuery(document).ready(function($) {
+	    $(".clickable-row").click(function() {
+	        window.document.location = $(this).data("href");
+	    });
+	});
 </script>
+
+
+
+
+
+
+
+
 
 
 
 </head>
 <body>
 
-	<!--  ${ list} -->
 
-	<%-- 	<c:forEach items="${list}" var="i" varStatus="vs">
-		${vs.count}. ${i.name}<br>
-
-	</c:forEach>
- --%>
 
 	<div class="container">
 		<h2>Basic Table</h2>
 		<p> 아이템 목록 </p>
-		<table class="table">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>ItemID</th>
@@ -72,8 +83,12 @@
 				</tr>
 			</thead>
 			<tbody>
+			
+			<!-- 클릭할 시에 컨트롤러로 들어가야한다. 이때 id 번호를 가지고 들어가야 한다.  -->
 				<c:forEach items="${list}" var="item" varStatus="vs">
-					<tr>
+					<!-- 변수에 ${item.itemID}를 넣고, 다음줄의 id에 변수를 대입한다. -->
+					<%-- <c:set var="id" value="${item.itemID}"/> --%>
+					<tr class='clickable-row' data-href='DispatcherServlet.do?command=search&&id=${item.itemID}'>
 						<td>${item.itemID}</td>
 						<td>${item.name}</td>
 						<td>${item.buy_Price}</td>
