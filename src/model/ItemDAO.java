@@ -52,7 +52,7 @@ public class ItemDAO {
 	//////////////////////////////// 비지니스 로직 ///////////////////////////////////////////
 
 	//////////판매할 것 추가하는 로직/////////
-	public void addItem(String name, int price) throws SQLException{
+	public void addItem(ItemVO vo) throws SQLException{
 		Connection conn = null;
 		PreparedStatement ps = null;
 
@@ -78,9 +78,9 @@ public class ItemDAO {
 			conn = getConnection();
 			System.out.println("연결");
 			ps = conn.prepareStatement(StringQuery.SEARCH_ITEMS_BY_ID);
-			ps.setString(1, "id");
+			ps.setString(1, id);
 			rs = ps.executeQuery();
-			if(rs.next()){
+			while(rs.next()){
 				vo =new ItemVO(rs.getInt("itemID"),
 						rs.getString("name"), 
 						rs.getFloat("buy_Price"),
@@ -170,7 +170,7 @@ public class ItemDAO {
 		try{
 			conn = getConnection();
 			ps = conn.prepareStatement(StringQuery.PAGE_LIST);
-			ps.setString(1, name);
+			ps.setString(1, "%" + name + "%");
 			ps.setString(2, pageNo);
 			rs = ps.executeQuery();
 			
@@ -192,10 +192,7 @@ public class ItemDAO {
 		}
 		return list;
 	}
-	
-	public static void main(String[] args) throws SQLException {
-		ItemDAO.getInstance().getPostingList("1", "bat");
-	}
+
 }
 
 
