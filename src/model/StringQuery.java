@@ -1,5 +1,7 @@
 package model;
 
+import pagingservice.CommonConstants;
+
 public interface StringQuery {
 	
 	//판매원 물품정보
@@ -18,7 +20,10 @@ public interface StringQuery {
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Latitude, Longitude FROM Item WHERE Name LIKE ? ";
 	
-	//전체 물품 정보
-	String TOTAL_COUNT = "SELECT COUNT(-1) FROM Item";
-
+	//Name로 검색한 물품 정보
+	String TOTAL_COUNT = "SELECT COUNT(-1) FROM Item where Name LIKE ?";
+	
+	//페이징 처리하는 쿼리
+	String PAGE_LIST = "SELETE ItemID,Name,Buy_Price "
+			+ "from Item where name like ? limit ?,"+CommonConstants.CONTENT_NUMBER_PER_PAGE+"";
 }

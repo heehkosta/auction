@@ -140,8 +140,8 @@ public class ItemDAO {
 		return list;
 	}
 	
-	////전체 페이지 수를 얻는 로직
-	public int getTotalPostingCount() throws SQLException{
+	////name 검색으로 얻을수 있는 페이지 수
+	public int getTotalPostingCount(String name) throws SQLException{
 		int count = -1;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -149,6 +149,7 @@ public class ItemDAO {
 		try{
 			conn = getConnection();
 			ps = conn.prepareStatement(StringQuery.TOTAL_COUNT);
+			ps.setString(1, "%" + name + "%");
 			rs = ps.executeQuery();
 			if(rs.next()){
 				count = rs.getInt(1);
@@ -157,6 +158,28 @@ public class ItemDAO {
 			closeAll(rs, ps, conn);
 		}
 		return count;
+	}
+	
+	/////pageNo 에 따른 페이지 정보///////////
+	public ArrayList<ItemVO> getPostingList(String pageNo,String name) throws SQLException{
+		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try{
+			conn = getConnection();
+			ps = conn.prepareStatement(StringQuery.PAGE_LIST);
+			ps.setString(1, name);
+			ps.setString(2, pageNo);
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+			}
+		}finally{
+			closeAll(rs, ps, conn);
+		}
+		return list;
 	}
 }
 
