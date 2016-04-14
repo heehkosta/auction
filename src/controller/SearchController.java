@@ -14,8 +14,14 @@ public class SearchController implements Controller {
 	@Override
 	public ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
+		
+		
+		
 		String path = "find_fail.jsp";
-		String name = request.getParameter("name");
+		String name = request.getParameter("textbox");
+		
+		System.out.println(name);
 		
 		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByName(name);
 		for(ItemVO i : list) {

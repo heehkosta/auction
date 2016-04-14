@@ -25,6 +25,10 @@ public class DispatcherServlet extends HttpServlet {
 		//command값을 받아옴.
 		String command = request.getParameter("command");
 		System.out.println(command);
+		
+		String textbox = request.getParameter("textbox");
+		System.out.println(textbox);
+		
 		Controller cont=HandlerMapping.getInstance().createController(command);
 		ModelAndView mv = null;
 		try{
