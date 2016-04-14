@@ -69,8 +69,8 @@ public class ItemDAO {
 
 	
 	/////////ID로 검색////////////
-	public ArrayList<ItemVO> selectByID(String id) throws SQLException{
-		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
+	public ItemVO selectByID(String id) throws SQLException{
+		ItemVO vo = new ItemVO();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -80,8 +80,8 @@ public class ItemDAO {
 			ps = conn.prepareStatement(StringQuery.SEARCH_ITEMS_BY_ID);
 			ps.setString(1, "id");
 			rs = ps.executeQuery();
-			while(rs.next()){
-				list.add(new ItemVO(rs.getInt("itemID"),
+			if(rs.next()){
+				vo =new ItemVO(rs.getInt("itemID"),
 						rs.getString("name"), 
 						rs.getFloat("buy_Price"),
 						rs.getFloat("first_Bid"), 
@@ -92,12 +92,12 @@ public class ItemDAO {
 						rs.getString("location"),
 						rs.getString("country"), 
 						rs.getDouble("latitude"),
-						rs.getDouble("longitude")));
+						rs.getDouble("longitude"));
 			}
 		}finally{
 			closeAll(rs, ps, conn);
 		}
-		return list;
+		return vo;
 	}
 
 	
@@ -175,6 +175,8 @@ public class ItemDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()){
+				list.add(new ItemVO(rs.getInt("itemID"), 
+						rs.getst, buy_Price, first_Bid, started, ends, sellerID, description, location, country, latitude, longitude))
 			}
 		}finally{
 			closeAll(rs, ps, conn);
