@@ -52,17 +52,29 @@ public class ItemDAO {
 	//////////////////////////////// 비지니스 로직 ///////////////////////////////////////////
 
 	//////////판매할 것 추가하는 로직/////////
-	public void addItem(String name, int price) throws SQLException{
+	public void addItem(ItemVO vo) throws SQLException{
 		Connection conn = null;
 		PreparedStatement ps = null;
 
 		try{
 			conn = getConnection();
 			ps = conn.prepareStatement(StringQuery.SALES_MANAGER);
-
-
+			ps.setInt(1, vo.getItemID());
+			ps.setString(2, vo.getName());
+			ps.setFloat(3, vo.getBuy_Price());
+			ps.setFloat(4, vo.getFirst_Bid());
+			ps.setString(5, vo.getStarted());
+			ps.setString(6, vo.getEnds());
+			ps.setString(7, vo.getSellerID());
+			ps.setString(8, vo.getDescription());
+			ps.setString(9, vo.getLocation());
+			ps.setString(10, vo.getCountry());
+			ps.setDouble(11, vo.getLatitude());
+			ps.setDouble(12, vo.getLongitude());
+			int row = ps.executeUpdate();
+			System.out.println(row+" row OK");
 		}finally{
-			closeAll( ps, conn);
+			closeAll(ps, conn);
 		}
 
 	}
@@ -160,7 +172,7 @@ public class ItemDAO {
 		return count;
 	}
 	
-	/////pageNo 에 따른 페이지 정보///////////
+/*	/////pageNo 에 따른 페이지 정보///////////
 	public ArrayList<ItemVO> getPostingList(String pageNo,String name) throws SQLException{
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		Connection conn = null;
@@ -176,13 +188,14 @@ public class ItemDAO {
 			
 			while(rs.next()){
 				list.add(new ItemVO(rs.getInt("itemID"), 
-						rs.getst, buy_Price, first_Bid, started, ends, sellerID, description, location, country, latitude, longitude))
+						rs.gets, buy_Price, first_Bid, started, ends, sellerID, description, location, country, latitude, longitude))
 			}
 		}finally{
 			closeAll(rs, ps, conn);
 		}
 		return list;
-	}
+	}*/
+
 }
 
 
