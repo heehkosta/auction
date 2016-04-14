@@ -88,7 +88,7 @@
 				<c:forEach items="${list}" var="item" varStatus="vs">
 					<!-- 변수에 ${item.itemID}를 넣고, 다음줄의 id에 변수를 대입한다. -->
 					<%-- <c:set var="id" value="${item.itemID}"/> --%>
-					<tr class='clickable-row' data-href='DispatcherServlet.do?command=search&&id=${item.itemID}'>
+					<tr class='clickable-row' data-href='DispatcherServlet.do?command=describe&&id=${item.itemID}'>
 						<td>${item.itemID}</td>
 						<td>${item.name}</td>
 						<td>${item.buy_Price}</td>

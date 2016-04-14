@@ -18,7 +18,7 @@ public class SearchController implements Controller {
 		
 		
 		
-		String path = "find_fail.jsp";
+		String path = "search_fail.jsp";
 		String name = request.getParameter("textbox");
 		
 		System.out.println(name);
@@ -30,7 +30,7 @@ public class SearchController implements Controller {
 		
 		if(list != null){
 			request.setAttribute("list", list);
-			path =  "find_ok.jsp";
+			path =  "search_ok.jsp";
 		}
 		return new ModelAndView(path);  //forward 방식을 의미함
 	}

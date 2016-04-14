@@ -15,9 +15,9 @@ public class DescribeController implements Controller {
 	public ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String path = "describe_fail.jsp";
-		String name = request.getParameter("id");
+		String id = request.getParameter("id");
 		
-		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByName(name);
+		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByItemID(id);
 		for(ItemVO i : list) {
 			System.out.println(i.getName());
 		}
