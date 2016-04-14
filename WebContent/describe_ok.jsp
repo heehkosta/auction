@@ -165,6 +165,7 @@
                     <p style="text-align: left;">
                         <span class="fa fa-calendar "></span>
                         21 months full warranty
+                        ddglsg
                     </p>
                     <a href="#" class="btn btn-success" title="More">more »</a>
                 </div>
