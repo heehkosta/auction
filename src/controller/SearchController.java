@@ -22,19 +22,19 @@ public class SearchController implements Controller {
 		
 		String path = "search_fail.jsp";
 		String name = request.getParameter("textbox");
-		String pageNo = "1";
+		//String pageNo = "1";
 		
 		System.out.println(name);
-		System.out.println(pageNo);
+		//System.out.println(pageNo);
 		
 		//ListVO lvo = PbService.getInstance().getPostingNumber(name, pageNo);
-		ArrayList<ItemVO> vo = ItemDAO.getInstance().selectByName(name);
+		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByName(name);
 		/*for(ItemVO i : list) {
 			System.out.println(i.getName());
 		}*/
 		
-		if(vo != null){
-			request.setAttribute("vo", vo);
+		if(list != null){
+			request.setAttribute("list", list);
 			path =  "search_ok.jsp";
 		}
 		return new ModelAndView(path);  //forward 방식을 의미함
