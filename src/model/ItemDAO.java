@@ -22,7 +22,7 @@ public class ItemDAO {
 		}catch(NamingException e){
 			e.printStackTrace();
 		}
-		
+		 
 	}
 	public static ItemDAO getInstance(){
 		return dao;
