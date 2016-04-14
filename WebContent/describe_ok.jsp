@@ -187,6 +187,8 @@
                         4 months full warranty
                     </p>
                     <a href="#" class="btn btn-success" title="More">more »</a>
+                    
+                    
                 </div>
             </div>
         </div>
