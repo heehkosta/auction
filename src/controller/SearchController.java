@@ -27,13 +27,14 @@ public class SearchController implements Controller {
 		System.out.println(name);
 		System.out.println(pageNo);
 		
-		ListVO lvo = PbService.getInstance().getPostingNumber(name, pageNo);
+		//ListVO lvo = PbService.getInstance().getPostingNumber(name, pageNo);
+		ArrayList<ItemVO> vo = ItemDAO.getInstance().selectByName(name);
 		/*for(ItemVO i : list) {
 			System.out.println(i.getName());
 		}*/
 		
-		if(lvo != null){
-			request.setAttribute("lvo", lvo);
+		if(vo != null){
+			request.setAttribute("vo", vo);
 			path =  "search_ok.jsp";
 		}
 		return new ModelAndView(path);  //forward 방식을 의미함

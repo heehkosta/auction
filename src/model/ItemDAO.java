@@ -192,6 +192,10 @@ public class ItemDAO {
 		}
 		return list;
 	}
+	
+	public static void main(String[] args) throws SQLException {
+		ItemDAO.getInstance().getPostingList("1", "bat");
+	}
 }
 
 
