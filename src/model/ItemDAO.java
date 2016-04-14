@@ -67,6 +67,47 @@ public class ItemDAO {
 
 	}
 
+	
+	/////////ID로 검색////////////
+	public ArrayList<ItemVO> selectByID(String id) throws SQLException{
+		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try{
+			conn = getConnection();
+			System.out.println("연결");
+			ps = conn.prepareStatement(StringQuery.SEARCH_ITEMS_BY_ID);
+			ps.setString(1, "id");
+			rs = ps.executeQuery();
+			while(rs.next()){
+				list.add(new ItemVO(rs.getInt("itemID"),
+						rs.getString("name"), 
+						rs.getFloat("buy_Price"),
+						rs.getFloat("first_Bid"), 
+						rs.getString("started"), 
+						rs.getString("ends"), 
+						rs.getString("sellerID"), 
+						rs.getString("description"), 
+						rs.getString("location"),
+						rs.getString("country"), 
+						rs.getDouble("latitude"),
+						rs.getDouble("longitude")));
+			}
+		}finally{
+			closeAll(rs, ps, conn);
+		}
+		return list;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	/////////상품 이름으로 검색////////////
 	public ArrayList<ItemVO> selectByName(String name) throws SQLException{
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
@@ -97,6 +138,25 @@ public class ItemDAO {
 			closeAll(rs, ps, conn);
 		}
 		return list;
+	}
+	
+	////전체 페이지 수를 얻는 로직
+	public int getTotalPostingCount() throws SQLException{
+		int count = -1;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try{
+			conn = getConnection();
+			ps = conn.prepareStatement(StringQuery.TOTAL_COUNT);
+			rs = ps.executeQuery();
+			if(rs.next()){
+				count = rs.getInt(1);
+			}
+		}finally{
+			closeAll(rs, ps, conn);
+		}
+		return count;
 	}
 }
 

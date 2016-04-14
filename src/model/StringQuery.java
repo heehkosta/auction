@@ -9,7 +9,7 @@ public interface StringQuery {
 			+ " VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	//판매 물품을 ID으로 찾기
-	String SEARCH_ITEMS = "SELECT ItemID, Name, Buy_Price, "
+	String SEARCH_ITEMS_BY_ID = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Latitude, Longitude FROM Item WHERE ItemID=? ";
 	
