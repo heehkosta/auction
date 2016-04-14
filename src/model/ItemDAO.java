@@ -175,9 +175,18 @@ public class ItemDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()){
-				list.add(new ItemVO(rs.getInt("itemID"), 
-						rs.getst, buy_Price, first_Bid, started, ends, sellerID, description, location, country, latitude, longitude))
-			}
+				list.add(new ItemVO(rs.getInt("itemID"),
+						rs.getString("name"), 
+						rs.getFloat("buy_Price"),
+						rs.getFloat("first_Bid"), 
+						rs.getString("started"), 
+						rs.getString("ends"), 
+						rs.getString("sellerID"), 
+						rs.getString("description"), 
+						rs.getString("location"),
+						rs.getString("country"), 
+						rs.getDouble("latitude"),
+						rs.getDouble("longitude")));}
 		}finally{
 			closeAll(rs, ps, conn);
 		}

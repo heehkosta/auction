@@ -23,10 +23,10 @@ public class PbService {
 			num = Integer.parseInt(pageNo);
 		}
 		int total = ItemDAO.getInstance().getTotalPostingCount(name);
-		//ArrayList<ItemVO> vo =ItemDAO.getInstance().
-		//PagingBean pb = new PagingBean(total, nowPage);
+		ArrayList<ItemVO> vo =ItemDAO.getInstance().getPostingList(pageNo, name);
+		PagingBean pb = new PagingBean(total, num);
+		ListVO lvo = new ListVO(pb, vo);
 		
-		
-		return null;
+		return lvo;
 	}
 }
