@@ -1,4 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<style type="text/css"> 
+  html { height: 100% } 
+  body { height: 100%; margin: 0px; padding: 0px } 
+  #map_canvas { height: 100% } 
+</style> 
+<script type="text/javascript" 
+    src="http://maps.google.com/maps/api/js?sensor=false"> 
+</script> 
+<script type="text/javascript"> 
+  function initialize() { 
+    var latlng = new google.maps.LatLng(${item.latitude}, ${item.longitude}); 
+    var myOptions = { 
+      zoom: 14, // default is 8  
+      center: latlng, 
+      mapTypeId: google.maps.MapTypeId.ROADMAP 
+    }; 
+    var map = new google.maps.Map(document.getElementById("map_canvas"), 
+        myOptions); 
+  } 
 
+</script> 
+</head> 
+<body onload="initialize()"> 
+  <div id="map_canvas" style="width:100%; height:100%"></div> 
+</body> 
+</html>
+
+
+
+<%-- 
 <!-- BOOTSTRAP SECTION -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -47,79 +80,51 @@
 
 
 <body>
-<!-- 
-	<div class="mix">
-		<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header menuitem">
-				<a class="navbar-brand" href="index.html">Hee Mall</a>
-			</div>
-			<div>
-				<ul class="nav navbar-nav">
-					<li><a href="#">판매하기</a></li>
-					<li><a href="#">구매하기</a></li>
-					<li class="active"><a href="find_ok.jsp">검색 결과</a></li>
-				</ul>
-			</div>
-			<div>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false"> <span
-							class="fa fa-gift bigicon"></span> 4 - Items in Cart<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu dropdown-cart" role="menu">
-							<li><span class="item"> <span class="item-left">
-										<img
-										src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg"
-										alt="" /> <span class="item-info"> <span>Item
-												name</span> <span>price: 27$</span>
-									</span>
-								</span> <span class="item-right">
-										<button class="btn btn-danger  fa fa-close"></button>
-								</span>
-							</span></li>
-							<li><span class="item"> <span class="item-left">
-										<img
-										src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_2.jpg"
-										alt="" /> <span class="item-info"> <span>Item
-												name</span> <span>price: 3$</span>
-									</span>
-								</span> <span class="item-right">
-										<button class="btn btn-danger  fa fa-close"></button>
-								</span>
-							</span></li>
-							<li><span class="item"> <span class="item-left">
-										<img
-										src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_3.jpeg"
-										alt="" /> <span class="item-info"> <span>Item
-												name</span> <span>price: 12$</span>
-									</span>
-								</span> <span class="item-right">
-										<button class="btn btn-danger  fa fa-close"></button>
-								</span>
-							</span></li>
-							<li><span class="item"> <span class="item-left">
-										<img
-										src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_4.jpg"
-										alt="" /> <span class="item-info"> <span>Item
-												name</span> <span>price: 7$</span>
-									</span>
-								</span> <span class="item-right">
-										<button class="btn btn-danger  fa fa-close"></button>
-								</span>
-							</span></li>
-							<li class="divider"></li>
-							<li><a class="text-center" href="#">View Cart</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
-		</nav>
-	</div>
- -->
-	
-	
 
+	
+<div class="container">
+    <div class="row">
+    	<div class="col-md-12">
+			
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" >
+					<h4 class="text-center"><span class="label label-info">Apple</span></h4>
+					<img src="http://placehold.it/650x450&text=iPhone 6" class="img-responsive">
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h3>iPhone 6</h3>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h3>
+								<label>${item.buy_Price}</label></h3>
+							</div>
+						</div>
+						<p>32GB, 64Bit, 1080HD, 4.7 inches, iOS 8</p>
+						<div class="row">
+							<div class="col-md-6">
+								<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a> 
+							</div>
+							<div class="col-md-6">
+								<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
+						</div>
+
+						<p> </p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-md-4">
+				
+						${item.description}
+				
+			</div>
+         
+            
+        </div> 
+
+	</div>
+</div>
 
 
 	<div class="container">
@@ -150,4 +155,4 @@
 	
 	
 </body>
-</html>
+</html> --%>
