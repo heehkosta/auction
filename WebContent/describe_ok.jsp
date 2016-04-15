@@ -42,32 +42,41 @@
 
 </head>
 <body>
-<div class="mix">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header menuitem">
-      <a class="navbar-brand" href="index.html">Hee Mall</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="#">판매하기</a></li>
-        <li><a href="#">구매하기</a></li>
-        <li class="active"><a href="find_ok.jsp">검색 결과</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-</div>
 
+<nav class="navbar navbar-inverse" style="width: 100%; background-color: #00001E; border: 0">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" style="color: white;">HeeHMALL</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html" style="color: white;">Home</a></li>
+					<li><a href="#" style="color: white;">Sell</a></li>
+					<li><a href="#" style="color: white;">Buy</a></li>
+					<li><a href="#" style="color: white;">Search</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-        <div class="row style_featured">
-            <div class="col-md-4">
-                <div>
-                    <img src="./img/clo01.PNG" alt="" width="450" height="450" class="img-rounded img-thumbnail" align="center" />
-                    <h2>분홍셔츠</h2>
-                    <p style="text-align: left;">
-                        <span class="fa fa-info-circle"></span>
-                          <div style="margin-top: 20px;">
+<div class="container">
+<div class="row">
+  <div class="col-sm-8">
+      <div class="carousel-inner">
+          <img src="img/clo01.PNG" alt="Image" style="height: 500px;">
+     </div>
+ </div>
+  <div class="col-sm-4">
+    <div style="margin-top: 30px;">
+      <h4>핑크셔츠</h4>
+      <h5 style="margin-top: 20px;">Price : 30,000</h5>
+    </div>
+    <div style="margin-top: 20px;">
        <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="width: 100px;">사이즈
     <span class="caret"></span></button>
@@ -75,25 +84,23 @@
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">S</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">M</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">L</a></li>
-     
     </ul>
   </div>
     </div>
-</p>
-                    <p style="text-align: left;">
-                        <span class="fa fa-bank "></span>
-                        가격 : 25,000
-                    </p>
-                    <p style="text-align: left;">
-                        <span class="fa fa-calendar "></span>
-                        상세설명 : 파스텔톤의 여리여리한 핏의 분홍색 셔츠
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div  style="margin-top: 30px; margin-bottom: 40px;">
+    	<button type="button" class="btn btn-primary" style="background-color: #444444; border: 0;">즉시구매</button>
+  		<button type="button" class="btn btn-success" style="background-color: #888888; border: 0;">장바구니</button>
+    </div>
+    <div style="margin-top: 30px;">
+      <h4>상세설명</h4><p>
+	   <h5>청바지가 잘 어울리는 여자</h5>
+         <h5>   밥을 많이 먹어도 배 안 나오는 여자</h5>
+          <h5>  는 존재하지 않지</h5>
+    </div>
+  </div>
+        </div>   
+      </div>
+    </div>
 
-	
-	
-	
 </body>
 </html>
