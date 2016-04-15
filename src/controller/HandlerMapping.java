@@ -21,7 +21,13 @@ public class HandlerMapping {
 			controller = new BuyController();
 		}else if(command.equals("describe")){
 			controller = new DescribeController();
-		}
+		}else if(command.equals("register")){
+			controller = new RegisterController();
+		}else if(command.equals("userIDcheck")){
+			controller = new IdcheckController();
+		}else if(command.equals("login")){
+			controller = new LoginController();
+		}    
 		return controller;
 	}
 }

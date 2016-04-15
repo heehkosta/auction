@@ -25,6 +25,8 @@ public class SearchController implements Controller {
 		//String pageNo = "1";
 		
 		System.out.println(name);
+		
+		request.setAttribute("searchedName", name);
 		//System.out.println(pageNo);
 		
 		//ListVO lvo = PbService.getInstance().getPostingNumber(name, pageNo);
