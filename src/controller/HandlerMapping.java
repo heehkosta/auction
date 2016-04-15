@@ -27,11 +27,8 @@ public class HandlerMapping {
 			controller = new IdcheckController();
 		}else if(command.equals("login")){
 			controller = new LoginController();
-<<<<<<< HEAD
 		}else if(command.equals("pay")){
-			controller = new PayController();
-		}    
-=======
+			controller = new PayController();    
 		}else if(command.equals("cartlist")){
 			controller = new CartListController();
 		}else if(command.equals("addcart")){
@@ -41,7 +38,7 @@ public class HandlerMapping {
 		}else if(command.equals("deleteallcart")){
 			controller = new DeleteAllCartController();
 		}
->>>>>>> origin/master
+
 		return controller;
 	}
 }

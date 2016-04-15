@@ -13,7 +13,9 @@ public class PayController implements Controller{
 		
 		/*String code = request.getParameter("code");
 		String address = request.getParameter("address");*/
-		
+		String code = URLDecoder.decode(request.getParameter("code"),"UTF-8");
+				
+		String address = URLDecoder.decode(request.getParameter("address"),"UTF-8");		
 				
 				
 		String path =  "pay_ok.jsp?code=" + code + "&address=" + address;
