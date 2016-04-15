@@ -88,7 +88,7 @@
   </div>
     </div>
     <div  style="margin-top: 30px; margin-bottom: 40px;">
-    	<button type="button" class="btn btn-primary" style="background-color: #444444; border: 0;">즉시구매</button>
+    	<a href="addressApi.jsp"><button type="button" class="btn btn-primary" style="background-color: #444444; border: 0;">즉시구매</button></a>
   		<a href="DispatcherServlet.do?command=addcart&itemId=${item.itemID}">
   		<button type="button" class="btn btn-success" style="background-color: #888888; border: 0;">장바구니</button>
   		</a>
