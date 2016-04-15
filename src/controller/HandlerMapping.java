@@ -27,9 +27,21 @@ public class HandlerMapping {
 			controller = new IdcheckController();
 		}else if(command.equals("login")){
 			controller = new LoginController();
+<<<<<<< HEAD
 		}else if(command.equals("pay")){
 			controller = new PayController();
 		}    
+=======
+		}else if(command.equals("cartlist")){
+			controller = new CartListController();
+		}else if(command.equals("addcart")){
+			controller = new AddCartController();
+		}else if(command.equals("deletecart")){
+			controller = new DeleteCartController();
+		}else if(command.equals("deleteallcart")){
+			controller = new DeleteAllCartController();
+		}
+>>>>>>> origin/master
 		return controller;
 	}
 }
