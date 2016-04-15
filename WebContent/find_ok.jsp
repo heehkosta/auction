@@ -133,8 +133,8 @@
         <div class="row style_featured">
             <div class="col-md-4">
                 <div>
-                    <img src="./img/Team1.png" alt="" class="img-rounded img-thumbnail" />
-                    <h2>Item A</h2>
+                    <img src="./img/clo01.PNG" alt="" width="450" height="450" class="img-rounded img-thumbnail" />
+                    <h2>분홍셔츠</h2>
                     <p style="text-align: left;">
                         <span class="fa fa-info-circle"></span>
                         A quality item for purchase. Features state of the art technology
@@ -150,106 +150,7 @@
                     <a href="#" class="btn btn-success" title="More">more »</a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div>
-                    <img src="http://www.prepbootstrap.com/Content/images/template/featureditems/product_002.jpg" alt="" class="img-rounded img-thumbnail"/>
-                    <h2>Item A</h2>
-                    <p style="text-align: left;">
-                        <span class="fa fa-info-circle"></span>
-                        A quality item for purchase. Features state of the art technology
-                    </p>
-                    <p style="text-align: left;">
-                        <span class="fa fa-bank "></span>
-                        0% Financing available
-                    </p>
-                    <p style="text-align: left;">
-                        <span class="fa fa-calendar "></span>
-                        21 months full warranty
-                    </p>
-                    <a href="#" class="btn btn-success" title="More">more »</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <img src="http://www.prepbootstrap.com/Content/images/template/featureditems/product_003.jpg" alt="" class="img-rounded img-thumbnail"/>
-                    <h2>Item A</h2>
-                    <p style="text-align: left;">
-                        <span class="fa fa-info-circle"></span>
-                        A quality item for purchase. Features state of the art technology
-                    </p>
-                    <p style="text-align: left;">
-                        <span class="fa fa-bank "></span>
-                        0% Financing available
-                    </p>
-                    <p style="text-align: left;">
-                        <span class="fa fa-calendar "></span>
-                        4 months full warranty
-                    </p>
-                    <a href="#" class="btn btn-success" title="More">more »</a>
-                </div>
-            </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-	<!--  ${ list} -->
-
-	<%-- 	<c:forEach items="${list}" var="i" varStatus="vs">
-		${vs.count}. ${i.name}<br>
-
-	</c:forEach>
- --%>
-
-	<div class="container">
-		<h2>Basic Table</h2>
-		<p> 아이템 목록 </p>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ItemID</th>
-					<th>Name</th>
-					<th>Buy_Price</th>
-					<th>First_Bid</th>
-					<th>Started</th>
-					<th>Ends</th>
-					<th>SellerID</th>
-					<th>Location</th>
-					<th>Country</th>
-					<th>Latitude</th>
-					<th>Longitude</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${list}" var="item" varStatus="vs">
-					<tr>
-						<td>${item.itemID}</td>
-						<td>${item.name}</td>
-						<td>${item.buy_Price}</td>
-						<td>${item.first_Bid}</td>
-						<td>${item.started}</td>
-						<td>${item.ends}</td>
-						<td>${item.sellerID}</td>
-						<%-- <td>${item.description}</td> --%>
-						<td>${item.location}</td>
-						<td>${item.country}</td>
-						<td>${item.latitude}</td>
-						<td>${item.longitude}</td>
-
-					</tr>
-				</c:forEach>
-
-
-			</tbody>
-		</table>
-	</div>
-
-
-	
 </body>
 </html>

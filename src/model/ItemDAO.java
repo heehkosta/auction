@@ -22,7 +22,7 @@ public class ItemDAO {
 		}catch(NamingException e){
 			e.printStackTrace();
 		}
-		
+		 
 	}
 	public static ItemDAO getInstance(){
 		return dao;
@@ -52,7 +52,7 @@ public class ItemDAO {
 	//////////////////////////////// 비지니스 로직 ///////////////////////////////////////////
 
 	//////////판매할 것 추가하는 로직/////////
-	public void addItem(String name, int price) throws SQLException{
+	public void addItem(ItemVO vo) throws SQLException{
 		Connection conn = null;
 		PreparedStatement ps = null;
 
@@ -70,17 +70,19 @@ public class ItemDAO {
 	
 	/////////ID로 검색////////////
 	public ItemVO selectByID(String id) throws SQLException{
+		System.out.println("ItemDAO: 73: " + id	);
 		ItemVO vo = new ItemVO();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try{
 			conn = getConnection();
-			System.out.println("연결");
+			System.out.println("ItemDAO: 79: " + id	);
+
 			ps = conn.prepareStatement(StringQuery.SEARCH_ITEMS_BY_ID);
-			ps.setString(1, "id");
+			ps.setString(1, id);
 			rs = ps.executeQuery();
-			if(rs.next()){
+			while(rs.next()){
 				vo =new ItemVO(rs.getInt("itemID"),
 						rs.getString("name"), 
 						rs.getFloat("buy_Price"),
@@ -93,6 +95,7 @@ public class ItemDAO {
 						rs.getString("country"), 
 						rs.getDouble("latitude"),
 						rs.getDouble("longitude"));
+				
 			}
 		}finally{
 			closeAll(rs, ps, conn);
@@ -170,19 +173,29 @@ public class ItemDAO {
 		try{
 			conn = getConnection();
 			ps = conn.prepareStatement(StringQuery.PAGE_LIST);
-			ps.setString(1, name);
+			ps.setString(1, "%" + name + "%");
 			ps.setString(2, pageNo);
 			rs = ps.executeQuery();
 			
 			while(rs.next()){
-				list.add(new ItemVO(rs.getInt("itemID"), 
-						rs.getst, buy_Price, first_Bid, started, ends, sellerID, description, location, country, latitude, longitude))
-			}
+				list.add(new ItemVO(rs.getInt("itemID"),
+						rs.getString("name"), 
+						rs.getFloat("buy_Price"),
+						rs.getFloat("first_Bid"), 
+						rs.getString("started"), 
+						rs.getString("ends"), 
+						rs.getString("sellerID"), 
+						rs.getString("description"), 
+						rs.getString("location"),
+						rs.getString("country"), 
+						rs.getDouble("latitude"),
+						rs.getDouble("longitude")));}
 		}finally{
 			closeAll(rs, ps, conn);
 		}
 		return list;
 	}
+
 }
 
 
