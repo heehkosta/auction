@@ -4,18 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-    .header {
-        color: #36A0FF;
-        font-size: 27px;
-        padding: 10px;
-    }
+    <title>회원가입</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    .bigicon {
-        font-size: 35px;
-        color: #36A0FF;
-    }
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<style type="text/css">
+  #container1 {
+    background-color: #e2dada;
+}
+
+.centered-form {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.centered-form .panel {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
 </style>
 <script type="text/javascript">
 	function registerData(){
@@ -83,54 +93,67 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="well well-sm">
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <legend class="text-center header">Contact us</legend>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
-                            </div>
-                        </div>
+<div class="page-header">
+    <h1>Registration Form</small></h1>
+</div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
+<!-- Registration Form - START -->
+ <div class="container" id="container1">
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Please Register</h3>
+                    </div>
+                    <div class="panel-body">
+<form role="form" action="register.do" name="registerForm" method="post" onsubmit="return registerData()">
+                            <div class="form-group">
+                                <input type="text" name="userID" id="Id" class="form-control input-sm" placeholder="ID" size="50">
+                            
                             </div>
-                        </div>
+                            <div>
+<input type="button" value="Confirm Repetition " onclick="checkUserID()" class="btn btn-info btn-block">
+                            </div><br>
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" class="form-control input-sm" placeholder="name">
+                            </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                            <div class="form-group">
+                                <input type="password" name="password" id="password" class="form-control input-sm" placeholder="password">
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="creditCardNumber" id="creditCardNumber" class="form-control input-sm" placeholder="Card Number">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="expiration" id="expiration" class="form-control input-sm" placeholder="Card Valid Date">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            
+                                                        <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="csv" id="csv" class="form-control input-sm" placeholder="csv">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="cardType" id="cardType" class="form-control input-sm" placeholder="Card Type">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </fieldset>
-                </form>
+		<input type="hidden" name="flag" value="false">	
+		<input type="hidden" name="command" value="register">
+                            <input type="submit" value="Register" class="btn btn-info btn-block">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -146,28 +169,7 @@
 
 
 
-
-
-<h3>회원가입</h3>
-<!-- register_action에서 하고있는 기능이  RegisterServletd으로 이동
-	 register_result.jsp로 결과를 보낸다.
--->
-	<form action="register.do" name="registerForm" 
-	method="post" onsubmit="return registerData()">
-
-		1. ID : <input type="text" name="userID">
-		<input type="button" value="중복확인" onclick="checkUserID()"><br>
-		2. 이름 : <input type="text" name="name"><br>
-		3. 패스워드 : <input type="password" name="password"><br>
-		4. 카드번호 : <input type="text" name="creditCardNumber"><br>	
-		5. 유효일자 : <input type="text" name="expiration"><br>	
-		6. CSV : <input type="text" name="csv"><br>	
-		7. 카드타입 : <input type="text" name="cardType"><br>	
-		
-		<input type="hidden" name="flag" value="false">	
-		<input type="hidden" name="command" value="register">
-		<input type="submit" value="회원가입">
-	</form>
+	
 
 
 
