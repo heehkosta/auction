@@ -27,6 +27,8 @@ public class HandlerMapping {
 			controller = new IdcheckController();
 		}else if(command.equals("login")){
 			controller = new LoginController();
+		}else if(command.equals("pay")){
+			controller = new PayController();
 		}    
 		return controller;
 	}
