@@ -29,10 +29,17 @@ public class DispatcherServlet extends HttpServlet {
 		String textbox = request.getParameter("textbox");
 		System.out.println(textbox);
 		
+		String itemID = request.getParameter("itemId");
+		System.out.println("DPS"+itemID);
+		
+		
+		
 		Controller cont=HandlerMapping.getInstance().createController(command);
 		ModelAndView mv = null;
+		
 		try{
 			mv = cont.handle(request, response);
+			System.out.println(mv.getPath());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
