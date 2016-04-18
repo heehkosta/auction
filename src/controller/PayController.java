@@ -20,7 +20,7 @@ public class PayController implements Controller{
 				
 		String path =  "pay_ok.jsp?code=" + code + "&address=" + address;
 
-
+//
 		return new ModelAndView(path);  //forward 방식을 의미함
 	}
 
