@@ -37,6 +37,8 @@ public class HandlerMapping {
 			controller = new DeleteCartController();
 		}else if(command.equals("deleteallcart")){
 			controller = new DeleteAllCartController();
+		}else if(command.equals("addItem")){
+			controller = new AddItemController();
 		}
 
 		return controller;

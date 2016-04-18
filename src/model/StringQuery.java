@@ -4,11 +4,17 @@ import pagingservice.CommonConstants;
 
 public interface StringQuery {
 	
-	//판매원 물품정보
+	//판매 물품정보
 	String SALES_MANAGER = "INSERT INTO Item (ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Latitude, Longitude)"
 			+ " VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+	
+	//현재 시간정보 찾기
+	String SYSDATE = "SELECT now() from dual";
+	
+	//ItemID의 최대값 찾기
+	String MAX_ITEMID = "SELECT MAX(ItemID) from Item";
 
 	//판매 물품을 ID으로 찾기
 	String SEARCH_ITEMS_BY_ID = "SELECT ItemID, Name, Buy_Price, "

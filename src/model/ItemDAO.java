@@ -52,20 +52,51 @@ public class ItemDAO {
 	//////////////////////////////// 비지니스 로직 ///////////////////////////////////////////
 
 	//////////판매할 것 추가하는 로직/////////
-	public void addItem(ItemVO vo) throws SQLException{
-		Connection conn = null;
-		PreparedStatement ps = null;
-
-		try{
-			conn = getConnection();
-			ps = conn.prepareStatement(StringQuery.SALES_MANAGER);
-
-
-		}finally{
-			closeAll( ps, conn);
-		}
-
-	}
+	public void addItem(ItemVO vo)
+		      throws SQLException{
+		      Connection conn =null;
+		      PreparedStatement ps = null;
+		      ResultSet rs = null;
+		      try{
+		         conn = getConnection();
+		         
+		         String nowdate = "";
+		         
+		         ps = conn.prepareStatement(StringQuery.SYSDATE);
+		         rs = ps.executeQuery();
+		         while(rs.next()){
+		        	 nowdate = rs.getString(1);
+		         }
+		         
+		         int itemID = 0;
+		         
+		         ps = conn.prepareStatement(StringQuery.MAX_ITEMID);
+		         rs = ps.executeQuery();
+		         while(rs.next()){
+		        	 itemID = rs.getInt(1)+1;
+		         }
+		         
+		         ps = conn.prepareStatement(StringQuery.SALES_MANAGER);
+		         ps.setInt(1, itemID);
+		         ps.setString(2, vo.getName());
+		         ps.setFloat(3, vo.getBuy_Price());
+		         ps.setFloat(4, vo.getFirst_Bid());
+		         ps.setString(5, nowdate);
+		         ps.setString(6, vo.getEnds());
+		         ps.setString(7, vo.getSellerID());
+		         ps.setString(8, vo.getDescription());
+		         ps.setString(9, vo.getLocation());
+		         ps.setString(10, vo.getCountry());
+		         ps.setDouble(11, vo.getLatitude());
+		         ps.setDouble(12, vo.getLongitude());
+		         
+		         int row = ps.executeUpdate();
+		         System.out.println(row + " row OK!!");
+		      }finally{
+		         closeAll(ps, conn);
+		         
+		      }
+		   }
 
 	
 	/////////ID로 검색////////////
