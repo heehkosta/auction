@@ -65,30 +65,30 @@
 				<a href="register.jsp" id="toggleVideo" data-toggle="collapse"
 					class="btn btn-primary btn-xl">회원가입</a> &nbsp; 
 					<a href="login.jsp" class="btn btn-primary btn-xl page-scroll">로그인</a><br>
-				 <br>
+					<br>
 				<br> 
+				
 				<form action="DispatcherServlet.do" method="get" id="frm">
+				<div class="col-sm-4">
 					<input type="hidden" name="command" value="search">
 					
-					<div class="col-md-4"> 
-					
-					
-					
-						<label></label> <input type="text" name="textbox" 
+						<input type="text" name="textbox" 
 							class="form-control" placeholder="Search">
+							
 					</div>
-					<br>
-					<br>
-					<div class="col-lg-10 col-lg-offset-1 text-center">
-						<div class="col-md-4 col-md-offset-4">
+					<div class="col-sm-1">
 							<label></label>
-							<button type="submit" form = "frm" value = "Submit" data-toggle="modal"
-								data-target="#alertModal"
-								class="btn btn-primary btn-block btn-lg">Search</button>
-						</div>
+							<button type="submit" form = "frm" value = "Submit"
+								class="btn btn-primary btn-block btn-sm">Search </button>
 					</div>
+					<div class="col-md-4 col-md-offset-4">
+                            <label></label>
+                            <a href="addItem.html">
+                            <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">판매하러가기 <i class="ion-android-arrow-forward"></i></button>
+                        </a>
+                        </div>
 				</form>
-			</div>
+</div>
 		</div>
 		<video autoplay="" loop="" class="fillWidth fadeIn wow collapse in"
 			data-wow-delay="0.5s"

@@ -602,3 +602,16 @@ ul.dropdown-cart li .item-right button{
     background: rgba(153, 200, 250, 0.1);
     transition: 0.99s;
 }
+
+.form-control{
+	width: 250px;
+}
+
+.col-sm-1 {
+	margin-left: 260px;
+}
+
+.form-control {
+	margin-top: 15px;
+	
+}
