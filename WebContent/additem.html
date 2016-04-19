@@ -1,3 +1,4 @@
+
 <!-- BOOTSTRAP SECTION -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,10 +29,10 @@
 
 <script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$("#datepicker1").datepicker();
-	});
-</script>
+		jQuery(document).ready(function($) {
+			$("#datepicker1").datepicker();
+		});
+	</script>
 
 </head>
 <body>
@@ -57,63 +58,86 @@
 		</div>
 	</div>
 	</nav>
-<form action="DispatcherServlet.do" method="get">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8">
-				<div class="carousel-inner">
-					<img src="img/clothes/PAN01.PNG" alt="Image" style="height: 500px;">
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div style="margin-top: 10px;">
-					<font size="5px">상품 이름 : <input type="text" name="Name"
-						placeholder="ex)청바지">
-					</font><br> <font size="2px" color="gray"> &nbsp;&nbsp;Item ID
-						: <input type="text" name="ItemID" disabled="disabled" value="자동갱신">
-					</font><br> <font size="2px" color="gray"> &nbsp;&nbsp;판매자 ID
-						: <input type="text" name="SellerID" placeholder="아이디를 입력하세요">
-					</font>
-				</div>
 
-				<div style="margin-top: 30px;">
-					<font size="4px"><b>시작가 </b>: <input type="text" disabled="disabled" value="0원"> </font><br> <font
-						size="4px"><b>낙찰 가격 </b>: <input type="text" disabled="disabled" value="???원"> </font>
+	<form action="DispatcherServlet.do" method="get">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="carousel-inner">
+						<img src="img/clothes/PAN01.PNG" alt="Image"
+							style="height: 500px;">
+					</div>
 				</div>
-				<div style="margin-top: 30px;">
-					<p>
-						<b>올린 시간 </b>: <input type="text" id="datepicker1" disabled="disabled" value="판매 물품 등록시간">
-					</p>
-					<p>
-						<font color="red"><b>종료 시간 </b></font>: <input type="text"
-							id="datepicker2" name="Ends" placeholder="YY-MM-DD HH:MM:SS">
-					</p>
-
+				<div class="col-sm-4">
+					<div style="margin-top: 10px;">
+						<font size="5px">상품 이름 : <input type="text" name="Name"
+							placeholder="ex)청바지">
+						</font><br> <font size="2px" color="gray"> &nbsp;&nbsp;Item
+							ID : <input type="text" name="ItemID" disabled="disabled"
+							value="자동갱신">
+						</font><br> <font size="2px" color="gray"> &nbsp;&nbsp;판매자 ID
+							: <input type="text" name="SellerID" placeholder="아이디를 입력하세요">
+						</font>
+					</div>
 
 					<div style="margin-top: 30px;">
-						<h4>
-							<b>상세설명</b>
-						</h4>
+						<font size="4px"><b>시작가 </b>: <input type="text"
+							disabled="disabled" value="0원"> </font><br> <font
+							size="4px"><b>낙찰 가격 </b>: <input type="text"
+							disabled="disabled" value="???원"> </font>
+					</div>
+					<div style="margin-top: 30px;">
 						<p>
-						<textarea rows="4" cols="35" name="Description"></textarea>
-					</div>
-					<div style="margin-top: 30px;">
-						<h4>
-							<b>Country</b>
-						</h4>
-						<h5><input type="text" name="Country" placeholder="ex)korea"> </h5>
-						<h4>
-							<b>Location</b>
-						</h4>
-						<h5><input type="text" name="Location" placeholder="ex)seoul"> </h5><br>
-						<input type="hidden" name="command" value="addItem">
-						<input type="submit" value="상품 등록하기">
-					</div>
+							<b>올린 시간 </b>: <input type="text" id="datepicker1"
+								disabled="disabled" value="판매 물품 등록시간">
+						</p>
+						<p>
+							<font color="red"><b>종료 시간 </b></font>: <input type="text"
+								id="datepicker2" name="Ends" placeholder="YY-MM-DD HH:MM:SS">
+						</p>
 
+
+						<div style="margin-top: 30px;">
+							<h4>
+								<b>상세설명</b>
+							</h4>
+							<p>
+								<textarea rows="4" cols="35" name="Description"></textarea>
+						</div>
+						<div style="margin-top: 30px;">
+							<h4>
+								<b>Country</b>
+							</h4>
+							<h5>
+								<input type="text" name="Country" placeholder="ex)korea">
+							</h5>
+							<h4>
+								<b>Location</b>
+							</h4>
+							<h5>
+								<input type="text" name="Location" placeholder="ex)seoul">
+							</h5>
+							
+						</div>
+
+<div>
+<h3>File Upload:</h3>
+Select a file to upload: <br />
+	<form action="DispatcherServlet.do?command=upload" method="post"
+	                        enctype="multipart/form-data">
+	<input type="file" name="file" size="50" />
+	<br />
+	<input type="submit" value="Upload File" /><br>
+	</form>
+	<br> <input type="hidden" name="command" value="addItem">
+							<input type="submit" value="상품 등록하기">
+</div>
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</form>
+
 </body>
 </html>

@@ -72,19 +72,20 @@ $(function() {
 <div class="row">
   <div class="col-sm-6">
       <div class="carousel-inner">
-          <img src="img/clothes/PAN01.PNG" alt="Image" style="height: 500px;">
+      ${item.itemID }
+          <img src="img/clothes/${item.itemID}.PNG" alt="Image" style="height: 500px;">
      </div>
  </div>
   <div class="col-sm-6">
     <div style="margin-top: 10px;">
-      <font size="5px">연청구제팬츠</font><br>
-      <font size="2px" color="gray"> &nbsp;&nbsp;Item ID : Pan01</font><br>
-      <font size="2px" color="gray"> &nbsp;&nbsp;판매자 ID : Hwang01</font>
+      <font size="5px">${item.name}</font><br>
+      <font size="2px" color="gray"> &nbsp;&nbsp;Item ID : ${item.itemID}</font><br>
+      <font size="2px" color="gray"> &nbsp;&nbsp;판매자 ID : ${item.sellerID}</font>
     </div>
     
     <div style="margin-top: 30px;">
-      <font size="4px"><b>입찰 가격 </b>: 31,000</font><br>
-      <font size="4px"><b>낙찰 가격 </b>: 34,000</font>
+      <font size="4px"><b>입찰 가격 </b>: ${item.buy_Price}원</font><br>
+      <font size="4px"><b>낙찰 가격 </b>: ${item.first_Bid}원</font>
     </div>
     <div style="margin-top: 30px;">
 <p><b>올린 시간 </b>: <input type="text" id="datepicker1"></p>
@@ -93,14 +94,14 @@ $(function() {
    
     <div style="margin-top: 30px;">
       <h4><b>상세설명</b></h4><p>
-	   <h5>라이트한 데님컬러에 디스트로이드 워싱이 들어간</h5>
-	  <h5>세미 배기팬츠에요 ^^</h5>
+	   <h5>${item.description}</h5>
     </div>
     <div style="margin-top: 30px;" >
     	<h4><b>Country</b></h4>
-    	<h5>South Korea</h5>
+    	<h5>${item.country}</h5>
+    	
     	<h4><b>Location</b></h4>
-    	<h5>Jongro,Seoul</h5>
+    	<a href="map.jsp"><h5>${item.location }</h5></a>
     </div>
      <div style="margin-top: 30px;">
     	<a href="addressApi.jsp"><button type="button" class="btn btn-primary" style="background-color: #444444; border: 0;">즉시구매</button></a>

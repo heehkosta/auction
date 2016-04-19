@@ -23,7 +23,7 @@ public class DescribeController implements Controller {
 	
 			System.out.println("DescribeController:24" + item);
 			request.setAttribute("item", item);
-			path =  "describe_ok.jsp";
+			path =  "item_describe.jsp";
 		
 		return new ModelAndView(path);  //forward 방식을 의미함
 	}
