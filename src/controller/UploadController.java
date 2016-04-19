@@ -19,7 +19,7 @@ import org.apache.commons.io.output.*;
 public class UploadController implements Controller {
 
 	private boolean isMultipart;
-	private String filePath = "C:\\EFI\\hh\\jQuery\\eclipse\\auction\\WebContent\\photos\\";
+	private String filePath = "C:\\EFI\\hh\\jQuery\\eclipse\\auction\\WebContent\\img\\clothes\\";
 	private int maxFileSize = 50 * 1024;
 	private int maxMemSize = 4 * 1024;
 	private File file;
