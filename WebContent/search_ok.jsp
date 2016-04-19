@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-<title>find_ok.jsp</title>
+<title>search_ok.jsp</title>
 
 
 <script
