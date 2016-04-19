@@ -72,7 +72,6 @@ $(function() {
 <div class="row">
   <div class="col-sm-6">
       <div class="carousel-inner">
-      ${item.itemID }
           <img src="img/clothes/${item.itemID}.PNG" alt="Image" style="height: 500px;">
      </div>
  </div>
