@@ -101,7 +101,7 @@ $(function() {
     	<h5>${item.country}</h5>
     	
     	<h4><b>Location</b></h4>
-    	<a href="map.jsp"><h5>${item.location }</h5></a>
+    	<a href="map.jsp?latitude=${item.latitude}&longitude=${item.longitude}"><h5>${item.location}</h5></a>
     </div>
      <div style="margin-top: 30px;">
     	<a href="addressApi.jsp"><button type="button" class="btn btn-primary" style="background-color: #444444; border: 0;">즉시구매</button></a>
