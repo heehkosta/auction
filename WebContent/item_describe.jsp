@@ -72,7 +72,7 @@ $(function() {
 <div class="row">
   <div class="col-sm-6">
       <div class="carousel-inner">
-          <img src="img/clothes/${item.itemID}.PNG" alt="Image" style="height: 500px;">
+          <img src="img/clothes/${item.itemID}.gif" alt="Image" style="height: 500px;">
      </div>
  </div>
   <div class="col-sm-6">
