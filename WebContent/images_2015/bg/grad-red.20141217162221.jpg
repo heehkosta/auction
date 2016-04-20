@@ -1,0 +1,1 @@
+<script>alert("에러가 발생했습니다. 지속적으로 에러가 발생할 경우 고객센터로 문의바랍니다.");history.back();</script>
