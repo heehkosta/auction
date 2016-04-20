@@ -78,8 +78,6 @@
 					<th>SellerID</th>
 					<th>Location</th>
 					<th>Country</th>
-					<th>Latitude</th>
-					<th>Longitude</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -99,8 +97,7 @@
 						<%-- <td>${item.description}</td> --%>
 						<td>${item.location}</td>
 						<td>${item.country}</td>
-						<td>${item.latitude}</td>
-						<td>${item.longitude}</td>
+
 
 					</tr>
 				</c:forEach>
