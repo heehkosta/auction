@@ -143,7 +143,7 @@ public class ItemDAO {
 			conn = getConnection();
 			System.out.println("@ItemDAO:144" + name);
 			ps = conn.prepareStatement(StringQuery.SEARCH_NAME);
-			ps.setString(1, "'%" + name + "%'");
+			ps.setString(1, "%" + name + "%");
 			rs = ps.executeQuery();
 			while(rs.next()){
 				list.add(new ItemVO(rs.getInt("itemID"),
