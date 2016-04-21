@@ -133,13 +133,6 @@ public class ItemDAO {
 	}
 
 	
-	
-	
-	
-	
-	
-	
-	
 	/////////상품 이름으로 검색////////////
 	public ArrayList<ItemVO> selectByName(String name) throws SQLException{
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
@@ -191,7 +184,7 @@ public class ItemDAO {
 		return count;
 	}
 	
-	/////pageNo 에 따른 페이지 정보///////////
+	/////////////////////pageNo 에 따른 페이지 정보///////////////////////////
 	public ArrayList<ItemVO> getPostingList(String pageNo,String name) throws SQLException{
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		Connection conn = null;
@@ -222,13 +215,35 @@ public class ItemDAO {
 		}
 		return list;
 	}
-
+	
+    /////////////////////Category에 따른 상품 정보///////////////////////////
+	public ArrayList<ItemVO> getCategoryList(String category) throws SQLException{
+		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try{
+			conn = getConnection();
+			ps = conn.prepareStatement(StringQuery.CATEGORY_LIST);
+			ps.setString(1, category);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				list.add(new ItemVO(rs.getInt("itemID"),
+						rs.getString("name"), 
+						rs.getFloat("buy_Price"),
+						rs.getFloat("first_Bid"), 
+						rs.getString("started"), 
+						rs.getString("ends"), 
+						rs.getString("sellerID"), 
+						rs.getString("description"), 
+						rs.getString("location"),
+						rs.getString("country"), 
+						rs.getString("category")));}
+		}finally{
+			closeAll(rs, ps, conn);
+		}
+		return list;
+	}
 }
-
-
-
-
-
-
-
 

@@ -34,7 +34,9 @@ public interface StringQuery {
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Category"
 			+ "from Item where name like ? limit ?,"+CommonConstants.CONTENT_NUMBER_PER_PAGE+"";
-
+	//카테고리 찾는 쿼리
+	String CATEGORY_LIST = "SELECT * From Item WHERE Category LIKE ?";
+			
 	
 	//String SEARCH_ITEMID_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where ItemID like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+""; 
 	//String SEARCH_NAME_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where Name like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+"";  

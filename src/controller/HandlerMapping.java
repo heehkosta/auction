@@ -41,6 +41,8 @@ public class HandlerMapping {
 			controller = new AddItemController();
 		}else if(command.equals("upload")){
 			controller = new UploadController();
+		}else if(command.equals("category")){
+			controller = new CategoryController();
 		}
 
 		return controller;
