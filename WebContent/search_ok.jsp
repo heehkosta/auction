@@ -30,7 +30,11 @@
 
 
 
-
+<style type="text/css">
+td{
+text-align: left;
+}
+</style>
 <!-- JQUERY SECTION -->
 
 <script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
@@ -69,14 +73,14 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>ItemID</th>
-					<th>Name</th>
-					<th>Buy_Price</th>
-					<th>First_Bid</th>
-					<th>Started</th>
-					<th>Ends</th>
-					<th>SellerID</th>
-					<th>Category</th>
+					<th>상품 사진</th>
+					<th>ID</th>
+					<th>상품 이름</th>
+					<th>입찰가</th>
+					<th>가격</th>
+					<th>시작시간</th>
+					<th>종료시간</th>
+				
 				</tr>
 			</thead>
 			<tbody>
@@ -84,6 +88,9 @@
 			<!-- 클릭할 시에 컨트롤러로 들어가야한다. 이때 id 번호를 가지고 들어가야 한다.  -->
 				<c:forEach items="${category}" var="item" varStatus="vs">
 					<tr class='clickable-row' data-href=#>
+					    <a href="">
+					    <td><img alt="" src="./img/clothes/${item.itemID}.gif"> </td>
+					    </a>
 						<td><pre>${item.itemID}</pre></td>
 						<td>${item.name}</td>
 						<td>${item.buy_Price}</td>
