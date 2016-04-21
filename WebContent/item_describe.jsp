@@ -23,7 +23,21 @@
 <script type="text/javascript" src="./js/jquery-1.12.3.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-
+<!-- //////////////////////카운트다운 시작////////////////////////////////////// -->
+<style type="text/css">
+#defaultCountdown { width: 240px; height: 45px; }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="./js/jquery.plugin.js"></script>
+<script src="./js/jquery.countdown.js"></script>
+<script>
+$(function () {
+	var austDay = new Date();
+	austDay = new Date(2016,3,30);
+	$('#defaultCountdown').countdown({until: austDay});
+});
+</script>
+<!-- //////////////////////카운트다운 종료////////////////////////////////////// -->
 
 
 <!-- JQUERY SECTION -->
@@ -87,9 +101,9 @@ $(function() {
       <font size="4px"><b>낙찰 가격 </b>: ${item.first_Bid}원</font>
     </div>
     <div style="margin-top: 30px;">
-<p><b>올린 시간 </b>: <input type="text" id="datepicker1"></p>
-<p><font color="red"><b>종료 시간 </b></font>: <input type="text" id="datepicker2"></p>
-    
+<p><b>올린 시간 </b>: ${item.started}</p>
+<p><b>종료 시간 </b>: ${item.ends}</p>
+<p><font color="red"><b>남은 시간 :</b></font></p><div id="defaultCountdown"></div>
    
     <div style="margin-top: 30px;">
       <h4><b>상세설명</b></h4><p>
