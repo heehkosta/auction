@@ -14,8 +14,9 @@ public class CategoryController implements Controller {
 	@Override
 	public ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
-		
+		String category = request.getParameter("category");
+		ItemDAO.getInstance().getCategoryList(category);
+		request.setAttribute("category", category);
 		
 		return new ModelAndView("search_ok.jsp");
 	}

@@ -1566,7 +1566,7 @@ function MM_swapImage() { //v3.0
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
  <tr>
-  <td align="center"><img src="/images_2015/main/title_cart.gif" width="500" height="50"></td>
+  <td align="center"><img src="./img/title_cart.gif" width="500" height="50"></td>
  </tr>
  <tr>
   <td height="40">&nbsp;</td>
@@ -1600,7 +1600,7 @@ function MM_swapImage() { //v3.0
         <tr>
          <td width="10%" ><label><input type="checkbox" name="allcheck" id="allcheck1" value="T" checked onClick="setAllCheckNormal();">&nbsp;전체선택 </label></td>                                
          <td width="24%" style="padding-left:40px;"><span class="style17">상품명</span></td> 
-         <td width="22%" align="center" style="padding-left:15px;"><span class="style17">옵션</span></td>                                
+         <td width="22%" align="center" style="padding-left:15px;"><span class="style17">카테고리</span></td>                                
          <td width="16%" align="center"><span class="style17">판매가</span></td>                                
          <td width="12%" align="center"><span class="style17">적립금</span></td>                               
          <td width="16%" style="padding-left:102px;"><span class="style17">수량</span></td>                                
@@ -1641,7 +1641,7 @@ function MM_swapImage() { //v3.0
     
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="80px"><img src="http://www.dzimg.com/Dahong/201604/D689280_x.jpg" width="80px"  onClick="JavaScript:openItemGoodView('689280')" ></td>
+    <td width="80px"><img src="img/clothes/${cart.itemID}.gif" width="80px"  onClick="JavaScript:openItemGoodView('689280')" ></td>
     <td width="20"></td>
     <td>
     <span class="m_title07">
@@ -1661,7 +1661,7 @@ function MM_swapImage() { //v3.0
     <td  width="33%" align="center" style="padding-left:20px" >
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center"><span class="m_title07">네이비 / ONE SIZE</span></td>
+    <td align="center"><span class="m_title07">${cart.category}</span></td>
   </tr>
   <tr>
     <td height="10"></td>

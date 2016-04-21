@@ -76,27 +76,25 @@
 					<th>Started</th>
 					<th>Ends</th>
 					<th>SellerID</th>
-					<th>Location</th>
-					<th>Country</th>
+					<th>Category</th>
 				</tr>
 			</thead>
 			<tbody>
 			
 			<!-- 클릭할 시에 컨트롤러로 들어가야한다. 이때 id 번호를 가지고 들어가야 한다.  -->
-				<c:forEach items="${list}" var="item" varStatus="vs">
+				<c:forEach items="${category}" var="category" varStatus="vs">
 					<!-- 변수에 ${item.itemID}를 넣고, 다음줄의 id에 변수를 대입한다. -->
 					<%-- <c:set var="id" value="${item.itemID}"/> --%>
 					<tr class='clickable-row' data-href='DispatcherServlet.do?command=describe&&id=10000'>
-						<td>${item.itemID}</td>
-						<td>${item.name}</td>
-						<td>${item.buy_Price}</td>
-						<td>${item.first_Bid}</td>
-						<td>${item.started}</td>
-						<td>${item.ends}</td>
-						<td>${item.sellerID}</td>
+						<td>${category.itemID}</td>
+						<td>${category.name}</td>
+						<td>${category.buy_Price}</td>
+						<td>${category.first_Bid}</td>
+						<td>${category.started}</td>
+						<td>${category.ends}</td>
+						<td>${category.sellerID}</td>
 						<%-- <td>${item.description}</td> --%>
-						<td>${item.location}</td>
-						<td>${item.country}</td>
+						<td>${category.category}</td>
 
 
 					</tr>
