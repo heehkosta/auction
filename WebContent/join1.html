@@ -90,8 +90,13 @@ function NextForm()
 		alert("개인정보보호를 위한 이용자 동의사항은 서비스를 제공하기 위하여 반드시 신청인의 동의를 얻어야 하는 사항입니다.\n\n만일 동의하지 않으시는 경우 회원가입이 불가합니다.");
 		return;
 	}
-	document.member.action="RegisterFormJob.asp";
-	document.member.submit();
+	//document.member.action="RegisterFormJob.asp";
+	
+	
+	window.location.href = "join2.html";
+
+
+	//document.member.submit();
 
 }
 
