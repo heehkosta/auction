@@ -524,7 +524,7 @@
 		  'width=738,height=600,scrollbars=yes');
 		  return;
 		  }
-		-->
+		--> 
 	    </script> <script language="JavaScript" type="TEXT/JAVASCRIPT">
 	      <!--
 		  function photo_re() {
