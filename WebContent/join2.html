@@ -261,7 +261,7 @@ img[Attributes Style] {
 	}
 
 	function FormOK() {
-		// 이름 체크
+	/* 	// 이름 체크
 		if ($.trim($("#member_name").val()) == "") {
 			alert("이름을 입력해 주세요.");
 			$("#member_name").focus();
@@ -319,9 +319,9 @@ img[Attributes Style] {
 			alert("생년월일을 입력해 주세요.");
 			$("#birth_day").focus();
 			return;
-		}
+		} */
 
-		// 우편번호 체크
+		/* // 우편번호 체크
 		if ($.trim($("#member_zipcode").val()) == "") {
 			alert("우편번호를 검색하여 해당주소를 선택해 주세요.");
 			$("#member_zipcode").focus();
@@ -357,10 +357,10 @@ img[Attributes Style] {
 			alert("이메일 중복확인이 유효하지 않습니다.");
 			$("#email_checked").focus();
 			return;
-		}
+		} */
 
 		// 연락처 체크
-		if ($.trim($("#home_ddd").val()) == "") {
+	/* 	if ($.trim($("#home_ddd").val()) == "") {
 			alert("지역번호를 선택해 주세요.");
 			$("#home_ddd").focus();
 			return;
@@ -399,10 +399,14 @@ img[Attributes Style] {
 			alert("이동전화 번호를 4자리 이상 입력해주세요");
 			$("#cp_phone3").focus();
 			return;
-		}
+		} */
 
-		$("#member").attr("action",
-				"https://www.dahong.co.kr/member/EntryMemberJob.asp").submit();
+		/* $("#member").attr("action",
+				"https://www.dahong.co.kr/member/EntryMemberJob.asp").submit(); */
+				
+		
+	$("#member").attr("action",
+				"DispatcherServlet.do?command=register").submit();
 
 		/* 휴대폰 중복확인은 최근 번호이동으로 인한 휴대폰 번호의 교체로 확인할 방법이 없다.
 		 else if(trim(objForm.cphone_checked.value) == "N") {
@@ -411,7 +415,8 @@ img[Attributes Style] {
 		 return ;
 		 }	
 		 */
-
+	document.member.id_checked.value = "Y";
+	document.member.member_guest.value = "Y";
 	}
 
 	function FormCancel() {

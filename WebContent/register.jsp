@@ -95,7 +95,7 @@
 <div class="container">
 
 <div class="page-header">
-    <h1>Registration Form</small></h1>
+    <h1>회원가입</small></h1>
 </div>
 
 <!-- Registration Form - START -->
@@ -104,7 +104,7 @@
             <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center">Please Register</h3>
+                        <h3 class="panel-title text-center">회원가입</h3>
                     </div>
                     <div class="panel-body">
 <form role="form" action="register.do" name="registerForm" method="post" onsubmit="return registerData()">
@@ -113,7 +113,7 @@
                             
                             </div>
                             <div>
-<input type="button" value="Confirm Repetition " onclick="checkUserID()" class="btn btn-info btn-block">
+<input type="button" value="중복확인" onclick="checkUserID()" class="btn btn-info btn-block">
                             </div><br>
                             <div class="form-group">
                                 <input type="text" name="name" id="name" class="form-control input-sm" placeholder="name">
@@ -158,30 +158,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
