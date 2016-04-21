@@ -19,7 +19,7 @@ public class AccountDAO {
 	private AccountDAO(){
 		
 		try{
-			//DataSource를 찾는다...
+			//DataSource瑜� 李얜뒗�떎...
 			Context ic = new InitialContext();
 			ds=(DataSource)ic.lookup("java:comp/env/jdbc/mysqlDB");
 			System.out.println("DataSource Lookup......");
@@ -112,8 +112,8 @@ public class AccountDAO {
 		}
 		return list;
 	}
-	//true가 리턴되면...해당 id값이 이미 디비에 저장되어 있음을 의미
-	//true일때는 id 중복..그 아이디를 사용할수 없도록 유도...checkId() 자바스크립트에서
+	//true媛� 由ы꽩�릺硫�...�빐�떦 id媛믪씠 �씠誘� �뵒鍮꾩뿉 ���옣�릺�뼱 �엳�쓬�쓣 �쓽誘�
+	//true�씪�븣�뒗 id 以묐났..洹� �븘�씠�뵒瑜� �궗�슜�븷�닔 �뾾�룄濡� �쑀�룄...checkId() �옄諛붿뒪�겕由쏀듃�뿉�꽌
 	public boolean isExist(String userID) throws SQLException{
 		boolean result=false;
 		Connection con=null;
@@ -133,6 +133,31 @@ public class AccountDAO {
 			closeAll(rs,pstmt,con);
 		}
 		return result;
+	}
+	public void updateAccount(AccountVO vo) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try{
+			
+			System.out.println(vo);
+			con=getConnection();
+			String sql="UPDATE Account SET Name=?, Password=?, CreditCardNumber=?, Expiration=?, CSV=?, CardType=?  where UserID=?";
+			pstmt=con.prepareStatement(sql);
+	
+			pstmt.setString(1,vo.getName());
+			pstmt.setString(2,vo.getPassword());
+			pstmt.setString(3,vo.getCreditCardNumber());
+			pstmt.setString(4,vo.getExpiration());
+			pstmt.setString(5,vo.getCsv());
+			pstmt.setString(6,vo.getCardType());
+			pstmt.setString(7,vo.getUserID());
+			
+			int result=pstmt.executeUpdate();
+			System.out.println("update ok.."+result);
+		}finally{
+			closeAll(pstmt,con);
+		}
+		
 	}
 	
 	// for debugging purpose

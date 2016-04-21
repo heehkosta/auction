@@ -16,18 +16,18 @@ public class LoginController implements Controller{
 		String password = request.getParameter("password");
 		
 		AccountDAO dao = AccountDAO.getInstance();
-		AccountVO mvo = dao.login(userID, password);
+		AccountVO vo = dao.login(userID, password);
 
 		
 		String path = "login_fail.jsp";
 
 
-		if(mvo != null){
+		if(vo != null){
 		    path = "login_ok.jsp";
-		    request.getSession().setAttribute("mvo", mvo);
+		    request.getSession().setAttribute("vo", vo);
 		}
 
-		// 인자값 한개주면, 포워딩 하겠다는 것이다.
+		// �씤�옄媛� �븳媛쒖＜硫�, �룷�썙�뵫 �븯寃좊떎�뒗 寃껋씠�떎.
 		ModelAndView mv = new ModelAndView(path);	
 		
 		

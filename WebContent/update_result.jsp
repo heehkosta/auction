@@ -1,4 +1,3 @@
-<%@page import="model.AccountVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,35 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	AccountVO vo  = (AccountVO)session.getAttribute("vo");
-%>
-	
-	<b><%= vo.getName() %> 님, </b>로그인 성공!!<p>
-	<a href="index.jsp">메인화면으로 가기</a>
+<b><%= request.getParameter("name") %></b> 님의 정보가 수정되었습니다...<br><br>
+<a href="index.jsp">다시 홈으로</a>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

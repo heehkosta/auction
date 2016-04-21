@@ -1,3 +1,9 @@
+<%@page import="model.AccountVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <SCRIPT language="JavaScript">
   <!--
@@ -90,20 +96,20 @@
       }
       function add_zzim(gserial) {
 
-      // ºñÈ¸¿ø Ã³¸®
+      // ë¹„íšŒì› ì²˜ë¦¬
       setCookieZzim(gserial, "", "");
       $("#div_FavoritesCnt").text(get_zzim_cnt());
 
       }
       function del_zzim(seq) {
-      // ºñÈ¸¿ø Ã³¸®
+      // ë¹„íšŒì› ì²˜ë¦¬
       cookieList.removebyindex(seq);
       $("#div_FavoritesCnt").text(get_zzim_cnt());
       document.location.href = '/my/myzzim2.asp';
 
       }
       function del_zzim_goodlist(seq) {
-      // ºñÈ¸¿ø Ã³¸®
+      // ë¹„íšŒì› ì²˜ë¦¬
       cookieList.removebyindex(seq);
       $("#div_FavoritesCnt").text(get_zzim_cnt());
       //		document.location.href='/my/myzzim2.asp';
@@ -121,13 +127,13 @@
 	  marginheight="0" id="_body">
 
 
-      <!-- ÆË¾÷ ¹è³Ê ½ÃÀÛ -->
+      <!-- íŒì—… ë°°ë„ˆ ì‹œìž‘ -->
 
-      <!-- ÆË¾÷ ¹è³Ê Á¾·á -->
+      <!-- íŒì—… ë°°ë„ˆ ì¢…ë£Œ -->
 
 
-      <!-- ¸ÖÆ¼ ¹è³Ê  È÷µç »çÀå´Ô Áö½Ã»çÇ× 2015.04.27 ÀÌÈÄ¿¡ ´Ù½Ã »ç¿ë°¡´É »èÁ¦ÇÏÁö ¸»¾ÆÁÖ¼¼¿ä
-	   ¸ÖÆ¼ ¹è³Ê Á¾·á -->
+      <!-- ë©€í‹° ë°°ë„ˆ  ížˆë“  ì‚¬ìž¥ë‹˜ ì§€ì‹œì‚¬í•­ 2015.04.27 ì´í›„ì— ë‹¤ì‹œ ì‚¬ìš©ê°€ëŠ¥ ì‚­ì œí•˜ì§€ ë§ì•„ì£¼ì„¸ìš”
+	   ë©€í‹° ë°°ë„ˆ ì¢…ë£Œ -->
 
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -148,7 +154,7 @@
 	      return false;
 	      else if (navigator.appName == 'Microsoft Internet Explorer'
 	      && (event.button == 2 || event.button == 3)) {
-	      alert("¿À¸¥ÂÊ ¸¶¿ì½º´Â »ç¿ëÇÏ½Ç¼ö ¾ø½À´Ï´Ù.");
+	      alert("ì˜¤ë¥¸ìª½ ë§ˆìš°ìŠ¤ëŠ” ì‚¬ìš©í•˜ì‹¤ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 	      return false;
 	      }
 	      return true;
@@ -161,15 +167,15 @@
 	      }
 	    </script> <script language="javascript">
 	      function preMember() {
-	      alert("´ÙÈ«. \n\r È¸¿ø°¡ÀÔÀÌ³ª ·Î±×ÀÎÇØÁÖ½Ã±â¹Ù¶ø´Ï´Ù!");
+	      alert("ë‹¤í™. \n\r íšŒì›ê°€ìž…ì´ë‚˜ ë¡œê·¸ì¸í•´ì£¼ì‹œê¸°ë°”ëžë‹ˆë‹¤!");
 	      }
 	      function loginForm() {
-	      if (confirm("´ÙÈ«. \n\r·Î±×ÀÎ/È¸¿ø°¡ÀÔ È­¸éÀ¸·Î ÀÌµ¿ ÇÏ½Ã°Ú½À´Ï±î?"))
+	      if (confirm("ë‹¤í™. \n\rë¡œê·¸ì¸/íšŒì›ê°€ìž… í™”ë©´ìœ¼ë¡œ ì´ë™ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?"))
 	      location = "../Member/LoginForm.asp";
 	      }
 	    </script> <script language="JavaScript">
 	      /* if(parent.frames.length <= 0) { top.location.href="/"; }*/
-					    // ÄíÅ°°ª °¡Á®¿À±â
+					    // ì¿ í‚¤ê°’ ê°€ì ¸ì˜¤ê¸°
 					    function getCookie(key) {
 					    var cook = document.cookie + ";";
 					    var idx = cook.indexOf(key, 0);
@@ -185,7 +191,7 @@
 					    return val;
 					    }
 
-					    // ÄíÅ°°ª ¼³Á¤
+					    // ì¿ í‚¤ê°’ ì„¤ì •
 					    function setCookie(name, value, expiredays) {
 					    var today = new Date();
 					    today.setDate(today.getDate() + expiredays);
@@ -468,7 +474,7 @@
 	      "status=no,toolbar=no,scrollbars=no,resizable=no,width=780,height=780")
 	      }
 	      function gotoAlert() {
-	      alert("°æ°íÃ¢")
+	      alert("ê²½ê³ ì°½")
 	      }
 	      function addBookMark() {
 	      window.external.AddFavorite(
@@ -490,7 +496,7 @@
 	      window.external.AddFavorite(url, title);
 	      else if (window.chrome) // chrome
 	      {
-	      alert('ctrl+D ¸¦ ´­·¯¼­ ºÏ¸¶Å©¿¡ Ãß°¡ÇØÁÖ¼¼¿ä!');
+	      alert('ctrl+D ë¥¼ ëˆŒëŸ¬ì„œ ë¶ë§ˆí¬ì— ì¶”ê°€í•´ì£¼ì„¸ìš”!');
 	      }
 	      }
 	    </script> <script language="JavaScript" type="TEXT/JAVASCRIPT">
@@ -672,7 +678,7 @@
 	      <table width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 		  <td align="center" valign="top">
-		    <!-- »ó´Ü ¸Þ´º ½ÃÀÛ-->
+		    <!-- ìƒë‹¨ ë©”ë‰´ ì‹œìž‘-->
 
 		    <table width="1190" border="0" cellspacing="0" cellpadding="0">
 		      <tr>
@@ -681,7 +687,7 @@
 															       src="images_2015/top/logo_2015.gif" border="0" /></a></td>
 			<td width="470" valign="bottom" align="right"
 			    style="padding-right: 5px;">
-			  <!--Áß°£¹è³Ê½ÃÀÛ search-->
+			  <!--ì¤‘ê°„ë°°ë„ˆì‹œìž‘ search-->
 
 			  <table border="0" cellspacing="0" cellpadding="0">
 			    <tr>
@@ -689,7 +695,7 @@
 
 
 
-			      <!-- ¼­Ä¡ ¹Ú½º -->
+			      <!-- ì„œì¹˜ ë°•ìŠ¤ -->
 			      <form action="DispatcherServlet.do" method="get" id="frm">
 				<div class="col-sm-4">
 				  <input type="hidden" name="command" value="search">
@@ -713,23 +719,23 @@
 
 
 			    </tr>
-			  </table> <!--Áß°£¹è³ÊÁ¾·á-->
+			  </table> <!--ì¤‘ê°„ë°°ë„ˆì¢…ë£Œ-->
 			</td>
 			<td width="420" align="right" valign="top">
-			  <!-- »ó´Ü ¿ìÃø ¸Þ´º ½ÃÀÛ-->
+			  <!-- ìƒë‹¨ ìš°ì¸¡ ë©”ë‰´ ì‹œìž‘-->
 			  <table width="420" height="182" border="0" cellspacing="0"
 				 cellpadding="0">
 			    <tr>
 			      <td valign="top" align="right">
-				<!--·¹ÀÌ¾î ¸Þ´º ½ÃÀÛ-->
+				<!--ë ˆì´ì–´ ë©”ë‰´ ì‹œìž‘-->
 				<table width="100%" border="0" cellspacing="0"
 				       cellpadding="0">
 				  <tr>
 				    <td height="31" align="right" valign="bottom"
 					style="padding-right: 4px"><span class="top04"><a
-											  href="login.jsp">·Î±×ÀÎ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-																											href="join1.html">È¸¿ø°¡ÀÔ
-					  (ÄíÆù4Àå)</a></span></td>
+											  href="login.jsp">ë¡œê·¸ì¸</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+																											href="join1.html">íšŒì›ê°€ìž…
+					  (ì¿ í°4ìž¥)</a></span></td>
 				  </tr>
 				  <tr>
 				    <td height="5" align="right"></td>
@@ -749,7 +755,7 @@
 						       id="div_search"
 						       onmouseout="div_search_onoff(0)"
 						       onMouseOver="div_search_onoff(1)">
-						      <!-- »óÇ°°Ë»ö ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ìƒí’ˆê²€ìƒ‰ ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0" bgcolor="#ffffff">
@@ -767,7 +773,7 @@
 									      type="TEXT/JAVASCRIPT">
 									function SearchOk() {
 									if (document.search.textfield.value.length == 0) {
-									alert("»óÇ°¸íÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä");
+									alert("ìƒí’ˆëª…ì„ ìž…ë ¥í•´ ì£¼ì„¸ìš”");
 									document.search.textfield
 									.focus();
 									return;
@@ -791,7 +797,7 @@
 										 value="search"> <input
 												    name="textfield" type="text"
 												    class="text"
-												    style="border-top: 0px dotted #FFFFFF; border-bottom: 0px dotted #FFFFFF; border-left: 0px dotted #FFFFFF; border-right: 0px dotted #FFFFFF; color: #333333; FONT-FAMILY: ±¼¸²; FONT-SIZE: 9pt"
+												    style="border-top: 0px dotted #FFFFFF; border-bottom: 0px dotted #FFFFFF; border-left: 0px dotted #FFFFFF; border-right: 0px dotted #FFFFFF; color: #333333; FONT-FAMILY: êµ´ë¦¼; FONT-SIZE: 9pt"
 												    onKeyPress="isSerchEnter()"
 												    size="20" maxlength="30">
 									</td>
@@ -816,7 +822,7 @@
 						      </table>
 
 
-						      <!-- »óÇ°°Ë»ö ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ìƒí’ˆê²€ìƒ‰ ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
 
 						    <img src="images_2015/top/topmenu_s_00.gif"
@@ -834,7 +840,7 @@
 						       style="position: absolute; left: -190px; top: 46px; display: none"
 						       id="div_event" onmouseout="div_event_onoff(0)"
 						       onMouseOver="div_event_onoff(1)">
-						      <!-- µð½ºÅä¸® & ÀÌº¥Æ® ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ë””ìŠ¤í† ë¦¬ & ì´ë²¤íŠ¸ ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0" bgcolor="#FFFFFF">
@@ -853,7 +859,7 @@
 							</tr>
 						      </table>
 
-						      <!-- µð½ºÅä¸® & ÀÌº¥Æ® ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ë””ìŠ¤í† ë¦¬ & ì´ë²¤íŠ¸ ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
 						    <img src="images_2015/top/topmenu_s_02.gif"
 							 border="0" style="cursor: hand"
@@ -869,7 +875,7 @@
 						       id="div_notice"
 						       onmouseout="div_notice_onoff(0)"
 						       onMouseOver="div_notice_onoff(1)">
-						      <!-- ÄíÆùÁ¸ & ¸â¹ö½± ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ì¿ í°ì¡´ & ë©¤ë²„ì‰½ ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0" bgcolor="#FFFFFF">
@@ -888,7 +894,7 @@
 							</tr>
 						      </table>
 
-						      <!-- ÄíÆùÁ¸ & ¸â¹ö½± ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ì¿ í°ì¡´ & ë©¤ë²„ì‰½ ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
 						    <img src="images_2015/top/topmenu_s_03.gif"
 							 onMouseOver="div_notice_onoff(1)"
@@ -905,7 +911,7 @@
 						       style="position: absolute; left: -290px; top: 46px; display: none"
 						       id="div_zzim" onmouseout="div_zzim_onoff(0)"
 						       onMouseOver="div_zzim_onoff(1)">
-						      <!-- °ü½É»óÇ° ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ê´€ì‹¬ìƒí’ˆ ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0" bgcolor="#FFFFFF">
@@ -939,7 +945,7 @@
 							</tr>
 						      </table>
 
-						      <!-- °ü½É»óÇ° ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ê´€ì‹¬ìƒí’ˆ ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
 						    <img src="images_2015/top/topmenu_s_04.gif"
 							 onMouseOver="div_zzim_onoff(1)"
@@ -955,7 +961,7 @@
 						       style="position: absolute; left: -340px; top: 46px; display: none"
 						       id="div_cart" onmouseout="div_cart_onoff(0)"
 						       onMouseOver="div_cart_onoff(1)">
-						      <!-- Àå¹Ù±¸´Ï ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ìž¥ë°”êµ¬ë‹ˆ ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0" bgcolor="#FFFFFF">
@@ -989,7 +995,7 @@
 							</tr>
 						      </table>
 
-						      <!-- Àå¹Ù±¸´Ï ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ìž¥ë°”êµ¬ë‹ˆ ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
 						    <img src="images_2015/top/topmenu_s_05.gif"
 							 onMouseOver="div_cart_onoff(1)"
@@ -1007,7 +1013,7 @@
 						       style="position: absolute; left: -390px; top: 46px; display: none"
 						       id="div_menu" onmouseout="div_menu_onoff(0)"
 						       onMouseOver="div_menu_onoff(1)">
-						      <!-- ¸Þ´º ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ë©”ë‰´ ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0"
@@ -1057,7 +1063,7 @@
 									     id="div_allmenu"
 									     onmouseout="div_allmenu_onoff(0)"
 									     onMouseOver="div_allmenu_onoff(1)">
-									    <!-- ¸Þ´º ------------------------------------------------------------------------------------------------------------------------------------>
+									    <!-- ë©”ë‰´ ------------------------------------------------------------------------------------------------------------------------------------>
 									    <table width="420" border="0"
 										   cellpadding="0" cellspacing="0"
 										   bgcolor="#E2E2E2">
@@ -1083,10 +1089,10 @@
 												valign="top" height="25"><span
 															    class="top09"><font
 																	     color="FF0066">DAHONG</font></span></td>
-											    <!-- »çÀå´Ô Áö½Ã »çÇ×À¸·Î È÷µçÃ³¸®
+											    <!-- ì‚¬ìž¥ë‹˜ ì§€ì‹œ ì‚¬í•­ìœ¼ë¡œ ížˆë“ ì²˜ë¦¬
 												 <td width="20%" valign="top"><span class="top09"><font color="#B18BD8">GIRLS</font></span></td>
 												 -->
-											    <!-- »çÀå´Ô Áö½Ã »çÇ×À¸·Î È÷µçÃ³¸®
+											    <!-- ì‚¬ìž¥ë‹˜ ì§€ì‹œ ì‚¬í•­ìœ¼ë¡œ ížˆë“ ì²˜ë¦¬
 												 <td width="175" valign="top"><span class="top09"><font color="#9CA970">SECOND LEEDS</font></span></td>
 												 -->
 											    <td width="175"
@@ -1123,14 +1129,14 @@
 												<a
 												   href="/Nshopping/ItemShopping_main.asp?a=41&Site=D">BIKINI</a><br>
 												<a
-												   href="/Ncs/Recently_Review.asp?Site=D">»óÇ°ÈÄ±â</a><br>
+												   href="/Ncs/Recently_Review.asp?Site=D">ìƒí’ˆí›„ê¸°</a><br>
 												<a
-												   href="/Nshopping/ItemShopping_express.asp?Site=D">´çÀÏ¹ß¼Û</a><br>
+												   href="/Nshopping/ItemShopping_express.asp?Site=D">ë‹¹ì¼ë°œì†¡</a><br>
 												<a
-												   href="/Nshopping/promotion_list.asp">±âÈ¹Àü
-												  ¸®½ºÆ®</a>
+												   href="/Nshopping/promotion_list.asp">ê¸°íšì „
+												  ë¦¬ìŠ¤íŠ¸</a>
 											    </span></td>
-											    <!-- »çÀå´Ô Áö½Ã »çÇ×À¸·Î È÷µçÃ³¸®
+											    <!-- ì‚¬ìž¥ë‹˜ ì§€ì‹œ ì‚¬í•­ìœ¼ë¡œ ížˆë“ ì²˜ë¦¬
 												 <td valign="top">
 												   <span class="top10">
 												     <a href="/Nshopping/itemShopping_New.asp?Site=A">NEW 10%</a><br>
@@ -1142,7 +1148,7 @@
 												     <a href="/Nshopping/ItemShopping_main.asp?a=64&Site=A">BOTTOM</a><br>
 												     <a href="/Nshopping/ItemShopping_main.asp?a=65&Site=A">BAG &amp; SHOES</a><br>
 												     <a href="/Nshopping/ItemShopping_main.asp?a=67&Site=A">ACC</a><br>
-												     <a href="/Ncs/Recently_Review.asp?Site=A">»óÇ°ÈÄ±â</a>                                            
+												     <a href="/Ncs/Recently_Review.asp?Site=A">ìƒí’ˆí›„ê¸°</a>                                            
 												   </span>                                              
 												 </td>
 												 
@@ -1158,71 +1164,71 @@
 												<a href="/Nshopping/ItemShopping_main.asp?a=123&Site=L">BAG &amp; SHOES</a><br>
 												<a href="/Nshopping/ItemShopping_main.asp?a=126&Site=L">ACC</a><br>
 												<a href="/Nshopping/ItemShopping_main.asp?a=324&Site=L">SUMMER</a><br>
-												<a href="/Ncs/Recently_Review.asp?Site=L">»óÇ°ÈÄ±â</a></p>
+												<a href="/Ncs/Recently_Review.asp?Site=L">ìƒí’ˆí›„ê¸°</a></p>
 </span>                                            
 </td>
 -->
 											    <td valign="top"><span
 														class="top10"> <a
-																  href="/my/myzzim2.asp">°ü½É»óÇ°
-												  ¸®½ºÆ®</a><br> <a
-														    href="/cart/mycart.asp">Àå¹Ù±¸´Ï</a><br>
-												<a href="/my/MyOrder.asp">ÁÖ¹®Á¶È¸(ÈÄ±âÀÛ¼º)</a><br>
+																  href="/my/myzzim2.asp">ê´€ì‹¬ìƒí’ˆ
+												  ë¦¬ìŠ¤íŠ¸</a><br> <a
+														    href="/cart/mycart.asp">ìž¥ë°”êµ¬ë‹ˆ</a><br>
+												<a href="/my/MyOrder.asp">ì£¼ë¬¸ì¡°íšŒ(í›„ê¸°ìž‘ì„±)</a><br>
 												<a
-												   href="/my/myMessage_qna.asp">³»
-												  °Ô½Ã±ÛÁ¶È¸</a><br> <a
-															href="/my/ModifyForm.asp">°³ÀÎÁ¤º¸¼öÁ¤</a><br>
-												<a href="/my/myCash.asp">¿¹Ä¡±ÝÁ¶È¸</a><br>
+												   href="/my/myMessage_qna.asp">ë‚´
+												  ê²Œì‹œê¸€ì¡°íšŒ</a><br> <a
+															href="/my/ModifyForm.asp">ê°œì¸ì •ë³´ìˆ˜ì •</a><br>
+												<a href="/my/myCash.asp">ì˜ˆì¹˜ê¸ˆì¡°íšŒ</a><br>
 												<a
-												   href="/my/myEmoney.asp">Àû¸³±ÝÁ¶È¸</a><br>
+												   href="/my/myEmoney.asp">ì ë¦½ê¸ˆì¡°íšŒ</a><br>
 												<a
-												   href="/my/myCoupon.asp">ÇÒÀÎÄíÆùÁ¶È¸</a><br>
+												   href="/my/myCoupon.asp">í• ì¸ì¿ í°ì¡°íšŒ</a><br>
 												<br>
 											      </span> <span class="top09">SNS</span><br>
 											      <span class="top10">
 												<a
 												   href="https://www.facebook.com/dahongmall"
-												   target="_blank">ÆäÀÌ½ººÏ</a><br>
+												   target="_blank">íŽ˜ì´ìŠ¤ë¶</a><br>
 												<a
 												   href="https://www.instagram.com/love_dahong/"
-												   target="_blank">ÀÎ½ºÅ¸±×·¥</a><br>
+												   target="_blank">ì¸ìŠ¤íƒ€ê·¸ëž¨</a><br>
 												<a
 												   href="https://story.kakao.com/ch/dahong"
-												   target="_blank">Ä«Ä«¿À½ºÅä¸®</a>
+												   target="_blank">ì¹´ì¹´ì˜¤ìŠ¤í† ë¦¬</a>
 											    </span></td>
 											    <td valign="top"><span
 														class="top10"> <a
-																  href="/Member/LoginForm.asp">·Î±×ÀÎ</a><br>
+																  href="/Member/LoginForm.asp">ë¡œê·¸ì¸</a><br>
 
 												<a
-												   href="/member/AgreementJob.asp">È¸¿ø°¡ÀÔ</a><br>
+												   href="/member/AgreementJob.asp">íšŒì›ê°€ìž…</a><br>
 												<a
-												   href="/Ncommunity/dstory_list.asp">µð½ºÅä¸®
-												  &amp; ÀÌº¥Æ®</a><br> <a
-															  href="/my/myCouponBook_guest.asp">ÇÒÀÎÇýÅÃ</a><br>
+												   href="/Ncommunity/dstory_list.asp">ë””ìŠ¤í† ë¦¬
+												  &amp; ì´ë²¤íŠ¸</a><br> <a
+															  href="/my/myCouponBook_guest.asp">í• ì¸í˜œíƒ</a><br>
 												<a
-												   href="/customer/Tracking.asp">ÁÖ¹®/¹è¼ÛÁ¶È¸</a><br>
+												   href="/customer/Tracking.asp">ì£¼ë¬¸/ë°°ì†¡ì¡°íšŒ</a><br>
 												<a
-												   href="/Ncs/message1.asp">Áú¹®°ú´äº¯</a><br>
+												   href="/Ncs/message1.asp">ì§ˆë¬¸ê³¼ë‹µë³€</a><br>
 												<a
-												   href="/Ncs/FaqList.asp?Select=1">ÀÚÁÖ¹¯´ÂÁú¹®</a><br>
-												<a href="/Ncs/notice.asp">°øÁö»çÇ×</a><br>
+												   href="/Ncs/FaqList.asp?Select=1">ìžì£¼ë¬»ëŠ”ì§ˆë¬¸</a><br>
+												<a href="/Ncs/notice.asp">ê³µì§€ì‚¬í•­</a><br>
 												<a
-												   href="/Nshopping/Shopping_OnlyYou.asp">°³ÀÎ°áÁ¦</a><br>
+												   href="/Nshopping/Shopping_OnlyYou.asp">ê°œì¸ê²°ì œ</a><br>
 												<a
-												   href="/NShopping/itemshopping_today.asp">ÃÖ±Ùº»»óÇ°</a><br>
+												   href="/NShopping/itemshopping_today.asp">ìµœê·¼ë³¸ìƒí’ˆ</a><br>
 												<a
-												   href="/introduction/introduction3.asp">ÀÌ¿ë¾à°ü</a><br>
+												   href="/introduction/introduction3.asp">ì´ìš©ì•½ê´€</a><br>
 												<a
-												   href="/introduction/introduction2.asp">°³ÀÎÁ¤º¸Ãë±Þ¹æÄ§</a><br>
+												   href="/introduction/introduction2.asp">ê°œì¸ì •ë³´ì·¨ê¸‰ë°©ì¹¨</a><br>
 												<a
-												   href="/Ncommunity/Model_Register.asp">¸ðµ¨Áö¿ø</a><br>
+												   href="/Ncommunity/Model_Register.asp">ëª¨ë¸ì§€ì›</a><br>
 												<a
-												   href="/introduction/Recruit.asp">Ã¤¿ë°ø°í</a><br>
+												   href="/introduction/Recruit.asp">ì±„ìš©ê³µê³ </a><br>
 												<a
-												   href="mailto:tmdwnekdk@hanmail.net">Á¦ÈÞ¹®ÀÇ</a><br>
+												   href="mailto:tmdwnekdk@hanmail.net">ì œíœ´ë¬¸ì˜</a><br>
 												<a
-												   href="/Ncommunity/celeb_list.asp">¿¬¿¹ÀÎÇùÂù</a><br>
+												   href="/Ncommunity/celeb_list.asp">ì—°ì˜ˆì¸í˜‘ì°¬</a><br>
 											    </span></td>
 											  </tr>
 											</table>
@@ -1263,7 +1269,7 @@
 							</tr>
 						      </table>
 
-						      <!-- ¸Þ´º ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- ë©”ë‰´ ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
 						    <img src="images_2015/top/topmenu_s_06.gif"
 							 onMouseOver="div_menu_onoff(1)"
@@ -1278,12 +1284,12 @@
 					</tr>
 				    </table></td>
 				  </tr>
-				</table> <!--·¹ÀÌ¾î ¸Þ´º Á¾·á-->
+				</table> <!--ë ˆì´ì–´ ë©”ë‰´ ì¢…ë£Œ-->
 			      </td>
 			    </tr>
 			    <tr>
 			      <td valign="bottom" align="right">
-				<!--±âÁ¸ ¹è³Ê È÷µç
+				<!--ê¸°ì¡´ ë°°ë„ˆ ížˆë“ 
 				    <table border="0" cellspacing="0" cellpadding="0">
 				      <tr>
 					<td valign="bottom">&nbsp;</td>
@@ -1299,10 +1305,10 @@
 				    -->
 			      </td>
 			    </tr>
-			  </table> <!-- »ó´Ü ¿ìÃø ¸Þ´º Á¾·á-->
+			  </table> <!-- ìƒë‹¨ ìš°ì¸¡ ë©”ë‰´ ì¢…ë£Œ-->
 			</td>
 		      </tr>
-		    </table> <!-- »ó´Ü ¸Þ´º Á¾·á-->
+		    </table> <!-- ìƒë‹¨ ë©”ë‰´ ì¢…ë£Œ-->
 		  </td>
 		</tr>
 		<tr>
@@ -1349,7 +1355,7 @@
 			      <td style="padding-right: 29px"><span class="top03"><a
 										     href="DispatcherServlet.do?command=category&&category=INNER">INNER</a></span></td>
 			      <td style="padding-right: 29px">
-				<!--´º ¾ÆÀÌÄÜ ºÙÀº ºñÅ°´Ï¸Þ´º
+				<!--ë‰´ ì•„ì´ì½˜ ë¶™ì€ ë¹„í‚¤ë‹ˆë©”ë‰´
 				    <div style="position:relative;">
 				      <span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=41&psize=L&Site=D">SUMMER</a></span>
 				      <div style="position:absolute;left:6px;top:-30px; width:33px"><img src="images_2015/main/sunnybunny_nicon.png"></div>
@@ -1360,7 +1366,7 @@
 			      <td style="padding-right: 29px"><span class="top03"><a
 										     href="http://www.dahong.co.kr/Ncs/Recently_Review.asp?Site=D">REVIEW</a></span></td>
 			      <td align="right"><span class="top03"><a
-								       href="http://www.dahong.co.kr/my/myCouponBook_guest.asp">ÇÒÀÎÇýÅÃ</a></span></td>
+								       href="http://www.dahong.co.kr/my/myCouponBook_guest.asp">í• ì¸í˜œíƒ</a></span></td>
 			    </tr>
 			  </table>
 			</td>
@@ -1427,11 +1433,11 @@
 		  $('.ca_menu_on')
 		  .attr(
 		  'class',
-		  'ca_menu_off'); // on »óÅÂÀÎ css ÇØÁ¦
+		  'ca_menu_off'); // on ìƒíƒœì¸ css í•´ì œ
 		  $(this)
 		  .attr(
 		  'class',
-		  'ca_menu_on'); // ÇöÀç mouseoverÀÎ °÷À» onÀ¸·Î º¯°æ
+		  'ca_menu_on'); // í˜„ìž¬ mouseoverì¸ ê³³ì„ onìœ¼ë¡œ ë³€ê²½
 		  var vbtopcat = $(
 		  this)
 		  .attr(
@@ -1576,7 +1582,7 @@
 	    <body>
 	      <div align="center">
 
-		<!-- ¸ÞÀÎ ÀÌ¹ÌÁö Å×ÀÌºí-->
+		<!-- ë©”ì¸ ì´ë¯¸ì§€ í…Œì´ë¸”-->
 		<table width="1182" border="0" cellspacing="0" cellpadding="0"
 		       style="display: inline;">
 		  <tr align="center">
@@ -1598,7 +1604,7 @@
 			    .getElementById('mainpopup').style.display = "none";
 			    }
 			    // -->
-		      </SCRIPT> <!-- ¼ÛÇý±³ ÇùÂù ¹è³Ê 
+		      </SCRIPT> <!-- ì†¡í˜œêµ í˜‘ì°¬ ë°°ë„ˆ 
 				     <div id="mainpopupclose" style='position:absolute;right:8px;top:8px;width:38px;height:38px;border:0px none #000000; visibility: show;z-index:900'><img src="images_2015/top/closed.png" border="0" width="38" height="38" style="cursor:pointer;cursor:hand;" onClick="javascript:closeMainPopupLayer()"></div>
 				     <div id="mainpopup" style='position:absolute;left:0px;top:0px;width:1185px;height:549px;background-color: #ffffff;font-size: 11px; color:#FFFFFF; overflow:auto; border:1px none #000000; visibility: show;z-index:1'>
 				       <table width="1185" border="0" cellspacing="0" cellpadding="0">
@@ -1611,9 +1617,9 @@
 					   <td bgcolor="#000000" height="49" align="right" style="padding-right:15px;">
 					     <table border="0" cellspacing="0" cellpadding="0" >
 					       <tr>
-						 <td style="padding-right:5px;font-size:13px;color:#FFFFFF;">¸Þ¼¼ÁöÃ¢À» ´Ù½Ã Ç¥½ÃÇÏÁö ¾ÊÀ½</td>
+						 <td style="padding-right:5px;font-size:13px;color:#FFFFFF;">ë©”ì„¸ì§€ì°½ì„ ë‹¤ì‹œ í‘œì‹œí•˜ì§€ ì•ŠìŒ</td>
 						 <td style="padding-right:10px;"><input type="checkbox" name="check_open_mainpopup" id="check_open_mainpopup" value="1" onClick="doMainClose('mainpopup','check_open_mainpopup')" /></td>
-						 <td style="font-size:13px;color:#FFFFFF;cursor:pointer;cursor:hand;" onClick="javascript:closeMainPopupLayer()" >[ ´Ý±â ]</td>
+						 <td style="font-size:13px;color:#FFFFFF;cursor:pointer;cursor:hand;" onClick="javascript:closeMainPopupLayer()" >[ ë‹«ê¸° ]</td>
 					       </tr>
 					     </table>
 					   </td>
@@ -1637,9 +1643,9 @@
 				</div>
 				<div class='etc' style='display: none'>
 				  <div class='etcwrap'>
-				    <span class='dsctxt'>¡Ú´Üµ¶ÀÔ°í¡Ú S,M »çÀÌÁî±¸¼º * ³¯¾ÀÇØº¸ÀÌ´Â
-				      µ¥´Ô ¿øÇÇ½º !</span><span class='dsc'>ÄíÅ°½¦ÀÌÅ© µ¥´Ô ¿øÇÇ½º</span><span
-													    class='price'>26800¿ø</span>
+				    <span class='dsctxt'>â˜…ë‹¨ë…ìž…ê³ â˜… S,M ì‚¬ì´ì¦ˆêµ¬ì„± * ë‚ ì”¬í•´ë³´ì´ëŠ”
+				      ë°ë‹˜ ì›í”¼ìŠ¤ !</span><span class='dsc'>ì¿ í‚¤ì‰ì´í¬ ë°ë‹˜ ì›í”¼ìŠ¤</span><span
+													    class='price'>26800ì›</span>
 				  </div>
 				</div>
 			  </div></a></td>
@@ -1655,8 +1661,8 @@
 				</div>
 				<div class='etc' style='display: none'>
 				  <div class='etcwrap'>
-				    <span class='dsctxt'>½ÉÇÃÇÏ¸é¼­µµ °í±Þ½º·¯¿î µðÅ×ÀÏÀÇ ¸°³Ù ÀÚÄÏ !</span><span
-													       class='dsc'>¸¶°Å¸®Æ® ¸°³Ù ÀÚÄÏ</span><span class='price'>74000¿ø</span>
+				    <span class='dsctxt'>ì‹¬í”Œí•˜ë©´ì„œë„ ê³ ê¸‰ìŠ¤ëŸ¬ìš´ ë””í…Œì¼ì˜ ë¦°ë„¨ ìžì¼“ !</span><span
+													       class='dsc'>ë§ˆê±°ë¦¬íŠ¸ ë¦°ë„¨ ìžì¼“</span><span class='price'>74000ì›</span>
 				  </div>
 				</div>
 			  </div></a></td>
@@ -1672,9 +1678,9 @@
 				</div>
 				<div class='etc' style='display: none'>
 				  <div class='etcwrap'>
-				    <span class='dsctxt'>A¶óÀÎÀ¸·Î Æí¾ÈÇÑ ¿¡½º´Ð ºí¶ó¿ì½º ~</span><span
-												     class='dsc'>(¼Ò³à½Ã´ë / ÅÂ¿¬ ÇùÂù) ½´¹Ù¸£Ã÷ ¿¡½º´Ð ºí¶ó¿ì½º</span><span
-																					  class='price'>39800¿ø</span>
+				    <span class='dsctxt'>Aë¼ì¸ìœ¼ë¡œ íŽ¸ì•ˆí•œ ì—ìŠ¤ë‹‰ ë¸”ë¼ìš°ìŠ¤ ~</span><span
+												     class='dsc'>(ì†Œë…€ì‹œëŒ€ / íƒœì—° í˜‘ì°¬) ìŠˆë°”ë¥´ì¸  ì—ìŠ¤ë‹‰ ë¸”ë¼ìš°ìŠ¤</span><span
+																					  class='price'>39800ì›</span>
 				  </div>
 				</div>
 			  </div></a></td>
@@ -1715,8 +1721,8 @@
 				</div>
 				<div class='etc' style='display: none'>
 				  <div class='etcwrap'>
-				    <span class='dsctxt'>¡Ú±âÈ¹»óÇ°¡Ú È­»çÇÑ ÇÃ·Î¶ö ÆÐÅÏÀ¸·Î Æ÷ÀÎÆ®!</span><span
-													      class='dsc'>¾ÆÀÌ¸° ÇÃ·Î¶ö ¹Ìµð ½ºÄ¿Æ®</span><span class='price'>29800¿ø</span>
+				    <span class='dsctxt'>â˜…ê¸°íšìƒí’ˆâ˜… í™”ì‚¬í•œ í”Œë¡œëž„ íŒ¨í„´ìœ¼ë¡œ í¬ì¸íŠ¸!</span><span
+													      class='dsc'>ì•„ì´ë¦° í”Œë¡œëž„ ë¯¸ë”” ìŠ¤ì»¤íŠ¸</span><span class='price'>29800ì›</span>
 				  </div>
 				</div>
 			  </div></a></td>
@@ -1732,9 +1738,9 @@
 				</div>
 				<div class='etc' style='display: none'>
 				  <div class='etcwrap'>
-				    <span class='dsctxt'>¿ÀÇÁ¼ñ´õ&ºí¶ó¿ì½º µÎ°¡Áö ´À³¦ ¢¾</span><span
-												   class='dsc'>(½ÅÀÇ¸ñ¼Ò¸® / Çã¿µÁö ÇùÂù) Æ¼Áö ·¯ÇÃ ºí¶ó¿ì½º</span><span
-																				      class='price'>56500¿ø</span>
+				    <span class='dsctxt'>ì˜¤í”„ìˆ„ë”&ë¸”ë¼ìš°ìŠ¤ ë‘ê°€ì§€ ëŠë‚Œ â™¥</span><span
+												   class='dsc'>(ì‹ ì˜ëª©ì†Œë¦¬ / í—ˆì˜ì§€ í˜‘ì°¬) í‹°ì§€ ëŸ¬í”Œ ë¸”ë¼ìš°ìŠ¤</span><span
+																				      class='price'>56500ì›</span>
 				  </div>
 				</div>
 			  </div></a></td>
@@ -1750,8 +1756,8 @@
 				</div>
 				<div class='etc' style='display: none'>
 				  <div class='etcwrap'>
-				    <span class='dsctxt'>»ç¶û½º·¯¿î ½ºÄÌ·´ 9ºÎ ½º¿þÅÍ¢¾¢¾¢¾</span><span
-												     class='dsc'>¿¡¹Ð¸® ½ºÄ¶·´ 9ºÎ ½º¿þÅÍ</span><span class='price'>24800¿ø</span>
+				    <span class='dsctxt'>ì‚¬ëž‘ìŠ¤ëŸ¬ìš´ ìŠ¤ì¼ˆëŸ½ 9ë¶€ ìŠ¤ì›¨í„°â™¥â™¥â™¥</span><span
+												     class='dsc'>ì—ë°€ë¦¬ ìŠ¤ìº˜ëŸ½ 9ë¶€ ìŠ¤ì›¨í„°</span><span class='price'>24800ì›</span>
 				  </div>
 				</div>
 			  </div></a></td>
@@ -1767,10 +1773,10 @@
 		</table>
 
 
-		<!-- ¸ÞÀÎ ÀÌ¹ÌÁö Å×ÀÌºí Á¾·á-->
+		<!-- ë©”ì¸ ì´ë¯¸ì§€ í…Œì´ë¸” ì¢…ë£Œ-->
 
 
-		<!-- Ä«Å×°í¸® º£½ºÆ® »óÇ° Å×ÀÌºí ½ÃÀÛ-->
+		<!-- ì¹´í…Œê³ ë¦¬ ë² ìŠ¤íŠ¸ ìƒí’ˆ í…Œì´ë¸” ì‹œìž‘-->
 
 
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -1782,14 +1788,14 @@
 
 
 
-		<!-- Ä«Å×°í¸® º£½ºÆ® »óÇ° Å×ÀÌºí »çÀå´Ô Áö»ç»çÇ×À¸·Î »èÁ¦ 2016.02.15-->
+		<!-- ì¹´í…Œê³ ë¦¬ ë² ìŠ¤íŠ¸ ìƒí’ˆ í…Œì´ë¸” ì‚¬ìž¥ë‹˜ ì§€ì‚¬ì‚¬í•­ìœ¼ë¡œ ì‚­ì œ 2016.02.15-->
 
 
 
 
-		<!--  ±¤°í ½ÃÀÛ -->
-		<!--  ±¤°í Á¾·á-->
-		<!--  ½Å»ó ½ÃÀÛ -->
+		<!--  ê´‘ê³  ì‹œìž‘ -->
+		<!--  ê´‘ê³  ì¢…ë£Œ-->
+		<!--  ì‹ ìƒ ì‹œìž‘ -->
 
 
 		<table width="1190" border="0" cellspacing="0" cellpadding="0">
@@ -1836,7 +1842,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">µ¥ÀÌÆ®·è ÀÎ±â¸¸Á¡ ¢¾ÀÚ¼ö¿øÇÇ½º¢¾</font>
+					<font color="#888888">ë°ì´íŠ¸ë£© ì¸ê¸°ë§Œì  â™¥ìžìˆ˜ì›í”¼ìŠ¤â™¥</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -1845,14 +1851,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('1')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">¸®¾Æ ¿¡½º´Ð ÀÚ¼ö ¿øÇÇ½º</font>
+					  <font color="#000000">ë¦¬ì•„ ì—ìŠ¤ë‹‰ ìžìˆ˜ ì›í”¼ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">25,700¿ø</font></strong>
+					<strong><font color="#a3a3a3">25,700ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -1891,7 +1897,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">°úÇÏÁö ¾ÊÀº µð½ºÆ®·ÎÀÌµå µðÀÚÀÎÀ¸·Î Æ®·»µðÇÏ°Ô~!!</font>
+					<font color="#888888">ê³¼í•˜ì§€ ì•Šì€ ë””ìŠ¤íŠ¸ë¡œì´ë“œ ë””ìžì¸ìœ¼ë¡œ íŠ¸ë Œë””í•˜ê²Œ~!!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -1900,14 +1906,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('1')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">¾×Æ¼ºê µ¥¹ÌÁö µ¥´ÔÀÚÄÏ</font>
+					  <font color="#000000">ì•¡í‹°ë¸Œ ë°ë¯¸ì§€ ë°ë‹˜ìžì¼“</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">76,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">76,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -1946,7 +1952,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">À¯´ÏÅ©ÇÑ ÇÁ¸°Æ®!! Ã¼ÇüÄ¿¹ö´Â ¹°·Ð ½ºÅ¸ÀÏ±îÁö~¢¾</font>
+					<font color="#888888">ìœ ë‹ˆí¬í•œ í”„ë¦°íŠ¸!! ì²´í˜•ì»¤ë²„ëŠ” ë¬¼ë¡  ìŠ¤íƒ€ì¼ê¹Œì§€~â™¥</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -1955,14 +1961,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('3')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">±×·¡ÇÇÆ¼ ¼ÅÃ÷ ¿øÇÇ½º</font>
+					  <font color="#000000">ê·¸ëž˜í”¼í‹° ì…”ì¸  ì›í”¼ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">26,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">26,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2001,7 +2007,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">ºí¶ó¿ì½º,¶Ç´Â ÀÚÄÏÀ¸·Î µ¥ÀÏ¸®ÇÏ°Ô ¿¬Ãâ~!!</font>
+					<font color="#888888">ë¸”ë¼ìš°ìŠ¤,ë˜ëŠ” ìžì¼“ìœ¼ë¡œ ë°ì¼ë¦¬í•˜ê²Œ ì—°ì¶œ~!!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2010,14 +2016,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('4')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">¸°´Ù ½ºÆ®¶óÀÌÇÁ ¼ÅÃ÷ ÀÚÄÏ</font>
+					  <font color="#000000">ë¦°ë‹¤ ìŠ¤íŠ¸ë¼ì´í”„ ì…”ì¸  ìžì¼“</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">26,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">26,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2056,7 +2062,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">´Ù¾çÇÏ°Ô Âø¿ë°¡´ÉÇÑ »ç¶û½º·¯¿î ºí¶û¢¾!</font>
+					<font color="#888888">ë‹¤ì–‘í•˜ê²Œ ì°©ìš©ê°€ëŠ¥í•œ ì‚¬ëž‘ìŠ¤ëŸ¬ìš´ ë¸”ëž‘â™¥!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2065,14 +2071,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('5')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">¼¾´À ¿ÀÇÁ¼ñ´õ ºí¶ó¿ì½º</font>
+					  <font color="#000000">ì„¼ëŠ ì˜¤í”„ìˆ„ë” ë¸”ë¼ìš°ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">24,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">24,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2111,7 +2117,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡Ú´Üµ¶ÁøÇà¡Ú È°¿ëµµ ³ôÀº ºí¶ó¿ì½º,½½·¢½º ¼¼Æ®±¸¼º !</font>
+					<font color="#888888">â˜…ë‹¨ë…ì§„í–‰â˜… í™œìš©ë„ ë†’ì€ ë¸”ë¼ìš°ìŠ¤,ìŠ¬ëž™ìŠ¤ ì„¸íŠ¸êµ¬ì„± !</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2120,14 +2126,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('6')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">Æ÷´Ï ºí¶ó¿ì½º&½½·¢½º ¼¼Æ®</font>
+					  <font color="#000000">í¬ë‹ˆ ë¸”ë¼ìš°ìŠ¤&ìŠ¬ëž™ìŠ¤ ì„¸íŠ¸</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">43,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">43,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2166,7 +2172,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡Ú±âÈ¹»óÇ°¡Ú »ç¶û½º·´Áö? ÇÏ³ª ±¸¸ÅÇØºÁ ~ </font>
+					<font color="#888888">â˜…ê¸°íšìƒí’ˆâ˜… ì‚¬ëž‘ìŠ¤ëŸ½ì§€? í•˜ë‚˜ êµ¬ë§¤í•´ë´ ~ </font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2175,14 +2181,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('7')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">Á©¸® ÇÃ¶ó¿ö ºêÀÌ³Ø ¿øÇÇ½º</font>
+					  <font color="#000000">ì ¤ë¦¬ í”Œë¼ì›Œ ë¸Œì´ë„¥ ì›í”¼ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">39,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">39,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2221,7 +2227,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡Ú´Üµ¶ÀÔ°í¡Ú S,M »çÀÌÁî±¸¼º * ³¯¾ÀÇØº¸ÀÌ´Â µ¥´Ô ¿øÇÇ½º !</font>
+					<font color="#888888">â˜…ë‹¨ë…ìž…ê³ â˜… S,M ì‚¬ì´ì¦ˆêµ¬ì„± * ë‚ ì”¬í•´ë³´ì´ëŠ” ë°ë‹˜ ì›í”¼ìŠ¤ !</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2230,14 +2236,14 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('8')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">ÄíÅ°½¦ÀÌÅ© µ¥´Ô ¿øÇÇ½º</font>
+					  <font color="#000000">ì¿ í‚¤ì‰ì´í¬ ë°ë‹˜ ì›í”¼ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
 				    
 				    <tr>
 				      <td width="240">
-					<strong><font color="#a3a3a3">26,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">26,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2255,11 +2261,11 @@
 
 
 		
-		<!--  ½Å»ó Á¾·á-->
+		<!--  ì‹ ìƒ ì¢…ë£Œ-->
 
-		<!-- < 9 ~ 24¹ø ½ÃÀÛ> -->
+		<!-- < 9 ~ 24ë²ˆ ì‹œìž‘> -->
 
-		<!--¼­ºê¸Þ´º Å×ÀÌºí-->
+		<!--ì„œë¸Œë©”ë‰´ í…Œì´ë¸”-->
 		
 		<table width="1190" border="0" cellspacing="0" cellpadding="0">
 		  <tr><td height="33"></td></tr>
@@ -2271,9 +2277,9 @@
 		<table width="1190" border="0" cellspacing="0" cellpadding="0">
 		  <tr>
 		    <td align="center">
-		      <!-- ÁÖ°£ º£½ºÆ® »óÇ° ½ÃÀÛ-->
+		      <!-- ì£¼ê°„ ë² ìŠ¤íŠ¸ ìƒí’ˆ ì‹œìž‘-->
 		      <table width="1190" border="0" cellspacing="0" cellpadding="0">
-			<!--·Ñ¸µ½ÃÀÛ-->
+			<!--ë¡¤ë§ì‹œìž‘-->
 			<tr>
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
@@ -2305,7 +2311,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡ÚMADE Èñ¸ð¸®~¡Ú Ã¼ÇüÀÌ µå·¯³ªÁö ¾Ê¾Æ ÁÁ¾Æ¿ä</font>
+					<font color="#888888">â˜…MADE í¬ëª¨ë¦¬~â˜… ì²´í˜•ì´ ë“œëŸ¬ë‚˜ì§€ ì•Šì•„ ì¢‹ì•„ìš”</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2314,7 +2320,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('9')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">ÇÃ·£ºñ V³Ø ·¹ÀÌ¾îµå ¿øÇÇ½º </font>
+					  <font color="#000000">í”Œëžœë¹„ Vë„¥ ë ˆì´ì–´ë“œ ì›í”¼ìŠ¤ </font>
 					  
 				      </font></td>
 				    </tr>
@@ -2322,7 +2328,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">26,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">26,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2333,7 +2339,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2364,7 +2370,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡ÚMADE Èñ¸ð¸®~¡Ú ³Ø¶óÀÎ °¡º­¿î ½½¸´ µðÀÚÀÎ ~!</font>
+					<font color="#888888">â˜…MADE í¬ëª¨ë¦¬~â˜… ë„¥ë¼ì¸ ê°€ë²¼ìš´ ìŠ¬ë¦¿ ë””ìžì¸ ~!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2373,7 +2379,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('10')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">´ÙÀÌ¾Ö³ª ³Ø ½½¸´ Æ¼¼ÅÃ÷</font>
+					  <font color="#000000">ë‹¤ì´ì• ë‚˜ ë„¥ ìŠ¬ë¦¿ í‹°ì…”ì¸ </font>
 					  
 				      </font></td>
 				    </tr>
@@ -2381,7 +2387,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">13,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">13,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2392,7 +2398,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2423,7 +2429,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡ÚÇÑÁ¤¼ö·®¡Ú »ç¶û½º·¯¿î µµÆ® ¿øÇÇ½º ~</font>
+					<font color="#888888">â˜…í•œì •ìˆ˜ëŸ‰â˜… ì‚¬ëž‘ìŠ¤ëŸ¬ìš´ ë„íŠ¸ ì›í”¼ìŠ¤ ~</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2432,7 +2438,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('11')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">ºê·¯½¬ ½¬Æù µµÆ® ¿øÇÇ½º</font>
+					  <font color="#000000">ë¸ŒëŸ¬ì‰¬ ì‰¬í° ë„íŠ¸ ì›í”¼ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
@@ -2440,7 +2446,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">22,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">22,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2451,7 +2457,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2482,7 +2488,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡Ú±âÈ¹»óÇ°¡Ú ¾ç¸éÀ¸·Î È°¿ëµµ ³ôÀº Ã¼Å© ºí¶ó¿ì½º ¢¾</font>
+					<font color="#888888">â˜…ê¸°íšìƒí’ˆâ˜… ì–‘ë©´ìœ¼ë¡œ í™œìš©ë„ ë†’ì€ ì²´í¬ ë¸”ë¼ìš°ìŠ¤ â™¥</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2491,7 +2497,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('12')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">ºê¸®Áî ·¹ÀÌ½º Ã¼Å© ¾ç¸é ºí¶ó¿ì½º </font>
+					  <font color="#000000">ë¸Œë¦¬ì¦ˆ ë ˆì´ìŠ¤ ì²´í¬ ì–‘ë©´ ë¸”ë¼ìš°ìŠ¤ </font>
 					  
 				      </font></td>
 				    </tr>
@@ -2499,7 +2505,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">30,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">30,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2510,7 +2516,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
                       </tr></table><table width='1180' border='0' cellspacing='0' cellpadding='0'><tr>
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2541,7 +2547,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">È°¿ëµµ ³ôÀº ÇÁ¸°ÆÃ Æ¼¼ÅÃ÷ ^-^</font>
+					<font color="#888888">í™œìš©ë„ ë†’ì€ í”„ë¦°íŒ… í‹°ì…”ì¸  ^-^</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2550,7 +2556,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('13')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">ºí¶ó½æ ·¦ ½ºÄ¿Æ®</font>
+					  <font color="#000000">ë¸”ë¼ì¸ ëž© ìŠ¤ì»¤íŠ¸</font>
 					  
 				      </font></td>
 				    </tr>
@@ -2558,7 +2564,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">43,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">43,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2569,7 +2575,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2600,7 +2606,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">µÞ¸é ÄÆÆÃÀ¸·Î Æ÷ÀÎÆ®!</font>
+					<font color="#888888">ë’·ë©´ ì»·íŒ…ìœ¼ë¡œ í¬ì¸íŠ¸!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2609,7 +2615,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('14')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">ÄÉÀÌ¼Ç V Àý°³ Æ¼¼ÅÃ÷</font>
+					  <font color="#000000">ì¼€ì´ì…˜ V ì ˆê°œ í‹°ì…”ì¸ </font>
 					  
 				      </font></td>
 				    </tr>
@@ -2617,7 +2623,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">33,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">33,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2628,7 +2634,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2659,7 +2665,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">±âº» Æ¼¼ÅÃ÷¸¸ ÀÖ¾îµµ ¸Ú½º·± Æ÷ÀÎÆ® !! </font>
+					<font color="#888888">ê¸°ë³¸ í‹°ì…”ì¸ ë§Œ ìžˆì–´ë„ ë©‹ìŠ¤ëŸ° í¬ì¸íŠ¸ !! </font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2668,7 +2674,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('15')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">À¯´Ö ¸ÞÅ» ±Í°ÉÀÌ</font>
+					  <font color="#000000">ìœ ë‹› ë©”íƒˆ ê·€ê±¸ì´</font>
 					  
 				      </font></td>
 				    </tr>
@@ -2676,7 +2682,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">8,000¿ø</font></strong>
+					<strong><font color="#a3a3a3">8,000ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2687,7 +2693,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2718,7 +2724,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡ÚMADE Èñ¸ð¸®~¡Ú S,M»çÀÌÁî ºñ±³ »çÁø Ãß°¡ !!</font>
+					<font color="#888888">â˜…MADE í¬ëª¨ë¦¬~â˜… S,Mì‚¬ì´ì¦ˆ ë¹„êµ ì‚¬ì§„ ì¶”ê°€ !!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2727,7 +2733,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('16')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">(ÅÂ¾çÀÇÈÄ¿¹ / ¼ÛÇý±³ ÆÐ¼Ç) Å¬·ÎÀÌ ½ºÆ®¶óÀÌÇÁ ¼ÅÃ÷ ¿øÇÇ½º</font>
+					  <font color="#000000">(íƒœì–‘ì˜í›„ì˜ˆ / ì†¡í˜œêµ íŒ¨ì…˜) í´ë¡œì´ ìŠ¤íŠ¸ë¼ì´í”„ ì…”ì¸  ì›í”¼ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
@@ -2735,7 +2741,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">47,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">47,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2746,7 +2752,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
                       </tr></table><table width='1180' border='0' cellspacing='0' cellpadding='0'><tr>
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2777,7 +2783,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡ÚÇÑÁ¤¼ö·®¡Ú S.M.L »çÀÌÁî ±¸¼º / ³²ÀÚÄ£±¸¶û Ä¿ÇÃ·è !</font>
+					<font color="#888888">â˜…í•œì •ìˆ˜ëŸ‰â˜… S.M.L ì‚¬ì´ì¦ˆ êµ¬ì„± / ë‚¨ìžì¹œêµ¬ëž‘ ì»¤í”Œë£© !</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2786,7 +2792,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('17')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">¿ø½º º£ÀÌÁ÷ µ¥´Ô ÀÚÄÏ</font>
+					  <font color="#000000">ì›ìŠ¤ ë² ì´ì§ ë°ë‹˜ ìžì¼“</font>
 					  
 				      </font></td>
 				    </tr>
@@ -2794,7 +2800,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">30,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">30,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2805,7 +2811,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2836,7 +2842,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¿ÀÇÁ¼ñ´õ&ºí¶ó¿ì½º µÎ°¡Áö ´À³¦ ¢¾</font>
+					<font color="#888888">ì˜¤í”„ìˆ„ë”&ë¸”ë¼ìš°ìŠ¤ ë‘ê°€ì§€ ëŠë‚Œ â™¥</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2845,7 +2851,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('18')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">(½ÅÀÇ¸ñ¼Ò¸® / Çã¿µÁö ÇùÂù) Æ¼Áö ·¯ÇÃ ºí¶ó¿ì½º</font>
+					  <font color="#000000">(ì‹ ì˜ëª©ì†Œë¦¬ / í—ˆì˜ì§€ í˜‘ì°¬) í‹°ì§€ ëŸ¬í”Œ ë¸”ë¼ìš°ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
@@ -2853,7 +2859,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">56,500¿ø</font></strong>
+					<strong><font color="#a3a3a3">56,500ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2864,7 +2870,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2895,7 +2901,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡Ú´Üµ¶ÁøÇà¡Ú È°¿ëµµ ³ôÀº ºí¶ó¿ì½º,½½·¢½º ¼¼Æ®±¸¼º !</font>
+					<font color="#888888">â˜…ë‹¨ë…ì§„í–‰â˜… í™œìš©ë„ ë†’ì€ ë¸”ë¼ìš°ìŠ¤,ìŠ¬ëž™ìŠ¤ ì„¸íŠ¸êµ¬ì„± !</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2904,7 +2910,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('19')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">½æÁî ¼Ò¸Å ÇÃ·¹¾î ´Ü°¡¶ó Æ¼¼ÅÃ÷</font>
+					  <font color="#000000">ì¸ì¦ˆ ì†Œë§¤ í”Œë ˆì–´ ë‹¨ê°€ë¼ í‹°ì…”ì¸ </font>
 					  
 				      </font></td>
 				    </tr>
@@ -2912,7 +2918,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">10,500¿ø</font></strong>
+					<strong><font color="#a3a3a3">10,500ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2923,7 +2929,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -2954,7 +2960,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡Ú¸¸Àåµ¹ÆÄ¡Ú°í°´ÀÌ ¸ÕÀú ¾Ë¾Æº» BEST ÆÒÃ÷</font>
+					<font color="#888888">â˜…ë§Œìž¥ëŒíŒŒâ˜…ê³ ê°ì´ ë¨¼ì € ì•Œì•„ë³¸ BEST íŒ¬ì¸ </font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -2963,7 +2969,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('20')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">PA-2222 ÆÄ½ºÅÚ ÆÒÃ÷</font>
+					  <font color="#000000">PA-2222 íŒŒìŠ¤í…” íŒ¬ì¸ </font>
 					  
 				      </font></td>
 				    </tr>
@@ -2971,7 +2977,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">17,000¿ø</font></strong>
+					<strong><font color="#a3a3a3">17,000ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -2982,7 +2988,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
                       </tr></table><table width='1180' border='0' cellspacing='0' cellpadding='0'><tr>
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -3013,7 +3019,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">Ä¿ÇÃ·è ÃßÃµ¢¾ 3°¡Áö Å¸ÀÔÀÇ ±Í¿©¿î ÀÚ¼ö!</font>
+					<font color="#888888">ì»¤í”Œë£© ì¶”ì²œâ™¥ 3ê°€ì§€ íƒ€ìž…ì˜ ê·€ì—¬ìš´ ìžìˆ˜!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -3022,7 +3028,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('21')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">³¯¾¾ ÀÚ¼ö ³²³à°ø¿ë ¸ÇÅõ¸Ç</font>
+					  <font color="#000000">ë‚ ì”¨ ìžìˆ˜ ë‚¨ë…€ê³µìš© ë§¨íˆ¬ë§¨</font>
 					  
 				      </font></td>
 				    </tr>
@@ -3030,7 +3036,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">21,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">21,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -3041,7 +3047,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -3072,7 +3078,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡ÚMADE Èñ¸ð¸®~¡Ú ¾ðÁ¦³ª ¿ÇÀº º£ÀÌÁ÷ Æ¼¼ÅÃ÷ !!</font>
+					<font color="#888888">â˜…MADE í¬ëª¨ë¦¬~â˜… ì–¸ì œë‚˜ ì˜³ì€ ë² ì´ì§ í‹°ì…”ì¸  !!</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -3081,7 +3087,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('22')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">¾î¹Ý º£ÀÌÁ÷ ¹ÝÆÈÆ¼</font>
+					  <font color="#000000">ì–´ë°˜ ë² ì´ì§ ë°˜íŒ”í‹°</font>
 					  
 				      </font></td>
 				    </tr>
@@ -3089,7 +3095,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">10,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">10,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -3100,7 +3106,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -3131,7 +3137,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">¡Ú ´ë¹Ú SET ¡Ú ¿øÇÇ½º 2°³¸¦ ÇÔ²² µå·Á¿ä ¡Ú</font>
+					<font color="#888888">â˜… ëŒ€ë°• SET â˜… ì›í”¼ìŠ¤ 2ê°œë¥¼ í•¨ê»˜ ë“œë ¤ìš” â˜…</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -3140,7 +3146,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('23')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">ÆÛÇ¾ º£ÀÌÁ÷&·¹ÀÌ½º ¿øÇÇ½º ¼¼Æ®</font>
+					  <font color="#000000">í¼í“¸ ë² ì´ì§&ë ˆì´ìŠ¤ ì›í”¼ìŠ¤ ì„¸íŠ¸</font>
 					  
 				      </font></td>
 				    </tr>
@@ -3148,7 +3154,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">38,300¿ø</font></strong>
+					<strong><font color="#a3a3a3">38,300ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -3159,7 +3165,7 @@
 			  </table></td>
 			  
 			  
-			  <!--ÁÖ°£ º£½ºÆ® Á¾·á-->
+			  <!--ì£¼ê°„ ë² ìŠ¤íŠ¸ ì¢…ë£Œ-->
 			  
 			  <td align="center" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
@@ -3190,7 +3196,7 @@
 				    </tr>
 				    <tr>
 				      <td width="240">
-					<font color="#888888">Çã¸®²ö set À¯´ÏÅ©ÇÑ ÆÐÅÏ ¿øÇÇ½º :)</font>
+					<font color="#888888">í—ˆë¦¬ëˆ set ìœ ë‹ˆí¬í•œ íŒ¨í„´ ì›í”¼ìŠ¤ :)</font>
 				      </td>
 				    </tr>
 				    <tr>
@@ -3199,7 +3205,7 @@
 				    <tr>
 				      <td width="240"><font color="#000000" onclick="JavaScript:gotoMDGoodView('24')" style="cursor:pointer;cursor:hand;" onmouseout="this.style.color='#000000';" onmouseover="this.style.color='#999999';">
 					  
-					  <font color="#000000">(³»µþ±Ý»ç¿ù / ¹éÁøÈñ ÇùÂù) Å×ÀÌÅ© ³«¿±ÆÐÅÏ ¿øÇÇ½º</font>
+					  <font color="#000000">(ë‚´ë”¸ê¸ˆì‚¬ì›” / ë°±ì§„í¬ í˜‘ì°¬) í…Œì´í¬ ë‚™ì—½íŒ¨í„´ ì›í”¼ìŠ¤</font>
 					  
 				      </font></td>
 				    </tr>
@@ -3207,7 +3213,7 @@
 				    <tr>
 				      <td width="240">
 					
-					<strong><font color="#a3a3a3">26,800¿ø</font></strong>
+					<strong><font color="#a3a3a3">26,800ì›</font></strong>
                                       </td>
 				    </tr>
 				</table></td>
@@ -3218,21 +3224,21 @@
 			  </table></td>
 
 		
-		<!--   <9 ~ 24 Á¾·á> -->
+		<!--   <9 ~ 24 ì¢…ë£Œ> -->
 
 
 
 		
 
-			  <!--ÁÖ°£ ¾Ç¼¼»ç¸® º£½ºÆ® »óÇ° ¾ÆÀÌÅÛ Á¾·á-->
-			  <!--ÁÖ°£ ¾Ç¼¼»ç¸® º£½ºÆ® »óÇ° ¾ÆÀÌÅÛ Á¾·á-->
+			  <!--ì£¼ê°„ ì•…ì„¸ì‚¬ë¦¬ ë² ìŠ¤íŠ¸ ìƒí’ˆ ì•„ì´í…œ ì¢…ë£Œ-->
+			  <!--ì£¼ê°„ ì•…ì„¸ì‚¬ë¦¬ ë² ìŠ¤íŠ¸ ìƒí’ˆ ì•„ì´í…œ ì¢…ë£Œ-->
 
-			  <!--ÁÖ°£ ¾Ç¼¼»ç¸® º£½ºÆ® »óÇ° ¾ÆÀÌÅÛ Á¾·á-->
+			  <!--ì£¼ê°„ ì•…ì„¸ì‚¬ë¦¬ ë² ìŠ¤íŠ¸ ìƒí’ˆ ì•„ì´í…œ ì¢…ë£Œ-->
 			</tr>
 		      </table>
 		      <table width='1180' border='0' cellspacing='0' cellpadding='0'>
 			<tr>
-			  <!-- ·Îµù½Ã°£4 : 41051.86  -->
+			  <!-- ë¡œë”©ì‹œê°„4 : 41051.86  -->
 			</tr>
 		    </table></td>
 		  </tr>
@@ -3294,7 +3300,7 @@
 		</script>
 
 
-		<!-- ÀÛ¼º½Ã°£ : 0.265625  -->
+		<!-- ìž‘ì„±ì‹œê°„ : 0.265625  -->
 
 	  </div></td>
 	</tr>
@@ -3313,17 +3319,17 @@
 		<td height="150" align="center" bgcolor="#FFFFFF"><table
 								     width="1190" border="0" cellspacing="0" cellpadding="0">
 		    <tr>
-		      <td align="center"><a href="/Ncs/message1.asp">Áú¹®°ú´äº¯</a></td>
+		      <td align="center"><a href="/Ncs/message1.asp">ì§ˆë¬¸ê³¼ë‹µë³€</a></td>
 		      <td align="center"><a
-					    href="/Ncs/Recently_Review.asp?site=D">»óÇ°ÈÄ±â</a></td>
-		      <td align="center"><a href="/my/myCouponBook_guest.asp">ÇÒÀÎÇýÅÃ</a></td>
-		      <td align="center"><a href="/Ncs/notice.asp">°øÁö»çÇ×</a></td>
+					    href="/Ncs/Recently_Review.asp?site=D">ìƒí’ˆí›„ê¸°</a></td>
+		      <td align="center"><a href="/my/myCouponBook_guest.asp">í• ì¸í˜œíƒ</a></td>
+		      <td align="center"><a href="/Ncs/notice.asp">ê³µì§€ì‚¬í•­</a></td>
 		      <td align="center"><a
-					    href="/Nshopping/Shopping_OnlyYou.asp">°³ÀÎ°áÁ¦</a></td>
-		      <td align="center"><a href="/customer/order_search.asp">ÁÖ¹®Á¶È¸</a></td>
+					    href="/Nshopping/Shopping_OnlyYou.asp">ê°œì¸ê²°ì œ</a></td>
+		      <td align="center"><a href="/customer/order_search.asp">ì£¼ë¬¸ì¡°íšŒ</a></td>
 		      <td align="center"><a
-					    href="/NShopping/itemshopping_today.asp">ÃÖ±Ùº»»óÇ°</a></td>
-		      <td align="center"><a href="/my/myzzim2.asp">°ü½É»óÇ°</a></td>
+					    href="/NShopping/itemshopping_today.asp">ìµœê·¼ë³¸ìƒí’ˆ</a></td>
+		      <td align="center"><a href="/my/myzzim2.asp">ê´€ì‹¬ìƒí’ˆ</a></td>
 		    </tr>
 		</table></td>
 	      </tr>
@@ -3353,11 +3359,11 @@
 			    <td height="26">&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td height="25"><span class="bottom04">¹ÝÇ°ÁÖ¼Ò</span></td>
+			    <td height="25"><span class="bottom04">ë°˜í’ˆì£¼ì†Œ</span></td>
 			  </tr>
 			  <tr>
-			    <td><span class="bottom04">¼­¿ï½Ã ¼­´ë¹®±¸ ¼­´ë¹®¿ìÃ¼±¹ »ç¼­ÇÔ
-				¼ÒÆ÷¿µ¾÷°ú ´ÙÈ«¾ØÁö´ÏÇÁ ¾Õ<br>¿ìÆí¹øÈ£ : 120-600
+			    <td><span class="bottom04">ì„œìš¸ì‹œ ì„œëŒ€ë¬¸êµ¬ ì„œëŒ€ë¬¸ìš°ì²´êµ­ ì‚¬ì„œí•¨
+				ì†Œí¬ì˜ì—…ê³¼ ë‹¤í™ì•¤ì§€ë‹ˆí”„ ì•ž<br>ìš°íŽ¸ë²ˆí˜¸ : 120-600
 			    </span></td>
 			  </tr>
 		      </table></td>
@@ -3368,32 +3374,32 @@
 		    <tr>
 		      <td align="left" style="cursor: pointer; cursor: hand;"
 			  onClick="document.location.href='/introduction/introduction3.asp'"><span
-												class="bottom02">&gt; ÀÌ¿ë¾à°ü</span></td>
+												class="bottom02">&gt; ì´ìš©ì•½ê´€</span></td>
 		      <td align="left" style="cursor: pointer; cursor: hand;"
 			  onClick="document.location.href='http://www.zinif.com'"><span
 										     class="bottom02">&gt; MENS ZINIF</span></td>
-		      <td align="left"><span class="bottom02">&gt; È¸»ç¸í :
-			  (ÁÖ)´ÙÈ«¾ØÁö´ÏÇÁ</span></td>
+		      <td align="left"><span class="bottom02">&gt; íšŒì‚¬ëª… :
+			  (ì£¼)ë‹¤í™ì•¤ì§€ë‹ˆí”„</span></td>
 		    </tr>
 
 		    <tr>
 		      <td align="left" style="cursor: pointer; cursor: hand;"
 			  onClick="document.location.href='/introduction/introduction2.asp'"><span
-												class="bottom02">&gt; <font color="#FFFFFF">°³ÀÎÁ¤º¸Ãë±Þ¹æÄ§</font></span></td>
+												class="bottom02">&gt; <font color="#FFFFFF">ê°œì¸ì •ë³´ì·¨ê¸‰ë°©ì¹¨</font></span></td>
 		      <td align="left">&nbsp;</td>
-		      <td align="left"><span class="bottom02">&gt; ´ëÇ¥ÀÌ»ç
-			  : ÀÌµ¿È¯</span></td>
+		      <td align="left"><span class="bottom02">&gt; ëŒ€í‘œì´ì‚¬
+			  : ì´ë™í™˜</span></td>
 		    </tr>
 
 		    <tr>
 		      <td align="left" style="cursor: pointer; cursor: hand;"
 			  onClick="document.location.href='/Ncommunity/Model_Register.asp'"><span
-											       class="bottom02">&gt; ¸ðµ¨Áö¿ø</span></td>
+											       class="bottom02">&gt; ëª¨ë¸ì§€ì›</span></td>
 		      <td align="left">&nbsp;</td>
-		      <td align="left"><span class="bottom02">&gt; ÁÖ¼Ò :
-			  ¼­¿ï °­³² ³íÇö 200-7 ¾î¹ÝÇÏÀÌºê 10Ãþ<br> <font color="333333">&gt;
-			  </font><font color="#FFFFFF">±³È¯ ¹× ¹ÝÇ°Àº ¹Ýµå½Ã ÁÂÃøÀÇ ±³È¯¹ÝÇ° ÁÖ¼Ò·Î<br>
-			    <font color="333333">&gt; </font>º¸³»ÁÖ¼¼¿ä
+		      <td align="left"><span class="bottom02">&gt; ì£¼ì†Œ :
+			  ì„œìš¸ ê°•ë‚¨ ë…¼í˜„ 200-7 ì–´ë°˜í•˜ì´ë¸Œ 10ì¸µ<br> <font color="333333">&gt;
+			  </font><font color="#FFFFFF">êµí™˜ ë° ë°˜í’ˆì€ ë°˜ë“œì‹œ ì¢Œì¸¡ì˜ êµí™˜ë°˜í’ˆ ì£¼ì†Œë¡œ<br>
+			    <font color="333333">&gt; </font>ë³´ë‚´ì£¼ì„¸ìš”
 			  </font>
 		      </span></td>
 
@@ -3401,10 +3407,10 @@
 		    <tr>
 		      <td align="left" style="cursor: pointer; cursor: hand;"
 			  onClick="document.location.href='/introduction/Recruit.asp'"><span
-											  class="bottom02">&gt; Ã¤¿ë°ø°í</span></td>
+											  class="bottom02">&gt; ì±„ìš©ê³µê³ </span></td>
 		      <td align="left"><span class="bottom01">SNS</span></td>
 		      <td align="left"><span class="bottom02">&gt;
-			  »ç¾÷ÀÚµî·Ï¹øÈ£ : 211-88-67647</span></td>
+			  ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸ : 211-88-67647</span></td>
 		    </tr>
 		    <tr>
 		      <td align="left" style="cursor: pointer; cursor: hand;"
@@ -3424,16 +3430,16 @@
 																																								     src="images_2015/main/icon_sns03k.png" width="40"
 																																								     height="32" border="0"></a></td>
 		      <td align="left"><span class="bottom02">&gt;
-			  Åë½ÅÆÇ¸Å½Å°í¹øÈ£ : Á¦2011-¼­¿ï°­³²-03049È£</span></td>
+			  í†µì‹ íŒë§¤ì‹ ê³ ë²ˆí˜¸ : ì œ2011-ì„œìš¸ê°•ë‚¨-03049í˜¸</span></td>
 		    </tr>
 		    <tr>
 		      <td align="left"><span class="bottom02"
 					     onClick="document.location.href='mailto:webbox@dahong.co.kr'"
-					     style="cursor: pointer; cursor: hand;">&gt; Á¦ÈÞ¹®ÀÇ</span></td>
+					     style="cursor: pointer; cursor: hand;">&gt; ì œíœ´ë¬¸ì˜</span></td>
 		      <td align="left"><span class="bottom02">&gt;
-			  °³ÀÎÁ¤º¸º¸È£ Ã¥ÀÓÀÚ : ¹Ú°æ¼­ [</span><a
+			  ê°œì¸ì •ë³´ë³´í˜¸ ì±…ìž„ìž : ë°•ê²½ì„œ [</span><a
 								  href="http://ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2011322016230203049&amp;area1=&amp;area2=&amp;currpage=1&amp;searchKey=04&amp;searchVal=2118867647&amp;stdate=&amp;enddate="
-								  target="_blank"><span class="bottom02">»ç¾÷ÀÚÁ¤º¸È®ÀÎ</span></a><span
+								  target="_blank"><span class="bottom02">ì‚¬ì—…ìžì •ë³´í™•ì¸</span></a><span
 																     class="bottom02">]</span></td>
 		    </tr>
 		    <tr>
@@ -3448,11 +3454,11 @@
 
 		</td>
 	      </tr>
-	    </table> <!-- ÆäÀÌÁö Å¾ ½ÃÀÛ --> <!--
+	    </table> <!-- íŽ˜ì´ì§€ íƒ‘ ì‹œìž‘ --> <!--
 						 <div id="pageTop" class="pageTop">
 						   <a href="#top"><img src="images_2015/main/new_topbt.png" border="0"></a>
 						 </div>
-						 --> <!-- ÆäÀÌÁö Å¾ Á¾·á --> <Script language="javascript">
+						 --> <!-- íŽ˜ì´ì§€ íƒ‘ ì¢…ë£Œ --> <Script language="javascript">
 	      //	document.write(parent.document.referrer);
 	    </script> <!-- AceCounter Log Gathering Script V.72.2013010701 --> <script
 										  language='javascript'>
@@ -3479,7 +3485,7 @@
 	      <img
 		 src='https://gtc1.acecounter.com:8080/?uid=AS4A32151314840&je=n&'
 		 border=0 width=1 height=1>
-	    </noscript> <!-- AceCounter Log Gathering Script End --> <!-- http://www.dahong.co.kr °øÅë ½ºÅ©¸³Æ® -->
+	    </noscript> <!-- AceCounter Log Gathering Script End --> <!-- http://www.dahong.co.kr ê³µí†µ ìŠ¤í¬ë¦½íŠ¸ -->
 	    <!-- NHN Conversion Tracking System Gathering Script V.11.20100308 -->
 	    <script type='text/javascript'>
 	      if (typeof _TGCD == 'undefined') {
@@ -3671,30 +3677,30 @@
 			   }
 			   ;
 			   if (_CNV.replace(/[^0-9]/g, '') == '')
-			   _CNV = _G_TAG('b', '°áÁ¦±Ý¾×', 1);
+			   _CNV = _G_TAG('b', 'ê²°ì œê¸ˆì•¡', 1);
 			   _CNV = _S_TAG(_CNV);
 			   _CNV = _CNV.replace(/[^0-9]/g, '');
 			   }
 			   ;
 			   if (_CNV == ''
 			   && document.URL.indexOf('cart_result') > 0) { /* Whois */
-		  var _CNVT = _G_TAG('td', '°áÁ¦±Ý¾×', 0);
+		  var _CNVT = _G_TAG('td', 'ê²°ì œê¸ˆì•¡', 0);
 		  _CNVT = _CNVT.toLowerCase();
 		  _CNV = _CNVT.substring(_CNVT
-		  .indexOf('°áÁ¦±Ý¾×') + 1, _CNVT
+		  .indexOf('ê²°ì œê¸ˆì•¡') + 1, _CNVT
 		  .indexOf('</td>', _CNVT
-	  .indexOf('°áÁ¦±Ý¾×') + 5));
+	  .indexOf('ê²°ì œê¸ˆì•¡') + 5));
 	  _CNV = _S_TAG(_CNV);
 	  _CNV = _CNV.replace(/[^0-9]/g, '');
 	  }
 	  ;
 	  if (_CNV == ''
 	  && document.URL.indexOf('order_result') > 0) { /* Cafe24 */
-		var _CNVT = _G_TAG('td', 'ÃÑ±¸¸Å¾×', 0);
+		var _CNVT = _G_TAG('td', 'ì´êµ¬ë§¤ì•¡', 0);
 		_CNVT = _CNVT.toLowerCase();
 		_CNV = _CNVT.substring(_CNVT
-		.indexOf('ÃÑ±¸¸Å¾×'), _CNVT.indexOf(
-		'</b>', _CNVT.indexOf('ÃÑ±¸¸Å¾×')));
+		.indexOf('ì´êµ¬ë§¤ì•¡'), _CNVT.indexOf(
+		'</b>', _CNVT.indexOf('ì´êµ¬ë§¤ì•¡')));
 _CNV = _S_TAG(_CNV);
 _CNV = _CNV.replace(/[^0-9]/g, '');
 }
@@ -3705,7 +3711,7 @@ _CNV = ovt_amount;
 }
 ;
 if (_CNV != '') {
-_CNM = "±¸¸Å¿Ï·á";
+_CNM = "êµ¬ë§¤ì™„ë£Œ";
 }
 ;
 }
@@ -3902,7 +3908,7 @@ _bO = (_TIX(navigator.userAgent, "Opera") > -1);
 				   </script> <!-- NHN Conversion Tracking System Gathering Script End -->
 
 
-	    <!-- °øÅë½ºÅ©¸³Æ® ³¡ --> <!-- Google Code for &#51204;&#54872;X --> <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+	    <!-- ê³µí†µìŠ¤í¬ë¦½íŠ¸ ë --> <!-- Google Code for &#51204;&#54872;X --> <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
 	    <script type="text/javascript">
 	      /* <![CDATA[ */
 						var google_conversion_id = 1056158760;
@@ -3921,7 +3927,7 @@ _bO = (_TIX(navigator.userAgent, "Opera") > -1);
 	      </div>
 	    </noscript> <script language="javascript"
 				src="https://pgweb.dacom.net/WEB_SERVER/js/escrowValid.js"></script>
-	    <!-- ´ÙÈ« ±¸±Û ¾Ö³Î¸®Æ½½º --> <script type="text/javascript">
+	    <!-- ë‹¤í™ êµ¬ê¸€ ì• ë„ë¦¬í‹±ìŠ¤ --> <script type="text/javascript">
 	      var _gaq = _gaq || [];
 	      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
 	      _gaq.push([ '_require', 'inpage_linkid', pluginUrl ]);
@@ -3937,28 +3943,28 @@ _bO = (_TIX(navigator.userAgent, "Opera") > -1);
 	      var s = document.getElementsByTagName('script')[0];
 	      s.parentNode.insertBefore(ga, s);
 	      })();
-	    </script> <!-- ´ÙÈ« ±¸±Û ¾Ö³Î¸®Æ½½º --> <script type='text/javascript'
+	    </script> <!-- ë‹¤í™ êµ¬ê¸€ ì• ë„ë¦¬í‹±ìŠ¤ --> <script type='text/javascript'
 							    id='cmclog_script'
 							    src='https://cmclog-001.cafe24.com/weblog.js?uid=zinif24&uname=zinif24'></script>
 
-	    <!-- ¸®Æ÷Æ®2.0 ·Î±×ºÐ¼®ÄÚµå ½ÃÀÛ --> <script type="text/javascript">
+	    <!-- ë¦¬í¬íŠ¸2.0 ë¡œê·¸ë¶„ì„ì½”ë“œ ì‹œìž‘ --> <script type="text/javascript">
 	      var JsHost = (("https:" == document.location.protocol) ? "https://"
 	      : "http://");
-	      var uname = escape('´ÙÈ«');
+	      var uname = escape('ë‹¤í™');
 	      document
 	      .write(unescape("%3Cscript id='log_script' src='"
 	      + JsHost
 	      + "zinif24.weblog.cafe24.com/weblog.js?uid=zinif24&uname="
 	      + uname
 	      + "' type='text/javascript'%3E%3C/script%3E"));
-	    </script> <!-- ¸®Æ÷Æ®2.0  ·Î±×ºÐ¼®ÄÚµå ¿Ï·á --> <!-- ³×ÀÌ¹ö À¥·Î±× ºÐ¼® ½ÃÀÛ --> <!-- °øÅë Àû¿ë ½ºÅ©¸³Æ® , ¸ðµç ÆäÀÌÁö¿¡ ³ëÃâµÇµµ·Ï ¼³Ä¡. ´Ü ÀüÈ¯ÆäÀÌÁö ¼³Á¤°ªº¸´Ù Ç×»ó ÇÏ´Ü¿¡ À§Ä¡ÇØ¾ßÇÔ -->
+	    </script> <!-- ë¦¬í¬íŠ¸2.0  ë¡œê·¸ë¶„ì„ì½”ë“œ ì™„ë£Œ --> <!-- ë„¤ì´ë²„ ì›¹ë¡œê·¸ ë¶„ì„ ì‹œìž‘ --> <!-- ê³µí†µ ì ìš© ìŠ¤í¬ë¦½íŠ¸ , ëª¨ë“  íŽ˜ì´ì§€ì— ë…¸ì¶œë˜ë„ë¡ ì„¤ì¹˜. ë‹¨ ì „í™˜íŽ˜ì´ì§€ ì„¤ì •ê°’ë³´ë‹¤ í•­ìƒ í•˜ë‹¨ì— ìœ„ì¹˜í•´ì•¼í•¨ -->
 	    <script type="text/javascript">
 	      var _NGUL = "wcs.naver.net/wcslog.js";
 	      var _NPR = location.protocol == "https:" ? "https://"
 	      + _NGUL : "http://" + _NGUL;
 	      document
 	      .writeln("<scr"+"ipt type='text/ja"+"vascript' src='"+ _NPR +"'></scr"+"ipt>");
-	    </script> <!-- ³×ÀÌ¹ö À¥·Î±× ºÐ¼® Á¾·á --> <script type="text/javascript">
+	    </script> <!-- ë„¤ì´ë²„ ì›¹ë¡œê·¸ ë¶„ì„ ì¢…ë£Œ --> <script type="text/javascript">
 	      if (!wcs_add)
 	      var wcs_add = {};
 	      wcs_add["wa"] = "s_4e569f5a85b7";
@@ -3966,23 +3972,23 @@ _bO = (_TIX(navigator.userAgent, "Opera") > -1);
 	      var _nao = {};
 	      wcs.inflow();
 	      wcs_do(_nao);
-	    </script> <!-- Å¸°ÔÆÃ°ÔÀÌÆ® ½ÃÀÛ --> <!-- WIDERPLANET  SCRIPT START 2015.8.28 -->
+	    </script> <!-- íƒ€ê²ŒíŒ…ê²Œì´íŠ¸ ì‹œìž‘ --> <!-- WIDERPLANET  SCRIPT START 2015.8.28 -->
 	    <div id="wp_tg_cts" style="display: none;"></div> <script
 								 type="text/javascript">
 	      var wptg_tagscript_vars = wptg_tagscript_vars || [];
 	      wptg_tagscript_vars.push((function() {
 	      return {
-	      wp_hcuid : "", /*Cross device targetingÀ» ¿øÇÏ´Â ±¤°íÁÖ´Â ·Î±×ÀÎÇÑ »ç¿ëÀÚÀÇ Unique ID (ex. ·Î±×ÀÎ ID, °í°´³Ñ¹ö µî)¸¦ ¾ÏÈ£È­ÇÏ¿© ´ëÀÔ.
-	      *ÁÖÀÇ: ·Î±×ÀÎ ÇÏÁö ¾ÊÀº »ç¿ëÀÚ´Â ¾î¶°ÇÑ °ªµµ ´ëÀÔÇÏÁö ¾Ê½À´Ï´Ù.*/
-	      ti : "23019", /*±¤°íÁÖ ÄÚµå*/
-	      ty : "Home", /*Æ®·¡Å·ÅÂ±× Å¸ÀÔ*/
-	      device : "web" /*µð¹ÙÀÌ½º Á¾·ù (web ¶Ç´Â mobile)*/
+	      wp_hcuid : "", /*Cross device targetingì„ ì›í•˜ëŠ” ê´‘ê³ ì£¼ëŠ” ë¡œê·¸ì¸í•œ ì‚¬ìš©ìžì˜ Unique ID (ex. ë¡œê·¸ì¸ ID, ê³ ê°ë„˜ë²„ ë“±)ë¥¼ ì•”í˜¸í™”í•˜ì—¬ ëŒ€ìž….
+	      *ì£¼ì˜: ë¡œê·¸ì¸ í•˜ì§€ ì•Šì€ ì‚¬ìš©ìžëŠ” ì–´ë– í•œ ê°’ë„ ëŒ€ìž…í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.*/
+	      ti : "23019", /*ê´‘ê³ ì£¼ ì½”ë“œ*/
+	      ty : "Home", /*íŠ¸ëž˜í‚¹íƒœê·¸ íƒ€ìž…*/
+	      device : "web" /*ë””ë°”ì´ìŠ¤ ì¢…ë¥˜ (web ë˜ëŠ” mobile)*/
 
 	      };
 	      }));
 	    </script> <script type="text/javascript" async
 			      src="//astg.widerplanet.com/js/wp_astg_4.0.js"></script> <!-- // WIDERPLANET  SCRIPT END 2015.8.28 -->
-	    <!-- Å¸°ÔÆÃ°ÔÀÌÆ® Á¾·á --> <!-- ½ºÅ¸ÀÏ´åÄÄ °øÅë Àû¿ë ½ºÅ©¸³Æ® , ¸ðµç ÆäÀÌÁö¿¡ ³ëÃâµÇµµ·Ï ¼³Ä¡.Ç×»ó ÇÏ´Ü¿¡ À§Ä¡ÇØ¾ßÇÔ -->
+	    <!-- íƒ€ê²ŒíŒ…ê²Œì´íŠ¸ ì¢…ë£Œ --> <!-- ìŠ¤íƒ€ì¼ë‹·ì»´ ê³µí†µ ì ìš© ìŠ¤í¬ë¦½íŠ¸ , ëª¨ë“  íŽ˜ì´ì§€ì— ë…¸ì¶œë˜ë„ë¡ ì„¤ì¹˜.í•­ìƒ í•˜ë‹¨ì— ìœ„ì¹˜í•´ì•¼í•¨ -->
 	    <script type="text/javascript">
 	      //<![CDATA[
 						// sta1.com trace script Ver.1.0
@@ -4063,7 +4069,7 @@ _bO = (_TIX(navigator.userAgent, "Opera") > -1);
 	</tr>
       </table>
 
-      <!-- Å©¸®Å×¿À ½ÃÀÛ -->
+      <!-- í¬ë¦¬í…Œì˜¤ ì‹œìž‘ -->
       <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js"
 	      async="true"></script>
       <script type="text/javascript">
@@ -4078,7 +4084,7 @@ _bO = (_TIX(navigator.userAgent, "Opera") > -1);
 	event : "viewHome"
 	});
       </script>
-      <!-- Å©¸®Å×¿À Á¾·á -->
+      <!-- í¬ë¦¬í…Œì˜¤ ì¢…ë£Œ -->
     </body>
   </center>
 </html>
