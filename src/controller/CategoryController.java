@@ -14,13 +14,13 @@ public class CategoryController implements Controller {
 	@Override
 	public ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String category = request.getParameter("category");
-		ItemDAO.getInstance().getCategoryList(category);
-		request.setAttribute("category", category);
 		
+		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
+		list =  ItemDAO.getInstance().getCategoryList(request.getParameter("category"));
+		request.setAttribute("category", list);
+		System.out.println(list);
 		return new ModelAndView("search_ok.jsp");
 	}
-
 }
 
 /*@Override
@@ -28,7 +28,7 @@ public ModelAndView handle(HttpServletRequest request,
 		HttpServletResponse response) throws Exception {
 	String path = "";
 	ArrayList<ItemVO> cartlist = new ArrayList<ItemVO>();
-	cartlist = CartDAO.getInstance().getCartList(request);
+	cartlist = CartDAO.getInstance().getCartList("request");
 	System.out.println("CARTLISTCONTROLLER :"+cartlist);
 	int sum =0;
 	for(int i = 0; i < cartlist.size(); i++){
