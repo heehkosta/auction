@@ -34,7 +34,13 @@
     <title>HeeH Mall</title>
     <META HTTP-EQUIV="imagetoolbar" CONTENT="no">
     <link rel="stylesheet" type="text/css" href="Lib/TextForm.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 
@@ -680,12 +686,12 @@
 		  <td align="center" valign="top">
 		    <!-- 상단 메뉴 시작-->
 
-		    <table width="1190" border="0" cellspacing="0" cellpadding="0">
+		  <table width="1190" border="0" cellspacing="0" cellpadding="0">
 		      <tr>
 			<td width="300" height="182" valign="top"><a
-								     href="http://www.dahong.co.kr/" onFocus="this.blur();"><img
-															       src="images_2015/top/logo_2015.gif" border="0" /></a></td>
-			<td width="470" valign="bottom" align="right"
+								     href="index.jsp" onFocus="this.blur();"><img
+															       src="img/heehmalllogo.png" width="250" height="100" border="0" /></a></td>
+			<td width="800" valign="center" align="right"
 			    style="padding-right: 5px;">
 			  <!--중간배너시작 search-->
 
@@ -697,19 +703,17 @@
 
 			      <!-- 서치 박스 -->
 			      <form action="DispatcherServlet.do" method="get" id="frm">
-				<div class="col-sm-4">
-				  <input type="hidden" name="command" value="search">
+				 <div class="col-lg-25">
+    <div class="input-group">
+      <input type="hidden" name="command" value="search">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
 
-				  <input type="text" name="textbox" class="form-control"
-					 placeholder="Search">
-
-				</div>
-				<div class="col-sm-1">
-				  <label></label>
-				  <button type="submit" form="frm" value="Submit"
-					  class="btn btn-primary btn-block btn-sm">Search
-				  </button>
-				</div>
 			      </form>
 
 
