@@ -87,10 +87,8 @@ text-align: left;
 			
 			<!-- 클릭할 시에 컨트롤러로 들어가야한다. 이때 id 번호를 가지고 들어가야 한다.  -->
 				<c:forEach items="${category}" var="item" varStatus="vs">
-					<tr class='clickable-row' data-href=#>
-					    <a href="">
+					<tr class='clickable-row' data-href="DispatcherServlet.do?command=describe&&id=${item.itemID}">
 					    <td><img alt="" src="./img/clothes/${item.itemID}.gif"> </td>
-					    </a>
 						<td><pre>${item.itemID}</pre></td>
 						<td>${item.name}</td>
 						<td>${item.buy_Price}</td>
