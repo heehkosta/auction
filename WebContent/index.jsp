@@ -1,4 +1,4 @@
-<%@page import="model.AccountVO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -1599,194 +1599,80 @@ style="padding-right: 4px"><span class="top04">
 	      <div align="center">
 
 		<!-- 메인 이미지 테이블-->
-		<table width="1182" border="0" cellspacing="0" cellpadding="0"
-		       style="display: inline;">
-		  <tr align="center">
-		    <td style="position: relative;"><SCRIPT
-						       language="JavaScript">
-			<!--
-			    function doMainClose(id, chkid) {
-			    if (document.getElementById(chkid).checked) {
-			    setCookie(id, "done", 1);
-			    }
-			    document.getElementById(id).style.display = "none";
-			    document
-			    .getElementById('mainpopupclose').style.display = "none";
-			    }
-			    function closeMainPopupLayer() {
-			    document
-			    .getElementById('mainpopupclose').style.display = "none";
-			    document
-			    .getElementById('mainpopup').style.display = "none";
-			    }
-			    // -->
-		      </SCRIPT> <!-- 송혜교 협찬 배너 
-				     <div id="mainpopupclose" style='position:absolute;right:8px;top:8px;width:38px;height:38px;border:0px none #000000; visibility: show;z-index:900'><img src="images_2015/top/closed.png" border="0" width="38" height="38" style="cursor:pointer;cursor:hand;" onClick="javascript:closeMainPopupLayer()"></div>
-				     <div id="mainpopup" style='position:absolute;left:0px;top:0px;width:1185px;height:549px;background-color: #ffffff;font-size: 11px; color:#FFFFFF; overflow:auto; border:1px none #000000; visibility: show;z-index:1'>
-				       <table width="1185" border="0" cellspacing="0" cellpadding="0">
-					 <tr>
-					   <td>
-					     <a href="http://www.dahong.co.kr/Ncommunity/celeb_list.asp"><img src="images_2015/top/star_20160404.jpg" border="0"></a>
-					   </td>
-					 </tr>
-					 <tr>
-					   <td bgcolor="#000000" height="49" align="right" style="padding-right:15px;">
-					     <table border="0" cellspacing="0" cellpadding="0" >
-					       <tr>
-						 <td style="padding-right:5px;font-size:13px;color:#FFFFFF;">메세지창을 다시 표시하지 않음</td>
-						 <td style="padding-right:10px;"><input type="checkbox" name="check_open_mainpopup" id="check_open_mainpopup" value="1" onClick="doMainClose('mainpopup','check_open_mainpopup')" /></td>
-						 <td style="font-size:13px;color:#FFFFFF;cursor:pointer;cursor:hand;" onClick="javascript:closeMainPopupLayer()" >[ 닫기 ]</td>
-					       </tr>
-					     </table>
-					   </td>
-					 </tr>
-				       </table>
-				     </div>
-				     
-				     -->
+		  <table width="1182" border="0" cellspacing="0" cellpadding="0" style="display:inline;">
+		      <tr align="center">
+			  <td style="position:relative;">
 
-		      <table width="720" border="0" cellpadding="0" cellspacing="0">
-			<tr>
-			  <td width="240" align="center"
-			      style="padding-right: 0px; padding-right: 1px;"><a
-										 href='/Nshopping/GoodView_Item.asp?Gserial=688253'
-										 onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_688253']);"><div
-																				 class='best_wrap' style='position: relative'>
-				<div class='image'>
-				  <img
-				     src='http://www.dzimg.com/dahong/201603/D688253_m.gif'
-				     border='0'>
-				</div>
-				<div class='etc' style='display: none'>
-				  <div class='etcwrap'>
-				    <span class='dsctxt'>★단독입고★ S,M 사이즈구성 * 날씬해보이는
-				      데님 원피스 !</span><span class='dsc'>쿠키쉐이크 데님 원피스</span><span
-													    class='price'>26800원</span>
-				  </div>
-				</div>
-			  </div></a></td>
-			  <td width="240" align="center"
-			      style="padding-right: 0px; padding-right: 1px;"><a
-										 href='/Nshopping/GoodView_Item.asp?Gserial=689017'
-										 onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_689017']);"><div
-																				 class='best_wrap' style='position: relative'>
-				<div class='image'>
-				  <img
-				     src='http://www.dzimg.com/dahong/201603/D689017_m.jpg'
-				     border='0'>
-				</div>
-				<div class='etc' style='display: none'>
-				  <div class='etcwrap'>
-				    <span class='dsctxt'>심플하면서도 고급스러운 디테일의 린넨 자켓 !</span><span
-													       class='dsc'>마거리트 린넨 자켓</span><span class='price'>74000원</span>
-				  </div>
-				</div>
-			  </div></a></td>
-			  <td width="240" align="center"
-			      style="padding-right: 0px; padding-right: 1px;"><a
-										 href='/Nshopping/GoodView_Item.asp?Gserial=687469'
-										 onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_687469']);"><div
-																				 class='best_wrap' style='position: relative'>
-				<div class='image'>
-				  <img
-				     src='http://www.dzimg.com/dahong/201602/D687469_m.jpg'
-				     border='0'>
-				</div>
-				<div class='etc' style='display: none'>
-				  <div class='etcwrap'>
-				    <span class='dsctxt'>A라인으로 편안한 에스닉 블라우스 ~</span><span
-												     class='dsc'>(소녀시대 / 태연 협찬) 슈바르츠 에스닉 블라우스</span><span
-																					  class='price'>39800원</span>
-				  </div>
-				</div>
-			  </div></a></td>
-			  <td width="240" rowspan="2" align="center"
-			      style="padding-right: 0px; padding-right: 0px;"><a
-										 href='http://www.dahong.co.kr/Nshopping/ItemShopping_Keyword.asp?a=217'
-										 target='_self'
-										 onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_132']);"><img
-																				src='http://www.dzimg.com/Main_Banner/132_1.jpg'
-																				border='0'></a></td>
-			</tr>
-			<tr>
-			  <td height="218" colspan="2" align="center"
-			      style="padding-top: 1px; padding-right: 1px;"><a
-									       href='http://www.dahong.co.kr/Ncommunity/celeb_list.asp'
-									       target='_self'
-									       onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_138']);"><img
-																			      src='http://www.dzimg.com/Main_Banner/138_3.jpg'
-																			      border='0'></a></td>
-			  <td height="218"
-			      style="padding-top: 1px; padding-right: 1px;"><a
-									       href='http://www.dahong.co.kr/Nshopping/ItemShopping_Keyword.asp?a=19&Site=D'
-									       target='_self'
-									       onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_135']);"><img
-																			      src='http://www.dzimg.com/Main_Banner/135_4.jpg'
-																			      border='0'></a></td>
-			</tr>
-			<tr>
-			  <td height="330" align="center"
-			      style="padding-top: 1px; padding-right: 1px;"><a
-									       href='/Nshopping/GoodView_Item.asp?Gserial=688339'
-									       onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_688339']);"><div
-																			       class='best_wrap' style='position: relative'>
-				<div class='image'>
-				  <img
-				     src='http://www.dzimg.com/dahong/201603/D688339_m.jpg'
-				     border='0'>
-				</div>
-				<div class='etc' style='display: none'>
-				  <div class='etcwrap'>
-				    <span class='dsctxt'>★기획상품★ 화사한 플로랄 패턴으로 포인트!</span><span
-													      class='dsc'>아이린 플로랄 미디 스커트</span><span class='price'>29800원</span>
-				  </div>
-				</div>
-			  </div></a></td>
-			  <td height="330" align="center"
-			      style="padding-top: 1px; padding-right: 1px;"><a
-									       href='/Nshopping/GoodView_Item.asp?Gserial=687235'
-									       onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_687235']);"><div
-																			       class='best_wrap' style='position: relative'>
-				<div class='image'>
-				  <img
-				     src='http://www.dzimg.com/dahong/201602/D687235_m.gif'
-				     border='0'>
-				</div>
-				<div class='etc' style='display: none'>
-				  <div class='etcwrap'>
-				    <span class='dsctxt'>오프숄더&블라우스 두가지 느낌 ♥</span><span
-												   class='dsc'>(신의목소리 / 허영지 협찬) 티지 러플 블라우스</span><span
-																				      class='price'>56500원</span>
-				  </div>
-				</div>
-			  </div></a></td>
-			  <td height="330"
-			      style="padding-top: 1px; padding-right: 1px;"><a
-									       href='/Nshopping/GoodView_Item.asp?Gserial=688982'
-									       onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_688982']);"><div
-																			       class='best_wrap' style='position: relative'>
-				<div class='image'>
-				  <img
-				     src='http://www.dzimg.com/dahong/201603/D688982_m.jpg'
-				     border='0'>
-				</div>
-				<div class='etc' style='display: none'>
-				  <div class='etcwrap'>
-				    <span class='dsctxt'>사랑스러운 스켈럽 9부 스웨터♥♥♥</span><span
-												     class='dsc'>에밀리 스캘럽 9부 스웨터</span><span class='price'>24800원</span>
-				  </div>
-				</div>
-			  </div></a></td>
-			  <td style="padding-top: 1px;"><a
-							   href='http://www.dahong.co.kr/Nshopping/ItemShopping_Keyword.asp?a=285'
-							   target='_self'
-							   onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_137']);"><img
-																	  src='http://www.dzimg.com/Main_Banner/137_2.jpg'
-																	  border='0'></a></td>
-			</tr>
-		    </table></td>
-		  </tr>
-		</table>
+			      <SCRIPT language="JavaScript"> 
+			       <!-- 
+							    function doMainClose(id, chkid) 
+			       { 
+				   if (document.getElementById(chkid).checked) 
+				   {
+				       setCookie( id, "done" , 1); 
+				   }		
+
+				   document.getElementById(id).style.display="none";
+				   document.getElementById('mainpopupclose').style.display="none";
+			       } 
+
+			       function closeMainPopupLayer()
+			       {
+				   document.getElementById('mainpopupclose').style.display="none";
+				   document.getElementById('mainpopup').style.display="none";
+			       }
+
+			       // --> 
+			      </SCRIPT>
+			      <!-- 송혜교 협찬 배너 
+				   <div id="mainpopupclose" style='position:absolute;right:8px;top:8px;width:38px;height:38px;border:0px none #000000; visibility: show;z-index:900'><img src="images_2015/top/closed.png" border="0" width="38" height="38" style="cursor:pointer;cursor:hand;" onClick="javascript:closeMainPopupLayer()"></div>
+				   <div id="mainpopup" style='position:absolute;left:0px;top:0px;width:1185px;height:549px;background-color: #ffffff;font-size: 11px; color:#FFFFFF; overflow:auto; border:1px none #000000; visibility: show;z-index:1'>
+				   <table width="1185" border="0" cellspacing="0" cellpadding="0">
+				   <tr>
+				   <td>
+				   <a href="http://www.dahong.co.kr/Ncommunity/celeb_list.asp"><img src="images_2015/top/star_20160404.jpg" border="0"></a>
+				   </td>
+				   </tr>
+				   <tr>
+				   <td bgcolor="#000000" height="49" align="right" style="padding-right:15px;">
+				   <table border="0" cellspacing="0" cellpadding="0" >
+				   <tr>
+				   <td style="padding-right:5px;font-size:13px;color:#FFFFFF;">메세지창을 다시 표시하지 않음</td>
+				   <td style="padding-right:10px;"><input type="checkbox" name="check_open_mainpopup" id="check_open_mainpopup" value="1" onClick="doMainClose('mainpopup','check_open_mainpopup')" /></td>
+
+				   <td style="font-size:13px;color:#FFFFFF;cursor:pointer;cursor:hand;" onClick="javascript:closeMainPopupLayer()" >[ 닫기 ]</td>
+				   </tr>
+				   </table>
+
+				   </td>
+				   </tr>
+				   </table>
+
+				   </div>
+				   
+				 -->
+
+			      <table width="720" border="0" cellpadding="0" cellspacing="0">
+				  <tr>
+				      <td width="240" align="center" style="padding-right:0px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=8' onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_688253']);"><div class='best_wrap' style='position:relative'><div class='image'><img src='http://www.dzimg.com/dahong/201603/D688253_m.gif' border='0'></div><div class='etc' style='display:none'><div class='etcwrap'><span class='dsctxt'>★단독입고★ S,M 사이즈구성 * 날씬해보이는 데님 원피스 !</span><span class='dsc'>쿠키쉐이크 데님 원피스</span><span class='price'>26800원</span></div>	</div>	</div></a></td>
+				      <td width="240" align="center" style="padding-right:0px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=28' onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_689017']);"><div class='best_wrap' style='position:relative'><div class='image'><img src='http://www.dzimg.com/dahong/201603/D689017_m.jpg' border='0'></div><div class='etc' style='display:none'><div class='etcwrap'><span class='dsctxt'>심플하면서도 고급스러운 디테일의 린넨 자켓 !</span><span class='dsc'>마거리트 린넨 자켓</span><span class='price'>74000원</span></div>	</div>	</div></a></td>
+				      <td width="240" align="center" style="padding-right:0px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=29' onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_687469']);"><div class='best_wrap' style='position:relative'><div class='image'><img src='http://www.dzimg.com/Dahong/201604/D689193_m.gif' border='0'></div><div class='etc' style='display:none'><div class='etcwrap'><span class='dsctxt'>A라인으로 편안한 에스닉 블라우스 ~</span><span class='dsc'>(소녀시대 / 태연 협찬) 슈바르츠 에스닉 블라우스</span><span class='price'>39800원</span></div>	</div>	</div></a></td>
+				      <td width="240" rowspan="2" align="center" style="padding-right:0px; padding-right:0px;"><a href='DispatcherServlet.do?command=describe&&id=25' target='_self'  onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_132']);"><img src='http://www.dzimg.com/Main_Banner/132_1.jpg' border='0' ></a></td>
+				  </tr>
+				  <tr>
+				      <td height="218" colspan="2" align="center" style="padding-top:1px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=32' target='_self'  onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_138']);"><img src='http://www.dzimg.com/Main_Banner/135_3.jpg' border='0' ></a></td>
+				      <td height="218" style="padding-top:1px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=31' target='_self'  onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_135']);"><img src='http://www.dzimg.com/Main_Banner/137_4.jpg' border='0' ></a></td>
+				      <tr>
+					  <td height="330" align="center" style="padding-top:1px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=26' onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_688339']);"><div class='best_wrap' style='position:relative'><div class='image'><img src='http://www.dzimg.com/Dahong/201603/D688785_m.gif' border='0'></div><div class='etc' style='display:none'><div class='etcwrap'><span class='dsctxt'>★기획상품★ 화사한 플로랄 패턴으로 포인트!</span><span class='dsc'>아이린 플로랄 미디 스커트</span><span class='price'>29800원</span></div>	</div>	</div></a></td>
+					  <td height="330" align="center" style="padding-top:1px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=18' onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_687235']);"><div class='best_wrap' style='position:relative'><div class='image'><img src='http://www.dzimg.com/dahong/201602/D687235_m.gif' border='0'></div><div class='etc' style='display:none'><div class='etcwrap'><span class='dsctxt'>오프숄더&블라우스 두가지 느낌 ♥</span><span class='dsc'>(의신목소리 / 허영지 협찬) 티지 러플 블라우스</span><span class='price'>56500원</span></div>	</div>	</div></a></td>
+					  <td height="330" style="padding-top:1px; padding-right:1px;"><a href='DispatcherServlet.do?command=describe&&id=30' onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'GOOD_688982']);"><div class='best_wrap' style='position:relative'><div class='image'><img src='http://www.dzimg.com/Dahong/201603/D688708_m.gif' border='0'></div><div class='etc' style='display:none'><div class='etcwrap'><span class='dsctxt'>사랑스러운 스켈럽 9부 스웨터♥♥♥</span><span class='dsc'>에밀리 스캘럽 9부 스웨터</span><span class='price'>24800원</span></div>	</div>	</div></a></td>
+					  <td width="330" style="padding-top:1px;"><a href='DispatcherServlet.do?command=describe&&id=27' target='_self'  onClick="_gaq.push(['_trackEvent', 'MAIN BANNER', 'Click', 'BANNER_137']);"><img src='http://www.dzimg.com/Main_Banner/137_2.jpg' border='0' ></a></td>
+					  
+				      </tr>
+			      </table>
+			  </td>
+				  </tr>
+		  </table>
 
 
 		<!-- 메인 이미지 테이블 종료-->
