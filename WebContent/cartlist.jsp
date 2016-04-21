@@ -1,1538 +1,1384 @@
+<%@page import="model.AccountVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+	 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<SCRIPT language="JavaScript">
+  <!--
+      function setCookie(name, value, expiredays) {
+      var todayDate = new Date();
+      todayDate.setDate(todayDate.getDate() + expiredays);
+      document.cookie = name + "=" + escape(value) + "; path=/; expires="
+      + todayDate.toGMTString() + ";"
+      }
+      function doClose(id, chkid) {
+      if (document.getElementById(chkid).checked) {
+      setCookie(id, "done", 1);
+      }
+      document.getElementById(id).style.display = "none";
+      }
+      function closePopupLayer(id) {
+      document.getElementById(id).style.display = "none";
+      }
+      // -->
+</SCRIPT>
 
 
 
 <html>
-<head>
-
-<title>everyday NEW dahong</title>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-<link rel="stylesheet" type="text/css" href="/Lib/TextForm.css">
-<script src="/lib/jquery.min.1.7.2.js"></script>
-<script src="/lib/jquery.bpopup.min.js"></script>
-
-<script language="JavaScript">
-<!--
-function DelCartAll()
-{
-	if (confirm("장바구니에 담긴 모든 상품이 삭제됩니다. 장바구니를 비우시겠습니까?"))
-	{
-		document.location.href="DelCartAll.asp";
-	}
-}
-
-function checkStock(str)
-{
-	intGqty = str.value;
-	intGcnt = str.id;
-	
-	if (eval(intGcnt-intGqty)<0)
-	{
-		alert("최대 주문 가능 수량은 " + intGcnt + "개  입니다");
-		str.value = intGcnt;
-	}
-}
-
-function goPrevPage()
-{
-	history.go(-2)
-}
-
-
-function updateNormal()
-{
-	document.cartNormal.action="EditCart.asp"
-	document.cartNormal.submit();
-}
-
-function updateDelay()
-{
-
-	document.CartDelay.action="EditCart.asp"
-	document.CartDelay.submit();
-}
-
-function formatNumber(str)
-{
-	number = numOffMask(str.value);
-
-	if (isNaN(number))
-		str.value = "";
-	else
-		str.value = numOnMask(number);
-}
-
-function numOffMask(str)
-{
-	var tmp = str.split(",");
-	tmp = tmp.join("");
-	return tmp;
-}
-
-function numOnMask(str)
-{
-
-	if (str < 0) {
-		str = Math.abs(str);
-		sign = "-";
-	} else {
-		sign = "";
-	}
-
-	str = str + "";
-	var idx = str.indexOf(".");
-
-	if (idx < 0) {
-		var txtInt = str;
-		var txtFloat = "";
-	} else {
-		var txtInt = str.substring(0,idx);
-		var txtFloat = str.substring(idx);
-	}
-
-	if (txtInt.length > 3) {
-		var c=0;
-		var myArray = new Array();
-			for(var i=txtInt.length; i>0; i=i-3) {
-			myArray[c++] = txtInt.substring(i-3,i);
- 			}
-		myArray.reverse();
- 		txtInt = myArray.join(",");
- 		}
- 		str = txtInt + txtFloat;
-
-	return sign + str;
-}
-
-function SelectedCartNormalDel()
-{
-	if ( $("#dumyNormal").length > 0 ) 
-	{
-		var f = document.cartNormal;
-
-		var k=0
-
-		if (f.checkcart.length==undefined) // 한개일 경우..
-		{  
-			if (f.checkcart.checked==true)
-				k++;
-		}
-		else // 여러개일경우
-		{
-			for(i=0;i<f.checkcart.length;i++)
-			{
-				if (f.checkcart[i].checked)
-					k++;
-			}
-		}
-
-		if (k==0)
-		{
-			alert("삭제하실 상품을 선택해주세요.");
-		}
-		else
-		{
-			if (confirm("선택하신 상품을 삭제하시겠습니까?"))
-			{
-				f.action="DelCartSelected.asp"
-				f.submit();
-			}
-		}  
-	}
-	else
-	{
-		alert("장바구니가 비어있습니다");
-	}
-
-
-}
-
-function SelectedCartDelayDel()
-{
-	var f = document.CartDelay;
-
-	var k=0
-
-	if (f.checkcart.length==undefined) // 한개일 경우..
-	{  
-		if (f.checkcart.checked==true)
-			k++;
-	}
-	else // 여러개일경우
-	{
-		for(i=0;i<f.checkcart.length;i++)
-		{
-			if (f.checkcart[i].checked)
-				k++;
-		}
-	}
-
-	if (k==0)
-	{
-		alert("삭제하실 상품을 선택해주세요.");
-	}
-	else
-	{
-		if (confirm("선택하신 상품을 삭제하시겠습니까?"))
-		{
-			f.action="DelCartSelected.asp"
-			f.submit();
-		}
-	}  
-
-
-}
-
-function num_only( Ev )
-{
-	if (window.event) // IE코드
-		var code = window.event.keyCode;
-	else // 타브라우저
-		var code = Ev.which;
-
-	if ((code > 34 && code < 41) || (code > 47 && code < 58) || (code > 95 && code < 106) || code == 8 || code == 9 || code == 13 || code == 46)
-	{
-		window.event.returnValue = true;
-		return;
-	}
-
-	if (window.event)
-		window.event.returnValue = false;
-	else
-		Ev.preventDefault();	
-}
-
-
-function layerPopWishListOnOff(nVal)
-{
-	if (nVal==0)
-	{
-		document.all['layerPopOption'].style.display = "none"; 
-	}
-	else
-	{
-		document.all['layerPopOption'].style.display = ""; 
-	}
-}
-
-function GetOptionSize(seq)
-{
-	$("#div_cart_"+seq+"_size").load("cart_selectgoodcolor.asp?seq="+seq+"&gcolor="+escape(encodeURIComponent($("#Cart_"+seq+"_Color").val())) );
-}
-
-function DeleteCartGood(seq)
-{
-	document.location.href="DelCart.asp?seq="+seq;
-}
-
-// -->
-</script>
-
-
-<!-- Normal 카트 스크립트 시작 -->
-<script type="" language="JavaScript">
-<!--
-function layerApplyOption(seq)
-{	
-	Gcolor = $("#Cart_"+seq+"_Color").val();
-	Gsize = $("#Cart_"+seq+"_Size").val();
-
-	if (Gsize=="")
-	{
-		alert("사이즈를 선택해주세요.");
-		return;
-	}
-	document.location.href="CartUpdate.asp?seq="+seq+"&Gcolor=" + escape(encodeURIComponent(Gcolor)) + "&Gsize=" + escape(encodeURIComponent(Gsize));
-}
-
-
-function allcheck()
-{
-	$('input:checkbox[name=seq]').each(function(){
-		$(this).prop('checked', true);
-	});
-}	
-
-function disallcheck()
-{
-	$('input:checkbox[name=seq]').each(function(){
-		$(this).prop('checked', false);
-	});
-}	
-
-
-function setAllCheckNormal()
-{
-	if ( $("#allcheck1").prop("checked")==true )
-	{
-		$(".checkcart1").each(function() {
-			$(this).prop('checked', true);
-		});
-	}
-	else
-	{
-		$(".checkcart1").each(function() {
-			$(this).prop('checked', false);
-		});
-	}
-
-	ComputeGamountNormal();
-
-}	
-
-function ComputeGamountNormal()
-{
-	var f = document.cartNormal;
-	var d = document.dumyNormal;
-
-	var goodamount=0;
-	var deliveryfee=0;
-	var saleamount=0;
-	var settleamount=0;
-	var temp=0;
-	var argGamount=0;
-	var argRamount=0;
-	var argGqty=0;
-	var checkcnt = 0;
-	var expressdeliverycnt = 0;
-
-
-	$(".checkcart1:checked").each(function() {
-		temp =$(this).val();
-		array_data = temp.split("/");
-		argGamount = array_data[0];
-		argRamount = array_data[1];
-		argGqty = array_data[2];
-		argexpressdelivery = array_data[4];
-
-		goodamount = goodamount + eval(argGamount*argGqty);
-		saleamount = saleamount + eval(argRamount*argGqty);
-		settleamount = settleamount + eval(argGamount*argGqty-argRamount*argGqty);
-		checkcnt = checkcnt + 1
-		if (argexpressdelivery=="Y")
-			expressdeliverycnt = expressdeliverycnt + 1		
-	});
-
-	if ( $("#dumyNormal").length > 0 ) 
-	{
-		if(checkcnt == expressdeliverycnt)
-		{
-			$("#div_cart_normal_info_3").show();
-			$("#div_cart_normal_info_4").hide();
-			d.ExpressDelivery.value = "Y";
-		}
-		else if(checkcnt != expressdeliverycnt && expressdeliverycnt>0)
-		{
-			$("#div_cart_normal_info_3").hide();
-			$("#div_cart_normal_info_4").show();
-			d.ExpressDelivery.value = "N";
-		}
-		else if(expressdeliverycnt==0)
-		{
-			$("#div_cart_normal_info_3").hide();
-			$("#div_cart_normal_info_4").hide();
-			d.ExpressDelivery.value = "N";
-		}
-
-		if ($(".checkcart1").length==checkcnt)
-			$("#allcheck1").prop("checked", true);
-		else if (checkcnt ==0 )
-			$("#allcheck1").prop("checked", false);
-
-
-		if(eval(goodamount) == 0)
-		{
-			$("#div_cart_normal_info_1").hide();
-			$("#div_cart_normal_info_2").show();
-			$("#div_cart_normal_info_3").hide();
-			d.ExpressDelivery.value = "N";
-		}
-		else
-		{
-			$("#div_cart_normal_info_1").show();
-			$("#div_cart_normal_info_2").hide();
-		}
-
-	/* 상품금액 3만원 미만 배송비 계산 시작 */
-
-		if(eval(settleamount) < 50000)
-			deliveryfee = 2500;
-		
-		settleamount = eval(settleamount + deliveryfee);
-	/* 상품금액 3만원 미만 배송비 계산 끝 */
-
-		f.goodamount.value = eval(goodamount);
-		f.deliveryfee.value = eval(deliveryfee);
-		f.totsaleamount.value = eval(saleamount);
-		f.settleamount.value = eval(settleamount);
-
-		formatNumber(f.goodamount);
-		formatNumber(f.deliveryfee);
-		formatNumber(f.settleamount);
-		formatNumber(f.totsaleamount);
-	}
-}
-
-function CheckCartNormalSeq()
-{
-	var argSeq=0;
-	var temp="";
-	var argCnt = 0;
-	
-	if ( $("#dumyNormal").length > 0 ) {
-		document.dumyNormal.cartseq.value = "";
-
-		if (document.cartNormal.checkcart.length)
-		{
-			for (var i=0; i<document.cartNormal.checkcart.length ; i++)
-			{
-				if(document.cartNormal.checkcart[i].checked)
-				{
-					temp =document.cartNormal.checkcart[i].value;
-					array_data = temp.split("/");
-					argSeq = array_data[3];
-
-					if (argCnt==0)
-						document.dumyNormal.cartseq.value = argSeq;
-					else
-						document.dumyNormal.cartseq.value = document.dumyNormal.cartseq.value+','+argSeq;
-
-					argCnt++;
-
-				}
-			}
-		}
-		else { 
-				if(document.cartNormal.checkcart.checked)
-				{
-					temp =document.cartNormal.checkcart.value;
-					array_data = temp.split("/");
-					document.dumyNormal.cartseq.value = array_data[3];
-				}
-		}
-	}
-}
-
-
-//-->	
-</script>
-
-<script language="JavaScript">
-<!--
-function OrderCartNormalAll()
-{
-	if ( $("#dumyNormal").length > 0 ) 
-	{
-		var f = document.cartNormal;
-		setAllCheckNormal();
-
-		GoodAmount = numOffMask(f.goodamount.value);
-
-		CheckCartNormalSeq();
-		if (eval(GoodAmount > 0))
-		{	
-			
-			document.dumyNormal.action="../Member/LoginForm_non.asp";	
-			
-
-			document.dumyNormal.submit();
-		}
-		else
-			alert("장바구니 상품중 선택하신 상품이 없습니다.")
-	}
-	else
-	{
-		alert("장바구니가 비어있습니다.")
-	}
-}
-
-function OrderCartNormal()
-{
-	if ( $("#dumyNormal").length > 0 ) 
-	{
-		var f = document.cartNormal;
-		GoodAmount = numOffMask(f.goodamount.value);
-
-		CheckCartNormalSeq();
-
-		if (eval(GoodAmount > 0))
-		{
-			
-			document.dumyNormal.action="../Member/LoginForm_non.asp";	
-			
-			document.dumyNormal.submit();
-		}
-		else
-			alert("장바구니 상품중 선택하신 상품이 없습니다.")
-	}
-	else
-	{
-		alert("장바구니가 비어있습니다.")
-	}
-}
-
-function CartNormal2Concern()
-{
-
-	CheckCartNormalSeq();
-
-	if (document.dumyNormal.cartseq.value != "")
-	{
-		document.dumyNormal.action="../Concern/Cart2Concern.asp";
-		document.dumyNormal.submit();
-	}
-	else
-		alert("장바구니 상품중 선택하신 상품이 없습니다.")
-}
-
-// -->
-</script>
-<!-- Normal 카트 스크립트 종료 -->
-
-</head><center>
-<body   bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" >
 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    <title>HeeH Mall</title>
+    <META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+    <link rel="stylesheet" type="text/css" href="Lib/TextForm.css">
+
+
+
+
+
+
+
+    <script src="lib/jquery.min.1.7.2.js"></script>
+    <script src="lib/jquery.cookie.js"></script>
+    <script src="lib/cookie.js"></script>
+    <script>
+      if (typeof jQuery == 'undefined') {
+      var script = document.createElement('script');
+      script.type = "text/javascript";
+      script.src = "lib/jquery.min.1.7.2.js";
+      document.getElementsByTagName('head')[0].appendChild(script);
+      }
+    </script>
+
+    <script>
+      var cookieList = $.fn.cookieList("zzimCookie");
+      function setCookieZzim(gserial, gcolor, gsize) {
+      var obj = new Object();
+      obj.gserial = gserial;
+      obj.gcolor = gcolor;
+      obj.gsize = gsize;
+      cookieList.add(obj);
+      //	  getResult()
+      }
+
+      function updateCookieZzim(seq, gserial, gcolor, gsize) {
+      var obj = new Object();
+      obj.gserial = gserial;
+      obj.gcolor = escape(gcolor);
+      obj.gsize = escape(gsize);
+      cookieList.update(obj, seq);
+      }
+
+      function getResult() {
+      for ( var k in cookieList.items()) {
+      //console.log("url:"+cookieList.items()[k].url);
+      //console.log("name:"+cookieList.items()[k].name);
+      if (cookieList.items()[k].gserial) {
+      console.log("gserial:" + cookieList.items()[k].gserial);
+      //            alert(cookieList.items()[k].gserial);
+      }
+      //console.log("age:"+itemList[k].age);
+      }
+      }
+
+      function getReverse() {
+      var itemList = cookieList.items();
+      itemList.reverse();
+      for ( var k in itemList) {
+      console.log("gserial:" + itemList[k].gserial);
+      console.log("gcolor:" + itemList[k].gcolor);
+      console.log("gsize:" + itemList[k].gsize);
+      }
+
+      }
+      function add_zzim(gserial) {
+
+      // 비회원 처리
+      setCookieZzim(gserial, "", "");
+      $("#div_FavoritesCnt").text(get_zzim_cnt());
+
+      }
+      function del_zzim(seq) {
+      // 비회원 처리
+      cookieList.removebyindex(seq);
+      $("#div_FavoritesCnt").text(get_zzim_cnt());
+      document.location.href = '/my/myzzim2.asp';
+
+      }
+      function del_zzim_goodlist(seq) {
+      // 비회원 처리
+      cookieList.removebyindex(seq);
+      $("#div_FavoritesCnt").text(get_zzim_cnt());
+      //		document.location.href='/my/myzzim2.asp';
+
+      }
+      function get_zzim_cnt() {
+      return cookieList.length();
+      }
+    </script>
+
+  </head>
+  <center>
+
+    <body text="#000000" leftmargin="0" topmargin="0" marginwidth="0"
+	  marginheight="0" id="_body">
+
+
+      <!-- 팝업 배너 시작 -->
+
+      <!-- 팝업 배너 종료 -->
+
+
+      <!-- 멀티 배너  히든 사장님 지시사항 2015.04.27 이후에 다시 사용가능 삭제하지 말아주세요
+	   멀티 배너 종료 -->
 
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td align="center"><script>
-//	openWin = window.open('../notice.htm','gongzi',"scrollbars,resizable,width=540,height=500,scrollbars=yes, resizable=no");			
-</script>
-<script language="JavaScript">
-/* if(parent.frames.length <= 0) { top.location.href="/"; }*/
-</script>
+	<tr>
+	  <td align="center"><script>
+	      //	openWin = window.open('../notice.htm','gongzi',"scrollbars,resizable,width=540,height=500,scrollbars=yes, resizable=no");
+	    </script> <script language="JavaScript">
+	      /* if(parent.frames.length <= 0) { top.location.href="/"; }*/
+					    </script> <script language="javascript">
+	      function open_ftc_info() {
+	      var url = "http://www.ftc.go.kr/info/bizinfo/communicationViewPopup.jsp?wrkr_no=1278649753";
+	      window.open(url,
+	      "communicationViewPopup",
+	      "width=750, height=700;");
+	      }
+	      function Right(e) {
+	      if (navigator.appName == 'Netscape'
+	      && (e.which == 3 || e.which == 2))
+	      return false;
+	      else if (navigator.appName == 'Microsoft Internet Explorer'
+	      && (event.button == 2 || event.button == 3)) {
+	      alert("오른쪽 마우스는 사용하실수 없습니다.");
+	      return false;
+	      }
+	      return true;
+	      }
+	      document.onmousedown = Right;
+	      if (document.layers) {
+	      window
+	      .captureEvents(Event.MOUSEDOWN);
+	      window.onmousedown = Right;
+	      }
+	    </script> <script language="javascript">
+	      function preMember() {
+	      alert("다홍. \n\r 회원가입이나 로그인해주시기바랍니다!");
+	      }
+	      function loginForm() {
+	      if (confirm("다홍. \n\r로그인/회원가입 화면으로 이동 하시겠습니까?"))
+	      location = "../Member/LoginForm.asp";
+	      }
+	    </script> <script language="JavaScript">
+	      /* if(parent.frames.length <= 0) { top.location.href="/"; }*/
+					    // 쿠키값 가져오기
+					    function getCookie(key) {
+					    var cook = document.cookie + ";";
+					    var idx = cook.indexOf(key, 0);
+					    var val = "";
+
+					    if (idx != -1) {
+					    cook = cook.substring(idx, cook.length);
+					    begin = cook.indexOf("=", 0) + 1;
+					    end = cook.indexOf(";", begin);
+					    val = unescape(cook.substring(begin, end));
+					    }
+
+					    return val;
+					    }
+
+					    // 쿠키값 설정
+					    function setCookie(name, value, expiredays) {
+					    var today = new Date();
+					    today.setDate(today.getDate() + expiredays);
+					    document.cookie = name + "=" + escape(value)
+					    + "; path=/; expires="
+					    + today.toGMTString() + ";"
+					    }
+					    </script> <script language="JavaScript">
+	      <!--
+		  function MM_showHideLayers() { //v3.0
+		  var i, p, v, obj, args = MM_showHideLayers.arguments;
+		  for (i = 0; i < (args.length - 2); i += 3)
+		  if ((obj = MM_findObj(args[i])) != null) {
+		  v = args[i + 2];
+		  if (obj.style) {
+		  obj = obj.style;
+		  v = (v == 'show') ? 'visible'
+		  : (v = 'hide') ? 'hidden'
+		  : v;
+		  }
+		  obj.visibility = v;
+		  }
+		  }
+		  function MM_swapImgRestore() { //v3.0
+		  var i, x, a = document.MM_sr;
+		  for (i = 0; a && i < a.length
+		  && (x = a[i]) && x.oSrc; i++)
+		  x.src = x.oSrc;
+		  }
+		  function MM_preloadImages() { //v3.0
+		  var d = document;
+		  if (d.images) {
+		  if (!d.MM_p)
+		  d.MM_p = new Array();
+		  var i, j = d.MM_p.length, a = MM_preloadImages.arguments;
+		  for (i = 0; i < a.length; i++)
+		  if (a[i].indexOf("#") != 0) {
+		  d.MM_p[j] = new Image;
+		  d.MM_p[j++].src = a[i];
+		  }
+		  }
+		  }
+		  function MM_findObj(n, d) { //v4.0
+		  var p, i, x;
+		  if (!d)
+		  d = document;
+		  if ((p = n.indexOf("?")) > 0
+		  && parent.frames.length) {
+		  d = parent.frames[n
+		  .substring(p + 1)].document;
+		  n = n.substring(0, p);
+		  }
+		  if (!(x = d[n]) && d.all)
+		  x = d.all[n];
+		  for (i = 0; !x
+		  && i < d.forms.length; i++)
+		  x = d.forms[i][n];
+		  for (i = 0; !x && d.layers
+		  && i < d.layers.length; i++)
+		  x = MM_findObj(n,
+		  d.layers[i].document);
+		  if (!x && document.getElementById)
+		  x = document.getElementById(n);
+		  return x;
+		  }
+		  function MM_swapImage() { //v3.0
+		  var i, j = 0, x, a = MM_swapImage.arguments;
+		  document.MM_sr = new Array;
+		  for (i = 0; i < (a.length - 2); i += 3)
+		  if ((x = MM_findObj(a[i])) != null) {
+		  document.MM_sr[j++] = x;
+		  if (!x.oSrc)
+		  x.oSrc = x.src;
+		  x.src = a[i + 2];
+		  }
+		  }
+		  //-->
+	    </script> <script language="JavaScript">
+	      <!--
+		  function MM_reloadPage(init) { //reloads the window if Nav4 resized
+		  if (init == true)
+		  with (navigator) {
+		  if ((appName == "Netscape")
+		  && (parseInt(appVersion) == 4)) {
+		  document.MM_pgW = innerWidth;
+		  document.MM_pgH = innerHeight;
+		  onresize = MM_reloadPage;
+		  }
+		  }
+		  else if (innerWidth != document.MM_pgW
+		  || innerHeight != document.MM_pgH)
+		  location.reload();
+		  }
+		  MM_reloadPage(true);
+		  // -->
+	    </script> <script language="javascript">
+	      function openwindow(name, url, width, height, scrollbar) {
+	      scrollbar_str = scrollbar ? 'yes' : 'no';
+	      window.open(url, name, 'width=' + width
+	      + ',height=' + height + ',scrollbars='
+	      + scrollbar_str);
+	      }
+	    </script> <script language="JavaScript" type="TEXT/JAVASCRIPT">
+	      <!--
+		  function newsread(no) {
+		  var url;
+		  url = "../my/NewsRead.asp?no=" + no;
+		  window.open(url, 'mypop',
+		  'width=620,height=500,scrollbars=yes');
+		  return;
+		  }
+		  function newsread2(no) {
+		  var url;
+		  url = "../my/NipponNewsRead.asp?no=" + no;
+		  window.open(url, 'mypop',
+		  'width=620,height=500,scrollbars=yes');
+		  return;
+		  }
+		  function newsread3(no) {
+		  var url;
+		  url = "../my/MDNewsRead.asp?no=" + no;
+		  window.open(url, 'mypop',
+		  'width=620,height=500,scrollbars=yes');
+		  return;
+		  }
+		  function gotoMydahong() {
+		  location = "../My/MyDahong.asp";
+		  }
+		  function gotoMemo() {
+		  location = "../My/MyMemo.asp";
+		  }
+		  function GiftGoodView() {
+		  var url;
+		  url = "../my/GiftGoodView.asp";
+		  window.open(url, 'GiftGood',
+		  'width=620,height=500,scrollbars=yes');
+		  return;
+		  }
+		  function gotoPurchase() {
+		  var url;
+		  url = "../GiftTicket/GiftTicketInfo.html";
+		  window.open(url, 'GiftTicket',
+		  'width=700,height=600,scrollbars=no');
+		  return;
+		  }
+		-->
+	    </script> <script language="javascript">
+	      function gotoItemMain(arg) {
+	      location = "../Shopping/ItemShopping_main.asp?a="
+	      + arg;
+
+	      }
+	      function gotoConceptGoodView(Gserial) {
+	      location = "../Shopping/GoodView_Concept.asp?Gserial="
+	      + Gserial;
+
+	      }
+	      function gotoCoordiView(Gserial) {
+	      location = "../Shopping/GoodView_Coordi.asp?Gserial="
+	      + Gserial;
+
+	      }
+	      function openCoordiView(Gserial) {
+	      url = "../Shopping/GoodView_Coordi.asp?Gserial="
+	      + Gserial;
+	      window.open(url, '_blank');
+
+	      }
+	      function gotoItemGood(arg) {
+	      location = "../Shopping/ItemShopping_detail.asp?b="
+	      + arg;
+
+	      }
+	      function gotoMDGoodView(id) {
+	      location = "DispatcherServlet.do?command=describe&&id="
+	      + id;
+	      }
+	      function gotoCOSGoodView(Gserial) {
+	      location = "../NShopping/GoodView_CItem.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoZinifGoodView(Gserial) {
+	      location = "../NShopping/GoodView_ZItem.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gototeamGoodView(Gserial) {
+	      location = "../NShopping/GoodView_team.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoMDGabalGoodView(Gserial, Gseq) {
+	      location = "../Shopping/GoodView_Gabal.asp?Gserial="
+	      + Gserial + "&gseq=" + Gseq;
+	      }
+	      function gotoNormalGoodView(Gserial) {
+	      location = "../Shopping/GoodView_NItem.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoDahongGoodView(Gserial) {
+	      location = "../Shopping2/GoodView_Dahong.asp?Gserial="
+	      + Gserial;
+	      }
+	      function openCatGoodView(Gserial) {
+	      url = "../Shopping2/GoodView_Cat.asp?Gserial="
+	      + Gserial;
+	      window.open(url, '_blank');
+	      }
+	      function gotoBrandGoodView(Gserial) {
+	      location = "../Shopping2/GoodView_Brand.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoKeywordGoodView(Gserial) {
+	      location = "../Nshopping/GoodView_Keyword.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoSaleGoodView(Gserial) {
+	      location = "../Shopping/GoodView_Sale.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoItemGoodView(Gserial) {
+	      location = "../NShopping/GoodView_Item.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoSummerGoodView(Gserial) {
+	      location = "../NShopping/GoodView_Summer.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoCatGoodView(Gserial) {
+	      location = "../Shopping2/GoodView_Cat.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gototeamGoodView(Gserial) {
+	      location = "../NShopping/GoodView_team.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotomonoGoodView(Gserial) {
+	      location = "../Shopping2/GoodView_monomori.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoCatCoordiView(Gserial) {
+	      location = "../Nshopping/GoodView_StyleBook.asp?Gserial="
+	      + Gserial;
+
+	      }
+	      function gotoBigGoodView(Gserial) {
+	      location = "../Shopping/GoodView_Big.asp?Gserial="
+	      + Gserial;
+	      }
+	      function gotoItemShoppingMain(arg) {
+	      location = "../Shopping/ItemShopping_main.asp?a="
+	      + arg;
+	      }
+	      function gotoBigShoppingDetail(arg) {
+	      location = "../Shopping/ItemShopping_BigDetail.asp?b="
+	      + arg;
+	      }
+	      function gotoSaleShoppingDetail(arg) {
+	      location = "../Shopping/ItemShopping_SaleDetail.asp?a="
+	      + arg;
+	      }
+	      function openItemGoodView(Gserial) {
+	      url = "/Nshopping/GoodView_Item.asp?Gserial="
+	      + Gserial;
+	      window.open(url, '_blank');
+	      }
+	      function openDahongGoodView(Gserial) {
+	      url = "../Shopping2/GoodView_Dahong.asp?Gserial="
+	      + Gserial;
+	      window.open(url, '_blank');
+	      }
+	      function openSummerGoodView(Gserial) {
+	      url = "../NShopping/GoodView_Summer.asp?Gserial="
+	      + Gserial;
+	      window.open(url, '_blank');
+	      }
+	      function zoomPicture(arg) {
+	      target = "../Shopping/zoomPicture.asp?Gserial="
+	      + arg;
+	      window
+	      .open(target, "Picture",
+	      "status=no,toolbar=no,scrollbars=no,resizable=no,width=780,height=780")
+	      }
+	      function gotoAlert() {
+	      alert("경고창")
+	      }
+	      function addBookMark() {
+	      window.external.AddFavorite(
+	      'http://www.dahong.co.kr',
+	      'everyday NEW dahong')
+	      }
+	      function bookmarksite(title, url) {
+	      if (window.sidebar) // firefox 
+	      window.sidebar.addPanel(title, url, "");
+	      else if (window.opera && window.print) // opera 
+	      {
+	      var elem = document.createElement('a');
+	      elem.setAttribute('href', url);
+	      elem.setAttribute('title', title);
+	      elem.setAttribute('rel', 'sidebar');
+	      elem.click();
+	      } else if (window.external
+	      && ('AddFavorite' in window.external)) // ie
+	      window.external.AddFavorite(url, title);
+	      else if (window.chrome) // chrome
+	      {
+	      alert('ctrl+D 를 눌러서 북마크에 추가해주세요!');
+	      }
+	      }
+	    </script> <script language="JavaScript" type="TEXT/JAVASCRIPT">
+	      <!--
+		  function size() {
+		  var url;
+		  url = "/shopping/images6/main/size.asp"
+		  window.open(url, 'mypop',
+		  'width=720,height=500,scrollbars=yes');
+		  return;
+		  }
+		-->
+	    </script> <script language="JavaScript" type="TEXT/JAVASCRIPT">
+	      <!--
+		  function model() {
+		  var url;
+		  url = "http://model.dahong.co.kr/Model_Register_Form_new.asp"
+		  window.open(url, 'mypop',
+		  'width=738,height=600,scrollbars=yes');
+		  return;
+		  }
+		-->
+	    </script> <script language="JavaScript" type="TEXT/JAVASCRIPT">
+	      <!--
+		  function photo_re() {
+		  var url;
+		  url = "/photojenic/10th/10photot_list.htm"
+		  window.open(url, 'mypop',
+		  'width=670,height=700,scrollbars=yes');
+		  return;
+		  }
+		-->
+	    </script> <script language="JavaScript" type="TEXT/JAVASCRIPT">
+	      <!--
+		  function event0108() {
+		  var url;
+		  url = "/event/event_20070108.htm"
+		  window.open(url, 'mypop',
+		  'width=617,height=700,scrollbars=yes');
+		  return;
+		  }
+		-->
+	    </script> <script language="javascript">
+	      function CyworldConnect(gserial) {
+	      window
+	      .open(
+	      'http://api.cyworld.com/openscrap/post/v1/?xu=http://www.dahong.co.kr/XML/CyworldConnect.asp?gserial='
+	      + gserial
+	      + '&sid=ksBrwWMJBeUecZF3gfMjvBNotcUtZCnN',
+	      'cyopenscrap',
+	      'width=450,height=410');
+	      }
+	    </script> <script src="/flashpatch.js"></script>
+
+	    <style type="text/css">
+	      <!--
+		  body {
+		  margin-left: 0px;
+		  margin-top: 0px;
+		  margin-right: 0px;
+		  margin-bottom: 0px;
+		  }
+		-->
+	    </style> <script language='javascript'>
+	      function div_promotion_onoff(state) {
+	      if (state == 1) {
+	      document.getElementById('div_promotion').style.display = '';
+	      } else {
+	      document.getElementById('div_promotion').style.display = 'none';
+	      }
+	      }
+	      function goto_promotion() {
+	      document.location.href = 'http://www.dahong.co.kr/Nshopping/promotion_list.asp';
+	      }
+	    </script> <script type="text/JavaScript">
+	      <!--
+		  function div_event_onoff(state) {
+		  if (state == 1) {
+		  document.getElementById('div_event').style.display = '';
+		  } else {
+		  document.getElementById('div_event').style.display = 'none';
+		  }
+		  }
+		  function div_notice_onoff(state) {
+		  if (state == 1) {
+		  document.getElementById('div_notice').style.display = '';
+		  } else {
+		  document.getElementById('div_notice').style.display = 'none';
+		  }
+		  }
+		  function div_zzim_onoff(state) {
+		  if (state == 1) {
+		  document.getElementById('div_zzim').style.display = '';
+		  } else {
+		  document.getElementById('div_zzim').style.display = 'none';
+		  }
+		  }
+		  function div_cart_onoff(state) {
+		  if (state == 1) {
+		  document.getElementById('div_cart').style.display = '';
+		  } else {
+		  document.getElementById('div_cart').style.display = 'none';
+		  }
+		  }
+		  function div_menu_onoff(state) {
+		  if (state == 1) {
+		  document.getElementById('div_menu').style.display = '';
+		  } else {
+		  document.getElementById('div_menu').style.display = 'none';
+		  }
+		  }
+		  function div_allmenu_onoff(state) {
+		  if (state == 1) {
+		  document.getElementById('div_allmenu').style.display = '';
+		  } else {
+		  document.getElementById('div_allmenu').style.display = 'none';
+		  }
+		  }
+		  function div_search_onoff(state) {
+		  if (state == 1) {
+		  document.getElementById('div_search').style.display = '';
+		  } else {
+		  document.getElementById('div_search').style.display = 'none';
+		  }
+		  }
+		  function MM_swapImgRestore() { //v3.0
+		  var i, x, a = document.MM_sr;
+		  for (i = 0; a && i < a.length && (x = a[i])
+		  && x.oSrc; i++)
+		  x.src = x.oSrc;
+		  }
+		  function MM_preloadImages() { //v3.0
+		  var d = document;
+		  if (d.images) {
+		  if (!d.MM_p)
+		  d.MM_p = new Array();
+		  var i, j = d.MM_p.length, a = MM_preloadImages.arguments;
+		  for (i = 0; i < a.length; i++)
+		  if (a[i].indexOf("#") != 0) {
+		  d.MM_p[j] = new Image;
+		  d.MM_p[j++].src = a[i];
+		  }
+		  }
+		  }
+		  function MM_findObj(n, d) { //v4.01
+		  var p, i, x;
+		  if (!d)
+		  d = document;
+		  if ((p = n.indexOf("?")) > 0
+		  && parent.frames.length) {
+		  d = parent.frames[n.substring(p + 1)].document;
+		  n = n.substring(0, p);
+		  }
+		  if (!(x = d[n]) && d.all)
+		  x = d.all[n];
+		  for (i = 0; !x && i < d.forms.length; i++)
+		  x = d.forms[i][n];
+		  for (i = 0; !x && d.layers && i < d.layers.length; i++)
+		  x = MM_findObj(n, d.layers[i].document);
+		  if (!x && d.getElementById)
+		  x = d.getElementById(n);
+		  return x;
+		  }
+		  function MM_swapImage() { //v3.0
+		  var i, j = 0, x, a = MM_swapImage.arguments;
+		  document.MM_sr = new Array;
+		  for (i = 0; i < (a.length - 2); i += 3)
+		  if ((x = MM_findObj(a[i])) != null) {
+		  document.MM_sr[j++] = x;
+		  if (!x.oSrc)
+		  x.oSrc = x.src;
+		  x.src = a[i + 2];
+		  }
+		  }
+		  //-->
+	    </script>
+
+	    <body>
+	      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		  <td align="center" valign="top">
+		    <!-- 상단 메뉴 시작-->
+
+		    <table width="1190" border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+			<td width="300" height="182" valign="top"><a
+								     href="http://www.dahong.co.kr/" onFocus="this.blur();"><img
+															       src="images_2015/top/logo_2015.gif" border="0" /></a></td>
+			<td width="470" valign="bottom" align="right"
+			    style="padding-right: 5px;">
+			  <!--중간배너시작 search-->
+
+			  <table border="0" cellspacing="0" cellpadding="0">
+			    <tr>
+			      <!-- <td><a href="http://www.secondleeds.com?src=image&kw=000001" target="_blank"><img src="images_2015/top/se_top0418.jpg" border="0"></a></td> -->
+
+
+
+			      <!-- 서치 박스 -->
+			      <form action="DispatcherServlet.do" method="get" id="frm">
+				<div class="col-sm-4">
+				  <input type="hidden" name="command" value="search">
+
+				  <input type="text" name="textbox" class="form-control"
+					 placeholder="Search">
+
+				</div>
+				<div class="col-sm-1">
+				  <label></label>
+				  <button type="submit" form="frm" value="Submit"
+					  class="btn btn-primary btn-block btn-sm">Search
+				  </button>
+				</div>
+			      </form>
+
+
+
+
+
+
+
+			    </tr>
+			  </table> <!--중간배너종료-->
+			</td>
+			<td width="420" align="right" valign="top">
+			  <!-- 상단 우측 메뉴 시작-->
+			  <table width="420" height="182" border="0" cellspacing="0"
+				 cellpadding="0">
+			    <tr>
+			      <td valign="top" align="right">
+				<!--레이어 메뉴 시작-->
+				<table width="100%" border="0" cellspacing="0"
+				       cellpadding="0">
+				  <tr>
+				    <td height="31" align="right" valign="bottom"
+style="padding-right: 4px"><span class="top04">
 
-<script language="javascript">
-
-function open_ftc_info()
-{
-	var url = "http://www.ftc.go.kr/info/bizinfo/communicationViewPopup.jsp?wrkr_no=1278649753";
-	window.open(url, "communicationViewPopup", "width=750, height=700;");
-}
-
-
-function Right(e) {
-
-    if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2))
-        return false;
-    else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2 || event.button == 3)) {
-        alert("오른쪽 마우스는 사용하실수 없습니다.");
-        return false;
-    }
-    return true;
-}
-
-document.onmousedown=Right;
-
-if (document.layers) {
-    window.captureEvents(Event.MOUSEDOWN);
-    window.onmousedown=Right;
-}
-
-</script>
-
-<script language="javascript">
-
-function preMember()
-{
-		alert("다홍. \n\r 회원가입이나 로그인해주시기바랍니다!");
-}
-
-function loginForm()
-{	
-		if(confirm("다홍. \n\r로그인/회원가입 화면으로 이동 하시겠습니까?"))						
-		location = "../Member/LoginForm.asp";
-}
-</script>
-
-<script language="JavaScript">
-/* if(parent.frames.length <= 0) { top.location.href="/"; }*/
-// 쿠키값 가져오기
-function getCookie(key)
-{
-  var cook = document.cookie + ";";
-  var idx =  cook.indexOf(key, 0);
-  var val = "";
- 
-  if(idx != -1)
-  {
-    cook = cook.substring(idx, cook.length);
-    begin = cook.indexOf("=", 0) + 1;
-    end = cook.indexOf(";", begin);
-    val = unescape( cook.substring(begin, end) );
-  }
- 
-  return val;
-}
- 
-// 쿠키값 설정
-function setCookie(name, value, expiredays)
-{
-  var today = new Date();
-  today.setDate( today.getDate() + expiredays );
-  document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + today.toGMTString() + ";"
-} 
-
-</script>
-
-<script language="JavaScript">
-<!--
-function MM_showHideLayers() { //v3.0
-  var i,p,v,obj,args=MM_showHideLayers.arguments;
-  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
-    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v='hide')?'hidden':v; }
-    obj.visibility=v; }
-}
-
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
-
-function MM_findObj(n, d) { //v4.0
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && document.getElementById) x=document.getElementById(n); return x;
-}
-
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-//-->
-</script>
-<script language="JavaScript">
-<!--
-function MM_reloadPage(init) {  //reloads the window if Nav4 resized
-  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
-    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
-  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
-}
-MM_reloadPage(true);
-// -->
-</script>
-
-
-<script language="javascript">
-	function openwindow(name, url, width, height, scrollbar) {
-		scrollbar_str = scrollbar ? 'yes' : 'no';
-		window.open(url, name, 'width='+width+',height='+height+',scrollbars='+scrollbar_str);
-	}
-</script>
-
-<script language="JavaScript" type="TEXT/JAVASCRIPT">
-<!--
-function newsread(no)
-{
-	var url;
-	url ="../my/NewsRead.asp?no="+no;
-	window.open(url,'mypop','width=620,height=500,scrollbars=yes');
-	return;
-}
-
-function newsread2(no)
-{
-	var url;
-	url ="../my/NipponNewsRead.asp?no="+no;
-	window.open(url,'mypop','width=620,height=500,scrollbars=yes');
-	return;
-}
-
-function newsread3(no)
-{
-	var url;
-	url ="../my/MDNewsRead.asp?no="+no;
-	window.open(url,'mypop','width=620,height=500,scrollbars=yes');
-	return;
-}
-
-function gotoMydahong()
-{
-	location = "../My/MyDahong.asp";	
-}
-
-function gotoMemo()
-{
-	location = "../My/MyMemo.asp";	
-}
-
-function GiftGoodView()
-{
-	var url;
-	url ="../my/GiftGoodView.asp";
-	window.open(url,'GiftGood','width=620,height=500,scrollbars=yes');
-	return;
-}
-
-function gotoPurchase()
-{
-	var url;
-	url ="../GiftTicket/GiftTicketInfo.html";
-	window.open(url,'GiftTicket','width=700,height=600,scrollbars=no');
-	return;
-}
- -->
-
-
-
-
-</script>
-
-<script language="javascript">
-
-
-function gotoItemMain(arg)
-{
-	location = "../Shopping/ItemShopping_main.asp?a="+arg;	
-	
-}
-
-function gotoConceptGoodView(Gserial)
-{
-	location = "../Shopping/GoodView_Concept.asp?Gserial="+Gserial;	
-	
-}
-
-function gotoCoordiView(Gserial)
-{
-	location = "../Shopping/GoodView_Coordi.asp?Gserial="+Gserial;	
-	
-}
-
-function openCoordiView(Gserial)
-{
-	url = "../Shopping/GoodView_Coordi.asp?Gserial="+Gserial;	
-	window.open(url,'_blank');
-	
-}
-
-function gotoItemGood(arg)
-{
-	location = "../Shopping/ItemShopping_detail.asp?b="+arg;	
-	
-}
-
-function gotoMDGoodView(Gserial)
-{
-	location = "../NShopping/GoodView_Item.asp?Gserial="+Gserial;	
-}
-
-function gotoCOSGoodView(Gserial)
-{
-	location = "../NShopping/GoodView_CItem.asp?Gserial="+Gserial;	
-}
-
-function gotoZinifGoodView(Gserial)
-{
-	location = "../NShopping/GoodView_ZItem.asp?Gserial="+Gserial;	
-}
-
-function gototeamGoodView(Gserial)
-{
-	location = "../NShopping/GoodView_team.asp?Gserial="+Gserial;	
-}
-
-function gotoMDGabalGoodView(Gserial, Gseq)
-{
-	location = "../Shopping/GoodView_Gabal.asp?Gserial="+Gserial+"&gseq=" + Gseq;	
-}
-
-function gotoNormalGoodView(Gserial)
-{
-	location = "../Shopping/GoodView_NItem.asp?Gserial="+Gserial;	
-}
-
-
-function gotoDahongGoodView(Gserial)
-{
-	location = "../Shopping2/GoodView_Dahong.asp?Gserial="+Gserial;	
-}
-
-function openCatGoodView(Gserial)
-{
-	url =  "../Shopping2/GoodView_Cat.asp?Gserial="+Gserial;	
-	window.open(url,'_blank');
-}
-
-function gotoBrandGoodView(Gserial)
-{
-	location = "../Shopping2/GoodView_Brand.asp?Gserial="+Gserial;	
-}
-
-function gotoKeywordGoodView(Gserial)
-{
-	location = "../Nshopping/GoodView_Keyword.asp?Gserial="+Gserial;	
-}
-
-
-function gotoSaleGoodView(Gserial)
-{
-	location = "../Shopping/GoodView_Sale.asp?Gserial="+Gserial;	
-}
-
-
-function gotoItemGoodView(Gserial)
-{
-	location = "../NShopping/GoodView_Item.asp?Gserial="+Gserial;	
-}
-
-function gotoSummerGoodView(Gserial)
-{
-	location = "../NShopping/GoodView_Summer.asp?Gserial="+Gserial;	
-}
-
-function gotoCatGoodView(Gserial)
-{
-	location = "../Shopping2/GoodView_Cat.asp?Gserial="+Gserial;	
-}
-
-function gototeamGoodView(Gserial)
-{
-	location = "../NShopping/GoodView_team.asp?Gserial="+Gserial;	
-}
-
-function gotomonoGoodView(Gserial)
-{
-	location = "../Shopping2/GoodView_monomori.asp?Gserial="+Gserial;	
-}
-
-function gotoCatCoordiView(Gserial)
-{
-	location = "../Nshopping/GoodView_StyleBook.asp?Gserial="+Gserial;	
-	
-}
-
-
-function gotoBigGoodView(Gserial)
-{
-	location = "../Shopping/GoodView_Big.asp?Gserial="+Gserial;	
-}
-
-function gotoItemShoppingMain(arg)
-{
-	location = "../Shopping/ItemShopping_main.asp?a="+arg;	
-}
-
-
-function gotoBigShoppingDetail(arg)
-{
-	location = "../Shopping/ItemShopping_BigDetail.asp?b="+arg;	
-}
-
-
-function gotoSaleShoppingDetail(arg)
-{
-	location = "../Shopping/ItemShopping_SaleDetail.asp?a="+arg;	
-}
-
-
-
-function openItemGoodView(Gserial)
-{
-	url = "/Nshopping/GoodView_Item.asp?Gserial="+Gserial;	
-	window.open(url,'_blank');
-}
-
-function openDahongGoodView(Gserial)
-{
-	url = "../Shopping2/GoodView_Dahong.asp?Gserial="+Gserial;	
-	window.open(url,'_blank');
-}
-
-
-function openSummerGoodView(Gserial)
-{
-	url = "../NShopping/GoodView_Summer.asp?Gserial="+Gserial;	
-	window.open(url,'_blank');
-}
-
-
-function zoomPicture(arg)
-{
-   target = "../Shopping/zoomPicture.asp?Gserial=" + arg;
-   window.open(target,"Picture","status=no,toolbar=no,scrollbars=no,resizable=no,width=780,height=780")
-}
-
-function gotoAlert()
-{
-	alert("경고창")
-}
-
-function addBookMark(){
-window.external.AddFavorite('http://www.dahong.co.kr', 'everyday NEW dahong')
-}
-
-
-function bookmarksite(title,url) {
-	if (window.sidebar) // firefox 
-		window.sidebar.addPanel(title, url, ""); 
-	else if(window.opera && window.print) // opera 
-	{ 
-		var elem = document.createElement('a'); 
-		elem.setAttribute('href',url); 
-		elem.setAttribute('title',title); 
-		elem.setAttribute('rel','sidebar'); 
-		elem.click(); 
-	} 
-	else if(window.external && ('AddFavorite' in window.external)) // ie
-		window.external.AddFavorite(url, title);
-	else if(window.chrome) // chrome
-	{ 
-		alert('ctrl+D 를 눌러서 북마크에 추가해주세요!'); 
-	}
-}
-
-
-</script>
-
-<script language="JavaScript" type="TEXT/JAVASCRIPT">
-<!--
-function size()
-{
-	var url;
-	url ="/shopping/images6/main/size.asp"
-	window.open(url,'mypop','width=720,height=500,scrollbars=yes');
-	return;
-}
- -->
-</script>
-
-
-<script language="JavaScript" type="TEXT/JAVASCRIPT">
-<!--
-function model()
-{
-	var url;
-	url ="http://model.dahong.co.kr/Model_Register_Form_new.asp"
-	window.open(url,'mypop','width=738,height=600,scrollbars=yes');
-	return;
-}
- -->
-</script>
-
-
-<script language="JavaScript" type="TEXT/JAVASCRIPT">
-<!--
-function photo_re()
-{
-	var url;
-	url ="/photojenic/10th/10photot_list.htm"
-	window.open(url,'mypop','width=670,height=700,scrollbars=yes');
-	return;
-}
- -->
-</script>
-
-
-<script language="JavaScript" type="TEXT/JAVASCRIPT">
-<!--
-function event0108()
-{
-	var url;
-	url ="/event/event_20070108.htm"
-	window.open(url,'mypop','width=617,height=700,scrollbars=yes');
-	return;
-}
- -->
-</script>
-
-<script language="javascript">
-function CyworldConnect(gserial)
-{
-	window.open('http://api.cyworld.com/openscrap/post/v1/?xu=http://www.dahong.co.kr/XML/CyworldConnect.asp?gserial='+gserial+'&sid=ksBrwWMJBeUecZF3gfMjvBNotcUtZCnN', 'cyopenscrap', 'width=450,height=410');
-}
-
-</script>
-
-  
-<script src="/flashpatch.js"></script>
-
-<style type="text/css">
-
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
--->
-</style>
-
-<script language='javascript'>
-function div_promotion_onoff(state)
-	{
-		if (state==1)
-		{
-			document.getElementById('div_promotion').style.display='';
-		}
-		else
-		{
-			document.getElementById('div_promotion').style.display='none';
-		}
-	}
-
-	function goto_promotion()
-	{
-		document.location.href='http://www.dahong.co.kr/Nshopping/promotion_list.asp';
-	}
-
-</script>
-
-
-    <script type="text/JavaScript">
-<!--
-function div_event_onoff(state)
-{
-	if (state==1)
-	{
-		document.getElementById('div_event').style.display='';
-	}
-	else
-	{
-		document.getElementById('div_event').style.display='none';
-	}
-}
-
-function div_notice_onoff(state)
-{
-	if (state==1)
-	{
-		document.getElementById('div_notice').style.display='';
-	}
-	else
-	{
-		document.getElementById('div_notice').style.display='none';
-	}
-}
-
-function div_zzim_onoff(state)
-{
-	if (state==1)
-	{
-		document.getElementById('div_zzim').style.display='';
-	}
-	else
-	{
-		document.getElementById('div_zzim').style.display='none';
-	}
-}
-
-function div_cart_onoff(state)
-{
-	if (state==1)
-	{
-		document.getElementById('div_cart').style.display='';
-	}
-	else
-	{
-		document.getElementById('div_cart').style.display='none';
-	}
-}
-
-function div_menu_onoff(state)
-{
-	if (state==1)
-	{
-		document.getElementById('div_menu').style.display='';
-	}
-	else
-	{
-		document.getElementById('div_menu').style.display='none';
-	}
-}
-
-function div_allmenu_onoff(state)
-{
-	if (state==1)
-	{
-		document.getElementById('div_allmenu').style.display='';
-	}
-	else
-	{
-		document.getElementById('div_allmenu').style.display='none';
-	}
-}
-
-function div_search_onoff(state)
-{
-	if (state==1)
-	{
-		document.getElementById('div_search').style.display='';
-	}
-	else
-	{
-		document.getElementById('div_search').style.display='none';
-	}
-}
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
-
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
-
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-//-->
-</script>
-
-<body>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="center" valign="top">
-<!-- 상단 메뉴 시작-->
-
-<table width="1190" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="300" height="182" valign="top">
-<a href="http://www.dahong.co.kr/" onFocus="this.blur();"><img src="/images_2015/top/logo_2015.gif" border="0" /></a>
-    </td>
-    <td width="470" valign="bottom" align="right" style="padding-right:5px;">
-<!--중간배너시작-->
-
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><a href="http://www.secondleeds.com?src=image&kw=000001" target="_blank"><img src="/images_2015/top/se_top0418.jpg" border="0"></a></td>
-  </tr>
-</table>
-
-<!--중간배너종료-->
-    </td>
-    <td width="420" align="right" valign="top">
-<!-- 상단 우측 메뉴 시작-->
-<table width="420" height="182" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td valign="top" align="right">
-<!--레이어 메뉴 시작-->
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td height="31" align="right" valign="bottom" style="padding-right:4px">
-        
-        <span class="top04"><a href="http://www.dahong.co.kr/Member/LoginForm.asp">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.dahong.co.kr/member/AgreementJob.asp">회원가입 (쿠폰4장)</a></span>
-        </td>
-      </tr>
-      <tr>
-        <td height="5" align="right"></td>
-      </tr>
-      <tr>
-        <td align="right"><table border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td align="right" valign="top">
-        <table border="0" cellspacing="0" cellpadding="0">
-          <tr>  
-            <td align="center" style="padding-left:4px; padding-right:0px;">
-            <div style="position:relative; z-index:100" > 
-					<div style="position:absolute;left:-137px;top:46px;display:none" id="div_search"  onmouseout="div_search_onoff(0)" onMouseOver="div_search_onoff(1)">
-                    <!-- 상품검색 ------------------------------------------------------------------------------------------------------------------------------------>
-                    
-						<table width="420" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-						  <tr>
-                          <td height="100" align="right" >
-							<table border="0" cellspacing="0" cellpadding="0" width="254">
-							  <tr>
-								<td height="90" align="center" background="/images_2015/top/topmenu_s_0c.gif" ><table width="147" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <script language="JavaScript" type="TEXT/JAVASCRIPT">
-	<!--
-	function SearchOk() 
-	{
-			if ( document.search.textfield.value.length == 0 ) 
-			{
-				alert("상품명을 입력해 주세요"); 
-				document.search.textfield.focus();
-				return ;		
-			}
 					
-		document.search.submit();
-	}
-	
-	
-	function isSerchEnter()
-	{
-			if (event.keyCode == 13) SearchOk()
-	}
-	-->
-                </script>
-                    <form name="search" method="post" action = "/Nshopping/reference_products.asp" style="MARGIN: 0px" >
-                      <td height="23" background="/images_2013/top/top_search_bg.jpg">&nbsp;<input name="textfield" type="text" class="text"  style="border-top: 0px dotted #FFFFFF; border-bottom: 0px dotted #FFFFFF; border-left: 0px dotted #FFFFFF; border-right: 0px dotted #FFFFFF; color: #333333; FONT-FAMILY: 굴림; FONT-SIZE: 9pt" onKeyPress="isSerchEnter()" size="20" maxlength="30"></td>
-                      <td width="23"><img src="/images_2013/top/top_search_but.jpg" width="23" height="23" onClick="javascript:SearchOk();" style="cursor:hand"  ALT=""  /></td>
-                      </form>
-                    </tr>
-                </table></td>
-							  </tr>
-							</table>
-						  </td>
-						  </tr>
-						</table>
+					<c:choose>
+					    <c:when test="${sessionScope.vo!=null}">
+						<a href="front.do?command=logout" >로그 아웃</a><br>
+						<a href="update.jsp" >회원 정보 수정</a><br>
+					    </c:when>
+					    <c:otherwise>
+						<a href="login.jsp" >로그인 </a><br>
+						<a href="join1.html" >회원 가입</a><br>
+					    </c:otherwise>
+					</c:choose> 
 
-                     
-                    <!-- 상품검색 ------------------------------------------------------------------------------------------------------------------------------------>
-                    </div>
-			
-			<img src="/images_2015/top/topmenu_s_00.gif" border="0" style="cursor:hand"  onclick="javascript:location='#'" onMouseOver="div_search_onoff(1)" onMouseOut="div_search_onoff(0)" /> </div></td>
 
-            <td align="center" style="padding-left:4px; padding-right:4px;"><div style="position:relative; z-index:100" > 
-					<div style="position:absolute;left:-190px;top:46px;display:none" id="div_event"  onmouseout="div_event_onoff(0)" onMouseOver="div_event_onoff(1)">
-                    <!-- 디스토리 & 이벤트 ------------------------------------------------------------------------------------------------------------------------------------>
-                    
-						<table width="420" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-						  <tr><td height="90" align="right" >
-							<table border="0" cellspacing="0" cellpadding="0" width="254" height="100">
-							  <tr>
-								<td ><a href="/Ncommunity/dstory_list.asp"><img src="/images_2015/top/topmenu_s_1c.gif" width="254" height="90" border="0"></a></td>
-							  </tr>
-							</table>
-						  </td>
-						  </tr>
-						</table>
-                     
-                    <!-- 디스토리 & 이벤트 ------------------------------------------------------------------------------------------------------------------------------------>
-                    </div>
-					<img src="/images_2015/top/topmenu_s_02.gif" border="0" style="cursor:hand"  onclick="javascript:location='/Ncommunity/dstory_list.asp'" onMouseOver="div_event_onoff(1)" onMouseOut="div_event_onoff(0)" /> </div></td>
-            <td align="center" style="padding-left:4px; padding-right:4px;">
-				<div style="position:relative; z-index:100" > 
-					<div style="position:absolute;left:-240px;top:46px;display:none" id="div_notice"  onmouseout="div_notice_onoff(0)" onMouseOver="div_notice_onoff(1)">
-					<!-- 쿠폰존 & 멤버쉽 ------------------------------------------------------------------------------------------------------------------------------------>
-                    
-						<table width="420" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-						  <tr><td height="90" align="right" >
-							<table border="0" cellspacing="0" cellpadding="0" width="254" height="100">
-							  <tr>
-								<td ><a href="/my/myCouponBook_guest.asp"><img src="/images_2015/top/topmenu_s_2c.gif" width="254" height="90" border="0"></a></td>
-							  </tr>
-							</table>
-						  </td>
-						  </tr>
-						</table>
-                     
-                    <!-- 쿠폰존 & 멤버쉽 ------------------------------------------------------------------------------------------------------------------------------------>
-					</div>
-					<img src="/images_2015/top/topmenu_s_03.gif" onMouseOver="div_notice_onoff(1)" onMouseOut="div_notice_onoff(0)"  onclick="javascript:location='/my/myCouponBook_guest.asp'" style="cursor:hand" />				</div>			</td>
+				    </td>
+				  </tr>
+				  <tr>
+				    <td height="5" align="right"></td>
+				  </tr>
+				  <tr>
+				    <td align="right"><table border="0"
+							     cellspacing="0" cellpadding="0">
+					<tr>
+					  <td align="right" valign="top">
+					    <table border="0" cellspacing="0" cellpadding="0">
+					      <tr>
+						<td align="center"
+						    style="padding-left: 4px; padding-right: 0px;">
+						  <div style="position: relative; z-index: 100">
+						    <div
+						       style="position: absolute; left: -137px; top: 46px; display: none"
+						       id="div_search"
+						       onmouseout="div_search_onoff(0)"
+						       onMouseOver="div_search_onoff(1)">
+						      <!-- 상품검색 ------------------------------------------------------------------------------------------------------------------------------------>
 
-            <td align="center" style="padding-left:4px; padding-right:4px;">
-				<div style="position:relative; z-index:100" > 
-					<div style="position:absolute;left:-290px;top:46px;display:none" id="div_zzim"  onmouseout="div_zzim_onoff(0)" onMouseOver="div_zzim_onoff(1)">
-                    <!-- 관심상품 ------------------------------------------------------------------------------------------------------------------------------------>
-                    
-						<table width="420" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-						  <tr><td height="100" align="right" >
-							<table border="0" cellspacing="0" cellpadding="0" width="254" height="100">
-							  <tr>
-								<td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                  <tr>
-                                    <td height="90" align="center" valign="bottom" background="/images_2015/top/topmenu_s_3c.gif"><table width="100" border="0" cellspacing="0" cellpadding="0">
-                                      <tr>
-                                        <td height="34" align="center" valign="top"><a href="/my/myzzim2.asp"><span class="top08">[ <span id="div_FavoritesCnt">0</span> ]</span></a></td>
-                                      </tr>
-                                    </table></td>
-                                  </tr>
-                                </table></td>
-							  </tr>
-							</table>
-						  </td>
-						  </tr>
-						</table>
-                        
-                    <!-- 관심상품 ------------------------------------------------------------------------------------------------------------------------------------>                    
-					</div>
-					<img src="/images_2015/top/topmenu_s_04.gif"  onMouseOver="div_zzim_onoff(1)" onMouseOut="div_zzim_onoff(0)"  onclick="javascript:location='/my/myzzim2.asp'" style="cursor:hand" />				</div>			</td>
-            <td align="center" style="padding-left:4px; padding-right:4px;">
-				<div style="position:relative; z-index:100" > 
-					<div style="position:absolute;left:-340px;top:46px;display:none" id="div_cart"  onmouseout="div_cart_onoff(0)" onMouseOver="div_cart_onoff(1)">
-                    <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
-                    
-						<table width="420" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-						  <tr><td height="100" align="right" >
-							<table border="0" cellspacing="0" cellpadding="0" width="254" height="100">
-							  <tr>
-								<td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                  <tr>
-                                    <td height="90" align="center" valign="bottom" background="/images_2015/top/topmenu_s_4c.gif"><table width="100" border="0" cellspacing="0" cellpadding="0">
-                                      <tr>
-                                        <td height="34" align="center" valign="top"><a href="/cart/mycart.asp"><span class="top08">[ <span id="div_CartCnt">1</span> ]</span></a></td>
-                                      </tr>
-                                    </table></td>
-                                  </tr>
-                                </table></td>
-							  </tr>
-							</table>
-						  </td>
-						  </tr>
-						</table>
-                        
-                    <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>                    
-					</div>
-					<img src="/images_2015/top/topmenu_s_05.gif"  onMouseOver="div_cart_onoff(1)" onMouseOut="div_cart_onoff(0)"  onclick="javascript:location='/cart/mycart.asp'" style="cursor:hand"/>				</div>			</td>
-            <td align="center" style="padding-left:4px; padding-right:0px;" onMouseOver="div_menu_onoff(1)" onMouseOut="div_menu_onoff(0)" >
-				<div style="position:relative; z-index:100" > 
-					<div style="position:absolute;left:-390px;top:46px;display:none" id="div_menu"  onmouseout="div_menu_onoff(0)" onMouseOver="div_menu_onoff(1)">
-                    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
-                    
-						<table width="420" border="0" cellpadding="0" cellspacing="0" background="/images_2015/top/topmenu_bg.gif">
-						  <tr><td height="103" align="right" >
-							<table border="0" cellspacing="0" cellpadding="0" width="254" height="103">
-							  <tr>
-								<td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                  <tr>
-                                    <td height="8" align="center" valign="bottom"></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="center" valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                      <tr>
-                                        <td><a href="/customer/Tracking.asp"><img src="/images_2015/top/topmenu_s_5c_01.gif" width="99" height="21" border="0"></a></td>
-                                        <td><a href="/Ncs/message1.asp"><img src="/images_2015/top/topmenu_s_5c_02.gif" width="73" height="21" border="0"></a></td>
-                                        <td><a href="/my/mydahong.asp"><img src="/images_2015/top/topmenu_s_5c_03.gif" width="82" height="21" border="0"></a></td>
-                                      </tr>
-                                    </table></td>
-                                  </tr>
-                                  <tr>
-                                    <td height="11" align="center"></td>
-                                  </tr>
-                                  <tr>
-                                    <td height="63" align="center" valign="bottom" onMouseOver="div_allmenu_onoff(1)" onMouseOut="div_allmenu_onoff(0)">
-				<div style="position:relative; z-index:100" > 
-					<div style="position:absolute;left:-148px;top:34px;display:none" id="div_allmenu"  onmouseout="div_allmenu_onoff(0)" onMouseOver="div_allmenu_onoff(1)">
-                    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
-                                 <table width="420" border="0" cellpadding="0" cellspacing="0" bgcolor="#E2E2E2" >
-                                  <tr>
-                                    <td width="1" align="center" valign="bottom"></td>
-                                    <td align="center" valign="top" bgcolor="#FFFFFF">
-                                    <table width="380" border="0" cellspacing="0" cellpadding="0">
-                                      <tr>
-                                        <td height="25">&nbsp;</td>
-                                      </tr>
-                                      <tr>
-                                        <td align="center">
-                                        
-                                        
-                                        <table width="380" border="0" cellspacing="0" cellpadding="0">
-                                          <tr>
-                                            <td width="175" valign="top" height="25"><span class="top09"><font color="FF0066">DAHONG</font></span></td>
-                                            <!-- 사장님 지시 사항으로 히든처리
-                                            <td width="20%" valign="top"><span class="top09"><font color="#B18BD8">GIRLS</font></span></td>
-                                            -->
-                                            <!-- 사장님 지시 사항으로 히든처리
-                                            <td width="175" valign="top"><span class="top09"><font color="#9CA970">SECOND LEEDS</font></span></td>
-                                            -->
-                                            <td width="175" valign="top"><span class="top09">MYPAGE</span></td>
-                                            <td width="105" valign="top"><span class="top09">C/S</span></td>
-                                          </tr>
-                                          <tr>
-                                            <td valign="top">
-                                            <span class="top10">
-                                              <a href="/Nshopping/itemShopping_New.asp?Site=D">NEW 10%</a><br>
-                                              <a href="/Nshopping/itemShopping_weekly.asp?Site=D">BEST SELLER</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=1&Site=D">TOP</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=318&Site=D">SHIRTS &amp; BLOUSE</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=3&Site=D">OUTER</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=321&Site=D">SKIRT</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=4&Site=D">DRESS</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=5&Site=D">PANTS</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=6&Site=D">BAG &amp; SHOES</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=8&Site=D">ACC</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=9&Site=D">INNER</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=41&Site=D">BIKINI</a><br>
-                                              <a href="/Ncs/Recently_Review.asp?Site=D">상품후기</a><br>
-                                              <a href="/Nshopping/ItemShopping_express.asp?Site=D">당일발송</a><br>
-											  <a href="/Nshopping/promotion_list.asp">기획전 리스트</a>                                            
-                                              </span>                                              
-                                              </td>
-                                            <!-- 사장님 지시 사항으로 히든처리
-                                            <td valign="top">
-                                            <span class="top10">
-                                              <a href="/Nshopping/itemShopping_New.asp?Site=A">NEW 10%</a><br>
-                                              <a href="/Nshopping/itemShopping_weekly.asp?Site=A">BEST SELLER</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=60&Site=A">TOP</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=61&Site=A">KNIT</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=62&Site=A">OUTER</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=63&Site=A">DRESS</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=64&Site=A">BOTTOM</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=65&Site=A">BAG &amp; SHOES</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=67&Site=A">ACC</a><br>
-                                              <a href="/Ncs/Recently_Review.asp?Site=A">상품후기</a>                                            
-                                               </span>                                              
-                                               </td>
-                                            
-                                            <td valign="top">
-                                            <span class="top10">
-                                              <a href="/Nshopping/itemShopping_New.asp?Site=L">NEW 10%</a><br>
-                                              <a href="/Nshopping/itemShopping_weekly.asp?Site=L">BEST SELLER</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=104&Site=L">TOP</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=108&Site=L">BLOUSE</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=111&Site=L">OUTER</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=116&Site=L">DRESS &amp; SKIRT</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=118&Site=L">PANTS</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=123&Site=L">BAG &amp; SHOES</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=126&Site=L">ACC</a><br>
-                                              <a href="/Nshopping/ItemShopping_main.asp?a=324&Site=L">SUMMER</a><br>
-                                              <a href="/Ncs/Recently_Review.asp?Site=L">상품후기</a></p>
-                                             </span>                                            
-                                             </td>
-                                              --> 
-                                            <td valign="top">
-                                            <span class="top10">
-                                              <a href="/my/myzzim2.asp">관심상품 리스트</a><br>
-                                              <a href="/cart/mycart.asp">장바구니</a><br>
-                                              <a href="/my/MyOrder.asp">주문조회(후기작성)</a><br>
-                                              <a href="/my/myMessage_qna.asp">내 게시글조회</a><br>
-                                              <a href="/my/ModifyForm.asp">개인정보수정</a><br>
-                                              <a href="/my/myCash.asp">예치금조회</a><br>
-                                              <a href="/my/myEmoney.asp">적립금조회</a><br>
-                                              <a href="/my/myCoupon.asp">할인쿠폰조회</a><br><br>
-                                            </span>
-                                            <span class="top09">SNS</span><br>
-                                            <span class="top10">
-                                             <a href="https://www.facebook.com/dahongmall" target="_blank">페이스북</a><br>
-                                             <a href="https://www.instagram.com/love_dahong/" target="_blank">인스타그램</a><br>
-                                             <a href="https://story.kakao.com/ch/dahong" target="_blank">카카오스토리</a>                                            </span>                                            </td>
-                                            <td valign="top">
-                                            <span class="top10">
-                                              
-                                              <a href="/Member/LoginForm.asp">로그인</a><br>
-                                              
-                                              <a href="/member/AgreementJob.asp">회원가입</a><br>
-                                              <a href="/Ncommunity/dstory_list.asp">디스토리 &amp; 이벤트</a><br>
-                                              <a href="/my/myCouponBook_guest.asp">할인혜택</a><br>
-                                              <a href="/customer/Tracking.asp">주문/배송조회</a><br>
-                                              <a href="/Ncs/message1.asp">질문과답변</a><br>
-                                              <a href="/Ncs/FaqList.asp?Select=1">자주묻는질문</a><br>
-                                              <a href="/Ncs/notice.asp">공지사항</a><br>
-                                              <a href="/Nshopping/Shopping_OnlyYou.asp">개인결제</a><br>
-                                              <a href="/NShopping/itemshopping_today.asp">최근본상품</a><br>
-                                              <a href="/introduction/introduction3.asp">이용약관</a><br>
-                                              <a href="/introduction/introduction2.asp">개인정보취급방침</a><br>
-                                              <a href="/Ncommunity/Model_Register.asp">모델지원</a><br>
-                                              <a href="/introduction/Recruit.asp">채용공고</a><br>
-                                              <a href="mailto:tmdwnekdk@hanmail.net">제휴문의</a><br>
-                                              <a href="/Ncommunity/celeb_list.asp">연예인협찬</a><br>
-                                            </span>                                              </td>
-                                          </tr>
-                                        </table>
-                                        
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                      </tr>
-                                    </table></td>
-                                    <td width="1" height="450" align="center" valign="bottom"></td>
-                                  </tr>
-                                  <tr>
-                                    <td height="1" align="center" valign="bottom"></td>
-                                    <td height="1" align="center" valign="bottom"></td>
-                                    <td height="1" align="center" valign="bottom"></td>
-                                  </tr>
-                                 </table>
-                                 </div>
-                                 <img src="/images_2015/top/topmenu_s_5c_04.gif" onMouseOver="div_allmenu_onoff(1)" onMouseOut="div_allmenu_onoff(0)"  onclick="javascript:location='#'" style="cursor:hand" /></div>                                    </td>
-                                  </tr>
-                                </table></td>
-							  </tr>
-							</table>
-						  </td>
-						  </tr>
-						</table>
-                        
-                    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>                    
-					</div>
-					<img src="/images_2015/top/topmenu_s_06.gif"  onMouseOver="div_menu_onoff(1)" onMouseOut="div_menu_onoff(0)"  onclick="javascript:location='#'" style="cursor:hand" />				</div>			</td>
-          </tr>
-        </table></td>
-      </tr>
-    </table></td>
-      </tr>
-    </table>
-<!--레이어 메뉴 종료-->
-    </td>
-  </tr>
-  <tr>
-    <td valign="bottom" align="right">
-<!--기존 배너 히든
-            <table border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td valign="bottom">&nbsp;</td>
-                
-                <td align="right" valign="bottom" >
-                <a href="http://www.dahong.co.kr/Nshopping/ItemShopping_Keyword.asp?a=266"><img src="/images_2015/top/0215top_knitsale.jpg" border="0"></a></td> 
-                
-                <td align="right" valign="bottom" >
-                <a href="http://www.secondleeds.com?src=image&kw=000001" target="_blank"><img src="/images_2015/top/0302top_2nd.jpg" border="0"></a>
-                </td>            
-              </tr>
-            </table>
+						      <table width="420" border="0" cellpadding="0"
+							     cellspacing="0" bgcolor="#ffffff">
+							<tr>
+							  <td height="100" align="right">
+							    <table border="0" cellspacing="0"
+								   cellpadding="0" width="254">
+							      <tr>
+								<td height="90" align="center"
+								    background="images_2015/top/topmenu_s_0c.gif"><table
+														     width="147" border="0" cellspacing="0"
+														     cellpadding="0">
+								    <tr>
+								      <script language="JavaScript"
+									      type="TEXT/JAVASCRIPT">
+									function SearchOk() {
+									if (document.search.textfield.value.length == 0) {
+									alert("상품명을 입력해 주세요");
+									document.search.textfield
+									.focus();
+									return;
+									}
+
+									document.search
+									.submit();
+									}
+
+									function isSerchEnter() {
+									if (event.keyCode == 13)
+									SearchOk()
+									}
+								      </script>
+								      <form name="search" method="post"
+									    action="DispatcherServlet.do?"
+									    style="MARGIN: 0px">
+									<td height="23"
+									    background="images_2013/top/top_search_bg.jpg">&nbsp;
+									  <input type="hidden" name="command"
+										 value="search"> <input
+												    name="textfield" type="text"
+												    class="text"
+												    style="border-top: 0px dotted #FFFFFF; border-bottom: 0px dotted #FFFFFF; border-left: 0px dotted #FFFFFF; border-right: 0px dotted #FFFFFF; color: #333333; FONT-FAMILY: 굴림; FONT-SIZE: 9pt"
+												    onKeyPress="isSerchEnter()"
+												    size="20" maxlength="30">
+									</td>
+
+									<td width="23">
+									  <button type="submit" form="search"
+										  value="Submit">
+									    <img
+									       src="images_2013/top/top_search_but.jpg"
+									       width="23" height="23"
+									       onClick="javascript:SearchOk();"
+									       style="cursor: hand" ALT="" />
+									  </button>
+									</td>
+								      </form>
+								    </tr>
+								</table></td>
+							      </tr>
+							    </table>
+							  </td>
+							</tr>
+						      </table>
+
+
+						      <!-- 상품검색 ------------------------------------------------------------------------------------------------------------------------------------>
+						    </div>
+
+						    <img src="images_2015/top/topmenu_s_00.gif"
+							 border="0" style="cursor: hand"
+							 onclick="javascript:location='#'"
+							 onMouseOver="div_search_onoff(1)"
+							 onMouseOut="div_search_onoff(0)" />
+						  </div>
+						</td>
+
+						<td align="center"
+						    style="padding-left: 4px; padding-right: 4px;"><div
+												      style="position: relative; z-index: 100">
+						    <div
+						       style="position: absolute; left: -190px; top: 46px; display: none"
+						       id="div_event" onmouseout="div_event_onoff(0)"
+						       onMouseOver="div_event_onoff(1)">
+						      <!-- 디스토리 & 이벤트 ------------------------------------------------------------------------------------------------------------------------------------>
+
+						      <table width="420" border="0" cellpadding="0"
+							     cellspacing="0" bgcolor="#FFFFFF">
+							<tr>
+							  <td height="90" align="right">
+							    <table border="0" cellspacing="0"
+								   cellpadding="0" width="254" height="100">
+							      <tr>
+								<td><a
+								       href="/Ncommunity/dstory_list.asp"><img
+													     src="images_2015/top/topmenu_s_1c.gif"
+													     width="254" height="90" border="0"></a></td>
+							      </tr>
+							    </table>
+							  </td>
+							</tr>
+						      </table>
+
+						      <!-- 디스토리 & 이벤트 ------------------------------------------------------------------------------------------------------------------------------------>
+						    </div>
+						    <img src="images_2015/top/topmenu_s_02.gif"
+							 border="0" style="cursor: hand"
+							 onclick="javascript:location='/Ncommunity/dstory_list.asp'"
+							 onMouseOver="div_event_onoff(1)"
+							 onMouseOut="div_event_onoff(0)" />
+						</div></td>
+						<td align="center"
+						    style="padding-left: 4px; padding-right: 4px;">
+						  <div style="position: relative; z-index: 100">
+						    <div
+						       style="position: absolute; left: -240px; top: 46px; display: none"
+						       id="div_notice"
+						       onmouseout="div_notice_onoff(0)"
+						       onMouseOver="div_notice_onoff(1)">
+						      <!-- 쿠폰존 & 멤버쉽 ------------------------------------------------------------------------------------------------------------------------------------>
+
+						      <table width="420" border="0" cellpadding="0"
+							     cellspacing="0" bgcolor="#FFFFFF">
+							<tr>
+							  <td height="90" align="right">
+							    <table border="0" cellspacing="0"
+								   cellpadding="0" width="254" height="100">
+							      <tr>
+								<td><a
+								       href="/my/myCouponBook_guest.asp"><img
+													    src="images_2015/top/topmenu_s_2c.gif"
+													    width="254" height="90" border="0"></a></td>
+							      </tr>
+							    </table>
+							  </td>
+							</tr>
+						      </table>
+
+						      <!-- 쿠폰존 & 멤버쉽 ------------------------------------------------------------------------------------------------------------------------------------>
+						    </div>
+						    <img src="images_2015/top/topmenu_s_03.gif"
+							 onMouseOver="div_notice_onoff(1)"
+							 onMouseOut="div_notice_onoff(0)"
+							 onclick="javascript:location='/my/myCouponBook_guest.asp'"
+							 style="cursor: hand" />
+						  </div>
+						</td>
+
+						<td align="center"
+						    style="padding-left: 4px; padding-right: 4px;">
+						  <div style="position: relative; z-index: 100">
+						    <div
+						       style="position: absolute; left: -290px; top: 46px; display: none"
+						       id="div_zzim" onmouseout="div_zzim_onoff(0)"
+						       onMouseOver="div_zzim_onoff(1)">
+						      <!-- 관심상품 ------------------------------------------------------------------------------------------------------------------------------------>
+
+						      <table width="420" border="0" cellpadding="0"
+							     cellspacing="0" bgcolor="#FFFFFF">
+							<tr>
+							  <td height="100" align="right">
+							    <table border="0" cellspacing="0"
+								   cellpadding="0" width="254" height="100">
+							      <tr>
+								<td><table width="100%" border="0"
+									   cellspacing="0" cellpadding="0">
+								    <tr>
+								      <td height="90" align="center"
+									  valign="bottom"
+									  background="images_2015/top/topmenu_s_3c.gif"><table
+															   width="100" border="0"
+															   cellspacing="0" cellpadding="0">
+									  <tr>
+									    <td height="34" align="center"
+										valign="top"><a
+												href="/my/myzzim2.asp"><span
+															  class="top08">[ <span
+																	     id="div_FavoritesCnt">0</span> ]
+									    </span></a></td>
+									  </tr>
+								      </table></td>
+								    </tr>
+								</table></td>
+							      </tr>
+							    </table>
+							  </td>
+							</tr>
+						      </table>
+
+						      <!-- 관심상품 ------------------------------------------------------------------------------------------------------------------------------------>
+						    </div>
+						    <img src="images_2015/top/topmenu_s_04.gif"
+							 onMouseOver="div_zzim_onoff(1)"
+							 onMouseOut="div_zzim_onoff(0)"
+							 onclick="javascript:location='/my/myzzim2.asp'"
+							 style="cursor: hand" />
+						  </div>
+						</td>
+						<td align="center"
+						    style="padding-left: 4px; padding-right: 4px;">
+						  <div style="position: relative; z-index: 100">
+						    <div
+						       style="position: absolute; left: -340px; top: 46px; display: none"
+						       id="div_cart" onmouseout="div_cart_onoff(0)"
+						       onMouseOver="div_cart_onoff(1)">
+						      <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
+
+						      <table width="420" border="0" cellpadding="0"
+							     cellspacing="0" bgcolor="#FFFFFF">
+							<tr>
+							  <td height="100" align="right">
+							    <table border="0" cellspacing="0"
+								   cellpadding="0" width="254" height="100">
+							      <tr>
+								<td><table width="100%" border="0"
+									   cellspacing="0" cellpadding="0">
+								    <tr>
+								      <td height="90" align="center"
+									  valign="bottom"
+									  background="images_2015/top/topmenu_s_4c.gif"><table
+															   width="100" border="0"
+															   cellspacing="0" cellpadding="0">
+									  <tr>
+									    <td height="34" align="center"
+										valign="top"><a
+												href="DispatcherServlet.do?command=cartlist"><span
+																		class="top08">[ <span
+																				   id="div_CartCnt">0</span> ]
+									    </span></a></td>
+									  </tr>
+								      </table></td>
+								    </tr>
+								</table></td>
+							      </tr>
+							    </table>
+							  </td>
+							</tr>
+						      </table>
+
+						      <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
+						    </div>
+						    <img src="images_2015/top/topmenu_s_05.gif"
+							 onMouseOver="div_cart_onoff(1)"
+							 onMouseOut="div_cart_onoff(0)"
+							 onclick="javascript:location='DispatcherServlet.do?command=cartlist'"
+							 style="cursor: hand" />
+						  </div>
+						</td>
+						<td align="center"
+						    style="padding-left: 4px; padding-right: 0px;"
+						    onMouseOver="div_menu_onoff(1)"
+						    onMouseOut="div_menu_onoff(0)">
+						  <div style="position: relative; z-index: 100">
+						    <div
+						       style="position: absolute; left: -390px; top: 46px; display: none"
+						       id="div_menu" onmouseout="div_menu_onoff(0)"
+						       onMouseOver="div_menu_onoff(1)">
+						      <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
+
+						      <table width="420" border="0" cellpadding="0"
+							     cellspacing="0"
+							     background="images_2015/top/topmenu_bg.gif">
+							<tr>
+							  <td height="103" align="right">
+							    <table border="0" cellspacing="0"
+								   cellpadding="0" width="254" height="103">
+							      <tr>
+								<td><table width="100%" border="0"
+									   cellspacing="0" cellpadding="0">
+								    <tr>
+								      <td height="8" align="center"
+									  valign="bottom"></td>
+								    </tr>
+								    <tr>
+								      <td align="center" valign="bottom"><table
+													    width="100%" border="0"
+													    cellspacing="0" cellpadding="0">
+									  <tr>
+									    <td><a
+										   href="/customer/Tracking.asp"><img
+														    src="images_2015/top/topmenu_s_5c_01.gif"
+														    width="99" height="21" border="0"></a></td>
+									    <td><a
+										   href="/Ncs/message1.asp"><img
+													       src="images_2015/top/topmenu_s_5c_02.gif"
+													       width="73" height="21" border="0"></a></td>
+									    <td><a href="/my/mydahong.asp"><img
+													      src="images_2015/top/topmenu_s_5c_03.gif"
+													      width="82" height="21" border="0"></a></td>
+									  </tr>
+								      </table></td>
+								    </tr>
+								    <tr>
+								      <td height="11" align="center"></td>
+								    </tr>
+								    <tr>
+								      <td height="63" align="center"
+									  valign="bottom"
+									  onMouseOver="div_allmenu_onoff(1)"
+									  onMouseOut="div_allmenu_onoff(0)">
+									<div
+									   style="position: relative; z-index: 100">
+									  <div
+									     style="position: absolute; left: -148px; top: 34px; display: none"
+									     id="div_allmenu"
+									     onmouseout="div_allmenu_onoff(0)"
+									     onMouseOver="div_allmenu_onoff(1)">
+									    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
+									    <table width="420" border="0"
+										   cellpadding="0" cellspacing="0"
+										   bgcolor="#E2E2E2">
+									      <tr>
+										<td width="1" align="center"
+										    valign="bottom"></td>
+										<td align="center" valign="top"
+										    bgcolor="#FFFFFF">
+										  <table width="380" border="0"
+											 cellspacing="0" cellpadding="0">
+										    <tr>
+										      <td height="25">&nbsp;</td>
+										    </tr>
+										    <tr>
+										      <td align="center">
+
+
+											<table width="380" border="0"
+											       cellspacing="0"
+											       cellpadding="0">
+											  <tr>
+											    <td width="175"
+												valign="top" height="25"><span
+															    class="top09"><font
+																	     color="FF0066">DAHONG</font></span></td>
+											    <!-- 사장님 지시 사항으로 히든처리
+												 <td width="20%" valign="top"><span class="top09"><font color="#B18BD8">GIRLS</font></span></td>
+												 -->
+											    <!-- 사장님 지시 사항으로 히든처리
+												 <td width="175" valign="top"><span class="top09"><font color="#9CA970">SECOND LEEDS</font></span></td>
+												 -->
+											    <td width="175"
+												valign="top"><span
+														class="top09">MYPAGE</span></td>
+											    <td width="105"
+												valign="top"><span
+														class="top09">C/S</span></td>
+											  </tr>
+											  <tr>
+											    <td valign="top"><span
+														class="top10"> <a
+																  href="/Nshopping/itemShopping_New.asp?Site=D">NEW
+												  10%</a><br> <a
+														 href="/Nshopping/itemShopping_weekly.asp?Site=D">BEST
+												  SELLER</a><br> <a
+														    href="/Nshopping/ItemShopping_main.asp?a=1&Site=D">TOP</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_main.asp?a=318&Site=D">SHIRTS
+												  &amp; BLOUSE</a><br> <a
+															  href="/Nshopping/ItemShopping_main.asp?a=3&Site=D">OUTER</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_main.asp?a=321&Site=D">SKIRT</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_main.asp?a=4&Site=D">DRESS</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_main.asp?a=5&Site=D">PANTS</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_main.asp?a=6&Site=D">BAG
+												  &amp; SHOES</a><br> <a
+															 href="/Nshopping/ItemShopping_main.asp?a=8&Site=D">ACC</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_main.asp?a=9&Site=D">INNER</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_main.asp?a=41&Site=D">BIKINI</a><br>
+												<a
+												   href="/Ncs/Recently_Review.asp?Site=D">상품후기</a><br>
+												<a
+												   href="/Nshopping/ItemShopping_express.asp?Site=D">당일발송</a><br>
+												<a
+												   href="/Nshopping/promotion_list.asp">기획전
+												  리스트</a>
+											    </span></td>
+											    <!-- 사장님 지시 사항으로 히든처리
+												 <td valign="top">
+												   <span class="top10">
+												     <a href="/Nshopping/itemShopping_New.asp?Site=A">NEW 10%</a><br>
+												     <a href="/Nshopping/itemShopping_weekly.asp?Site=A">BEST SELLER</a><br>
+												     <a href="/Nshopping/ItemShopping_main.asp?a=60&Site=A">TOP</a><br>
+												     <a href="/Nshopping/ItemShopping_main.asp?a=61&Site=A">KNIT</a><br>
+												     <a href="/Nshopping/ItemShopping_main.asp?a=62&Site=A">OUTER</a><br>
+												     <a href="/Nshopping/ItemShopping_main.asp?a=63&Site=A">DRESS</a><br>
+												     <a href="/Nshopping/ItemShopping_main.asp?a=64&Site=A">BOTTOM</a><br>
+												     <a href="/Nshopping/ItemShopping_main.asp?a=65&Site=A">BAG &amp; SHOES</a><br>
+												     <a href="/Nshopping/ItemShopping_main.asp?a=67&Site=A">ACC</a><br>
+												     <a href="/Ncs/Recently_Review.asp?Site=A">상품후기</a>                                            
+												   </span>                                              
+												 </td>
+												 
+											    <td valign="top">
+											      <span class="top10">
+												<a href="/Nshopping/itemShopping_New.asp?Site=L">NEW 10%</a><br>
+												<a href="/Nshopping/itemShopping_weekly.asp?Site=L">BEST SELLER</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=104&Site=L">TOP</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=108&Site=L">BLOUSE</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=111&Site=L">OUTER</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=116&Site=L">DRESS &amp; SKIRT</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=118&Site=L">PANTS</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=123&Site=L">BAG &amp; SHOES</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=126&Site=L">ACC</a><br>
+												<a href="/Nshopping/ItemShopping_main.asp?a=324&Site=L">SUMMER</a><br>
+												<a href="/Ncs/Recently_Review.asp?Site=L">상품후기</a></p>
+</span>                                            
+</td>
 -->
-    </td>
-  </tr>
-</table>
+											    <td valign="top"><span
+														class="top10"> <a
+																  href="/my/myzzim2.asp">관심상품
+												  리스트</a><br> <a
+														    href="/cart/mycart.asp">장바구니</a><br>
+												<a href="/my/MyOrder.asp">주문조회(후기작성)</a><br>
+												<a
+												   href="/my/myMessage_qna.asp">내
+												  게시글조회</a><br> <a
+															href="/my/ModifyForm.asp">개인정보수정</a><br>
+												<a href="/my/myCash.asp">예치금조회</a><br>
+												<a
+												   href="/my/myEmoney.asp">적립금조회</a><br>
+												<a
+												   href="/my/myCoupon.asp">할인쿠폰조회</a><br>
+												<br>
+											      </span> <span class="top09">SNS</span><br>
+											      <span class="top10">
+												<a
+												   href="https://www.facebook.com/dahongmall"
+												   target="_blank">페이스북</a><br>
+												<a
+												   href="https://www.instagram.com/love_dahong/"
+												   target="_blank">인스타그램</a><br>
+												<a
+												   href="https://story.kakao.com/ch/dahong"
+												   target="_blank">카카오스토리</a>
+											    </span></td>
+											    <td valign="top"><span
+														class="top10"> <a
+																  href="/Member/LoginForm.asp">로그인</a><br>
 
-<!-- 상단 우측 메뉴 종료-->
-    </td>
-  </tr>
-</table>
+												<a
+												   href="/member/AgreementJob.asp">회원가입</a><br>
+												<a
+												   href="/Ncommunity/dstory_list.asp">디스토리
+												  &amp; 이벤트</a><br> <a
+															  href="/my/myCouponBook_guest.asp">할인혜택</a><br>
+												<a
+												   href="/customer/Tracking.asp">주문/배송조회</a><br>
+												<a
+												   href="/Ncs/message1.asp">질문과답변</a><br>
+												<a
+												   href="/Ncs/FaqList.asp?Select=1">자주묻는질문</a><br>
+												<a href="/Ncs/notice.asp">공지사항</a><br>
+												<a
+												   href="/Nshopping/Shopping_OnlyYou.asp">개인결제</a><br>
+												<a
+												   href="/NShopping/itemshopping_today.asp">최근본상품</a><br>
+												<a
+												   href="/introduction/introduction3.asp">이용약관</a><br>
+												<a
+												   href="/introduction/introduction2.asp">개인정보취급방침</a><br>
+												<a
+												   href="/Ncommunity/Model_Register.asp">모델지원</a><br>
+												<a
+												   href="/introduction/Recruit.asp">채용공고</a><br>
+												<a
+												   href="mailto:tmdwnekdk@hanmail.net">제휴문의</a><br>
+												<a
+												   href="/Ncommunity/celeb_list.asp">연예인협찬</a><br>
+											    </span></td>
+											  </tr>
+											</table>
 
-    
-<!-- 상단 메뉴 종료-->
-  </td>
-  </tr>
-  <tr><td height="2" align="center" bgcolor="#000000"> </td></tr>
+										      </td>
+										    </tr>
+										    <tr>
+										      <td>&nbsp;</td>
+										    </tr>
+										  </table>
+										</td>
+										<td width="1" height="450"
+										    align="center" valign="bottom"></td>
+									      </tr>
+									      <tr>
+										<td height="1" align="center"
+										    valign="bottom"></td>
+										<td height="1" align="center"
+										    valign="bottom"></td>
+										<td height="1" align="center"
+										    valign="bottom"></td>
+									      </tr>
+									    </table>
+									  </div>
+									  <img
+									     src="images_2015/top/topmenu_s_5c_04.gif"
+									     onMouseOver="div_allmenu_onoff(1)"
+									     onMouseOut="div_allmenu_onoff(0)"
+									     onclick="javascript:location='#'"
+									     style="cursor: hand" />
+									</div>
+								      </td>
+								    </tr>
+								</table></td>
+							      </tr>
+							    </table>
+							  </td>
+							</tr>
+						      </table>
+
+						      <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
+						    </div>
+						    <img src="images_2015/top/topmenu_s_06.gif"
+							 onMouseOver="div_menu_onoff(1)"
+							 onMouseOut="div_menu_onoff(0)"
+							 onclick="javascript:location='#'"
+							 style="cursor: hand" />
+						  </div>
+						</td>
+					      </tr>
+					    </table>
+					  </td>
+					</tr>
+				    </table></td>
+				  </tr>
+				</table> <!--레이어 메뉴 종료-->
+			      </td>
+			    </tr>
+			    <tr>
+			      <td valign="bottom" align="right">
+				<!--기존 배너 히든
+				    <table border="0" cellspacing="0" cellpadding="0">
+				      <tr>
+					<td valign="bottom">&nbsp;</td>
+					
+					<td align="right" valign="bottom" >
+					  <a href="http://www.dahong.co.kr/Nshopping/ItemShopping_Keyword.asp?a=266"><img src="images_2015/top/0215top_knitsale.jpg" border="0"></a></td> 
+					
+					<td align="right" valign="bottom" >
+					  <a href="http://www.secondleeds.com?src=image&kw=000001" target="_blank"><img src="images_2015/top/0302top_2nd.jpg" border="0"></a>
+					</td>            
+				      </tr>
+				    </table>
+				    -->
+			      </td>
+			    </tr>
+			  </table> <!-- 상단 우측 메뉴 종료-->
+			</td>
+		      </tr>
+		    </table> <!-- 상단 메뉴 종료-->
+		  </td>
+		</tr>
+		<tr>
+		  <td height="2" align="center" bgcolor="#000000"></td>
+		</tr>
 
 
 
-  <tr>
-    <td height="60" align="center">
-    
-    <table border="0" cellspacing="0" cellpadding="0">
-      
-      <tr>
-        <td align="center">
-        
-        <table border="0" cellspacing="0" cellpadding="0" width="100%">
-		  <tr>
-			<td style="padding-right:29px" ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/itemShopping_New.asp?Site=D"><font color="#E82055">NEW10%</font></a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/itemShopping_weekly.asp?Site=D">BEST</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=1&psize=L&Site=D">TOP</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=318&psize=L&Site=D">SHIRTS & BLOUSE</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=3&psize=L&Site=D">OUTER</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=321&psize=L&Site=D">SKIRT</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=4&psize=L&Site=D">DRESS</a><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=4&psize=L&Site=D"></a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=5&psize=L&Site=D">PANTS</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=6&psize=L&Site=D">BAG &amp; SHOES</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=8&psize=L&Site=D">ACC</a></span></td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=9&psize=L&Site=D">INNER</a></span></td>
-			<td style="padding-right:29px"  >
-            <!--뉴 아이콘 붙은 비키니메뉴
-            <div style="position:relative;">
-            <span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=41&psize=L&Site=D">SUMMER</a></span>
-			<div style="position:absolute;left:6px;top:-30px; width:33px"><img src="/images_2015/main/sunnybunny_nicon.png"></div>
-			</div>
-             --->
-            <span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=41&psize=L&Site=D">SUMMER</a></span>
-            </td>
-			<td style="padding-right:29px"  ><span class="top03"><a href="http://www.dahong.co.kr/Ncs/Recently_Review.asp?Site=D">REVIEW</a></span></td>
-			<td align="right" ><span class="top03"><a href="http://www.dahong.co.kr/my/myCouponBook_guest.asp">할인혜택</a></span></td>
+		<tr>
+		  <td height="60" align="center">
+
+		    <table border="0" cellspacing="0" cellpadding="0">
+
+		      <tr>
+			<td align="center">
+
+			  <table border="0" cellspacing="0" cellpadding="0"
+				 width="100%">
+			    <tr>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="http://www.dahong.co.kr/Nshopping/itemShopping_New.asp?Site=D"><font
+																			     color="#E82055">NEW10%</font></a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="http://www.dahong.co.kr/Nshopping/itemShopping_weekly.asp?Site=D">BEST</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=TOP">TOP</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=SHIRTS">SHIRTS
+				    & BLOUSE</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=OUTER">OUTER</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=SKIRT">SKIRT</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=DRESS">DRESS</a><a
+																						   href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=4&psize=L&Site=D"></a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=PANTS">PANTS</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=BAG">BAG
+				    &amp; SHOES</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=ACC">ACC</a></span></td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="DispatcherServlet.do?command=category&&category=INNER">INNER</a></span></td>
+			      <td style="padding-right: 29px">
+				<!--뉴 아이콘 붙은 비키니메뉴
+				    <div style="position:relative;">
+				      <span class="top03"><a href="http://www.dahong.co.kr/Nshopping/ItemShopping_main.asp?a=41&psize=L&Site=D">SUMMER</a></span>
+				      <div style="position:absolute;left:6px;top:-30px; width:33px"><img src="images_2015/main/sunnybunny_nicon.png"></div>
+				    </div>
+				    ---> <span class="top03"><a
+								href="DispatcherServlet.do?command=category&&category=SUMMER">SUMMER</a></span>
+			      </td>
+			      <td style="padding-right: 29px"><span class="top03"><a
+										     href="http://www.dahong.co.kr/Ncs/Recently_Review.asp?Site=D">REVIEW</a></span></td>
+			      <td align="right"><span class="top03"><a
+								       href="http://www.dahong.co.kr/my/myCouponBook_guest.asp">할인혜택</a></span></td>
 		  </tr>
 		</table></td>
       </tr>
