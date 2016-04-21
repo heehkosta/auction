@@ -24,7 +24,7 @@ public class SearchController implements Controller {
 		String name = request.getParameter("textbox");
 		//String pageNo = "1";
 		
-		System.out.println(name);
+		System.out.println("search keyword: "  + name);
 		
 		request.setAttribute("searchedName", name);
 		//System.out.println(pageNo);
@@ -39,6 +39,6 @@ public class SearchController implements Controller {
 			request.setAttribute("list", list);
 			path =  "search_ok.jsp";
 		}
-		return new ModelAndView(path);  //forward 방식을 의미함
+		return new ModelAndView(path);  //forward 諛⑹떇�쓣 �쓽誘명븿
 	}
 }

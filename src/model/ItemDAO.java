@@ -49,9 +49,9 @@ public class ItemDAO {
 		closeAll(ps, conn);
 	}
 
-	//////////////////////////////// 비지니스 로직 ///////////////////////////////////////////
+	//////////////////////////////// 鍮꾩��땲�뒪 濡쒖쭅 ///////////////////////////////////////////
 
-	//////////판매할 것 추가하는 로직/////////
+	//////////�뙋留ㅽ븷 寃� 異붽��븯�뒗 濡쒖쭅/////////
 	public void addItem(ItemVO vo)
 		      throws SQLException{
 		      Connection conn =null;
@@ -98,7 +98,7 @@ public class ItemDAO {
 		   }
 
 	
-	/////////ID로 검색////////////
+	/////////ID濡� 寃��깋////////////
 	public ItemVO selectByID(String id) throws SQLException{
 		System.out.println("ItemDAO: 73: " + id	);
 		ItemVO vo = new ItemVO();
@@ -133,7 +133,7 @@ public class ItemDAO {
 	}
 
 	
-	/////////상품 이름으로 검색////////////
+	/////////�긽�뭹 �씠由꾩쑝濡� 寃��깋////////////
 	public ArrayList<ItemVO> selectByName(String name) throws SQLException{
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		Connection conn = null;
@@ -141,9 +141,9 @@ public class ItemDAO {
 		ResultSet rs = null;
 		try{
 			conn = getConnection();
-			System.out.println("연결");
+			System.out.println("@ItemDAO:144" + name);
 			ps = conn.prepareStatement(StringQuery.SEARCH_NAME);
-			ps.setString(1, "%" + name + "%");
+			ps.setString(1, "'%" + name + "%'");
 			rs = ps.executeQuery();
 			while(rs.next()){
 				list.add(new ItemVO(rs.getInt("itemID"),
@@ -164,7 +164,7 @@ public class ItemDAO {
 		return list;
 	}
 	
-	////name 검색으로 얻을수 있는 페이지 수
+	////name 寃��깋�쑝濡� �뼸�쓣�닔 �엳�뒗 �럹�씠吏� �닔
 	public int getTotalPostingCount(String name) throws SQLException{
 		int count = -1;
 		Connection conn = null;
@@ -184,7 +184,7 @@ public class ItemDAO {
 		return count;
 	}
 	
-	/////////////////////pageNo 에 따른 페이지 정보///////////////////////////
+	/////////////////////pageNo �뿉 �뵲瑜� �럹�씠吏� �젙蹂�///////////////////////////
 	public ArrayList<ItemVO> getPostingList(String pageNo,String name) throws SQLException{
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		Connection conn = null;
@@ -216,7 +216,7 @@ public class ItemDAO {
 		return list;
 	}
 	
-    /////////////////////Category에 따른 상품 정보///////////////////////////
+    /////////////////////Category�뿉 �뵲瑜� �긽�뭹 �젙蹂�///////////////////////////
 	public ArrayList<ItemVO> getCategoryList(String category) throws SQLException{
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		Connection conn = null;

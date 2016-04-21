@@ -4,37 +4,37 @@ import pagingservice.CommonConstants;
 
 public interface StringQuery {
 	
-	//판매 물품정보
+	//�뙋留� 臾쇳뭹�젙蹂�
 	String SALES_MANAGER = "INSERT INTO Item (ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Category)"
 			+ " VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 	
-	//현재 시간정보 찾기
+	//�쁽�옱 �떆媛꾩젙蹂� 李얘린
 	String SYSDATE = "SELECT now() from dual";
 	
-	//ItemID의 최대값 찾기
+	//ItemID�쓽 理쒕�媛� 李얘린
 	String MAX_ITEMID = "SELECT MAX(ItemID) from Item";
 
-	//판매 물품을 ID으로 찾기
+	//�뙋留� 臾쇳뭹�쓣 ID�쑝濡� 李얘린
 	String SEARCH_ITEMS_BY_ID = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country,Category FROM Item WHERE ItemID=? ";
 	
-	//판매 물품을 NAME으로 찾기
+	//�뙋留� 臾쇳뭹�쓣 NAME�쑝濡� 李얘린
 	String SEARCH_NAME = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
-			+ "Location, Country, Category FROM Item WHERE Name LIKE ? ";
+			+ "Location, Country, Category FROM Item WHERE binary(Name) LIKE ? ";
 	
-	//Name로 검색한 물품 정보
+	//Name濡� 寃��깋�븳 臾쇳뭹 �젙蹂�
 	String TOTAL_COUNT = "SELECT COUNT(-1) FROM Item where Name LIKE ?";
 	
-	//페이징 처리하는 쿼리
+	//�럹�씠吏� 泥섎━�븯�뒗 荑쇰━
 	String PAGE_LIST = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Category"
 			+ "from Item where name like ? limit ?,"+CommonConstants.CONTENT_NUMBER_PER_PAGE+"";
-	//카테고리 찾는 쿼리
+	//移댄뀒怨좊━ 李얜뒗 荑쇰━
 	String CATEGORY_LIST = "SELECT * From Item WHERE Category LIKE ?";
 			
 	
