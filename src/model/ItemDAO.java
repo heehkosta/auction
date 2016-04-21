@@ -1,5 +1,6 @@
 package model;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -134,7 +135,10 @@ public class ItemDAO {
 
 	
 	/////////�긽�뭹 �씠由꾩쑝濡� 寃��깋////////////
-	public ArrayList<ItemVO> selectByName(String name) throws SQLException{
+	public ArrayList<ItemVO> selectByName(String name) throws SQLException, UnsupportedEncodingException{
+		
+		/*String nameEncoded = new String(name.getBytes("UTF-8"), "8859_1" );*/
+		
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -144,8 +148,16 @@ public class ItemDAO {
 			System.out.println("@ItemDAO:144" + name);
 			ps = conn.prepareStatement(StringQuery.SEARCH_NAME);
 			ps.setString(1, "%" + name + "%");
+			
+			System.out.println("ItemDAO: 152" + ps);
+			
 			rs = ps.executeQuery();
+			
+			
 			while(rs.next()){
+					/*System.out.println("ItemDAO:158");
+					System.out.println(rs.getString("name"));*/
+				
 				list.add(new ItemVO(rs.getInt("itemID"),
 						rs.getString("name"), 
 						rs.getFloat("buy_Price"),

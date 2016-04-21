@@ -706,7 +706,7 @@
 				 <div class="col-lg-25">
     <div class="input-group">
       <input type="hidden" name="command" value="search">
-      <input type="text" class="form-control" placeholder="Search for...">
+      <input type="text" class="form-control" name="textbox" placeholder="Search for...">
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit">Go!</button>
       </span>

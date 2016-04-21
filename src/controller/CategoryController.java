@@ -17,7 +17,7 @@ public class CategoryController implements Controller {
 		
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		list =  ItemDAO.getInstance().getCategoryList(request.getParameter("category"));
-		request.setAttribute("category", list);
+		request.setAttribute("list", list);
 		System.out.println(list);
 		return new ModelAndView("search_ok.jsp");
 	}
@@ -36,7 +36,7 @@ public ModelAndView handle(HttpServletRequest request,
 	}
 	request.setAttribute("sum",sum);
 	if(cartlist==null){
-		System.out.println("장바구니가 비었습니다.");
+		System.out.println("�옣諛붽뎄�땲媛� 鍮꾩뿀�뒿�땲�떎.");
 		path = "search_ok.jsp";
 	}else{
 		path = "cartlist.jsp";

@@ -24,7 +24,7 @@ public interface StringQuery {
 	//�뙋留� 臾쇳뭹�쓣 NAME�쑝濡� 李얘린
 	String SEARCH_NAME = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
-			+ "Location, Country, Category FROM Item WHERE binary Name LIKE ? ";
+			+ "Location, Country, Category FROM Item WHERE binary(Name) LIKE ? ";
 	
 	//Name濡� 寃��깋�븳 臾쇳뭹 �젙蹂�
 	String TOTAL_COUNT = "SELECT COUNT(-1) FROM Item where Name LIKE ?";

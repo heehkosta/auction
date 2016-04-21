@@ -31,10 +31,14 @@ public class SearchController implements Controller {
 		
 		//ListVO lvo = PbService.getInstance().getPostingNumber(name, pageNo);
 		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByName(name);
-		/*for(ItemVO i : list) {
-			System.out.println(i.getName());
-		}*/
 		
+		// test
+		for(ItemVO i : list) {
+			System.out.println("SearchController:37" + i.getName());
+		}
+		
+		
+		//[!] category 라는 리스트로 검색결과를 가져왔음에 주의할것.
 		if(list != null){
 			request.setAttribute("list", list);
 			path =  "search_ok.jsp";
