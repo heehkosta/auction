@@ -19,7 +19,7 @@ public class AddItemController implements Controller {
 		String country = request.getParameter("Country");
 		String location = request.getParameter("Location");
 		
-		ItemVO vo = new ItemVO(0, name, 0, 0, null, ends, sellerID, description, location, country, 0, 0);
+		ItemVO vo = new ItemVO(0, name, 0, 0, null, ends, sellerID, description, location, country,null);
 		ItemDAO.getInstance().addItem(vo);
 		
 		return new ModelAndView("index.html");

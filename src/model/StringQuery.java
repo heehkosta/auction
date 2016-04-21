@@ -7,8 +7,8 @@ public interface StringQuery {
 	//판매 물품정보
 	String SALES_MANAGER = "INSERT INTO Item (ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
-			+ "Location, Country, Latitude, Longitude)"
-			+ " VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "Location, Country, Category)"
+			+ " VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 	
 	//현재 시간정보 찾기
 	String SYSDATE = "SELECT now() from dual";
@@ -19,12 +19,12 @@ public interface StringQuery {
 	//판매 물품을 ID으로 찾기
 	String SEARCH_ITEMS_BY_ID = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
-			+ "Location, Country, Latitude, Longitude FROM Item WHERE ItemID=? ";
+			+ "Location, Country,Category FROM Item WHERE ItemID=? ";
 	
 	//판매 물품을 NAME으로 찾기
 	String SEARCH_NAME = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
-			+ "Location, Country, Latitude, Longitude FROM Item WHERE Name LIKE ? ";
+			+ "Location, Country, Category FROM Item WHERE Name LIKE ? ";
 	
 	//Name로 검색한 물품 정보
 	String TOTAL_COUNT = "SELECT COUNT(-1) FROM Item where Name LIKE ?";
@@ -32,7 +32,7 @@ public interface StringQuery {
 	//페이징 처리하는 쿼리
 	String PAGE_LIST = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
-			+ "Location, Country, Latitude, Longitude"
+			+ "Location, Country, Category"
 			+ "from Item where name like ? limit ?,"+CommonConstants.CONTENT_NUMBER_PER_PAGE+"";
 
 	

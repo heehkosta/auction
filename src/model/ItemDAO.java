@@ -87,8 +87,7 @@ public class ItemDAO {
 		         ps.setString(8, vo.getDescription());
 		         ps.setString(9, vo.getLocation());
 		         ps.setString(10, vo.getCountry());
-		         ps.setDouble(11, vo.getLatitude());
-		         ps.setDouble(12, vo.getLongitude());
+		         ps.setString(11, vo.getCategory());
 		         
 		         int row = ps.executeUpdate();
 		         System.out.println(row + " row OK!!");
@@ -124,8 +123,7 @@ public class ItemDAO {
 						rs.getString("description"), 
 						rs.getString("location"),
 						rs.getString("country"), 
-						rs.getDouble("latitude"),
-						rs.getDouble("longitude"));
+						rs.getString("category"));
 				
 			}
 		}finally{
@@ -165,8 +163,7 @@ public class ItemDAO {
 						rs.getString("description"), 
 						rs.getString("location"),
 						rs.getString("country"), 
-						rs.getDouble("latitude"),
-						rs.getDouble("longitude")));
+						rs.getString("category")));
 			}
 		}finally{
 			closeAll(rs, ps, conn);
@@ -219,8 +216,7 @@ public class ItemDAO {
 						rs.getString("description"), 
 						rs.getString("location"),
 						rs.getString("country"), 
-						rs.getDouble("latitude"),
-						rs.getDouble("longitude")));}
+						rs.getString("category")));}
 		}finally{
 			closeAll(rs, ps, conn);
 		}

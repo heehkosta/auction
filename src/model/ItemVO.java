@@ -11,16 +11,15 @@ public class ItemVO {
 	private String Description;
 	private String Location;
 	private String Country;
-	private double Latitude;
-	private double Longitude;
-	
+	private String Category;
+		
 	public ItemVO() {
 		super();
 	}
 
 	public ItemVO(int itemID, String name, float buy_Price, float first_Bid,
 			String started, String ends, String sellerID, String description,
-			String location, String country, double latitude, double longitude) {
+			String location, String country, String category) {
 		super();
 		ItemID = itemID;
 		Name = name;
@@ -32,14 +31,7 @@ public class ItemVO {
 		Description = description;
 		Location = location;
 		Country = country;
-		Latitude = latitude;
-		Longitude = longitude;
-	}
-
-	public ItemVO(String name, float buy_Price) {
-		super();
-		Name = name;
-		Buy_Price = buy_Price;
+		Category = category;
 	}
 
 	public int getItemID() {
@@ -122,20 +114,12 @@ public class ItemVO {
 		Country = country;
 	}
 
-	public double getLatitude() {
-		return Latitude;
+	public String getCategory() {
+		return Category;
 	}
 
-	public void setLatitude(double latitude) {
-		Latitude = latitude;
-	}
-
-	public double getLongitude() {
-		return Longitude;
-	}
-
-	public void setLongitude(double longitude) {
-		Longitude = longitude;
+	public void setCategory(String category) {
+		Category = category;
 	}
 
 	@Override
@@ -144,9 +128,6 @@ public class ItemVO {
 				+ Buy_Price + ", First_Bid=" + First_Bid + ", Started="
 				+ Started + ", Ends=" + Ends + ", SellerID=" + SellerID
 				+ ", Description=" + Description + ", Location=" + Location
-				+ ", Country=" + Country + ", Latitude=" + Latitude
-				+ ", Longitude=" + Longitude + "]";
+				+ ", Country=" + Country + ", Category=" + Category + "]";
 	}
-	
-	
 }
