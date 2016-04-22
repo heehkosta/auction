@@ -4,7 +4,7 @@
 			  auth="container"
 			  type="javax.sql.DataSource"
 			  username="user"
-			  password="my_password"
+			  password="habari214748"
 
 			  driverClassName="com.mysql.jdbc.Driver"
 			  factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
