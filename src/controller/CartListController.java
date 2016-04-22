@@ -14,21 +14,20 @@ public class CartListController implements Controller {
 	public ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String path = "";
-		ArrayList<ItemVO> cartlist = new ArrayList<ItemVO>();
-		cartlist = CartDAO.getInstance().getCartList(request);
+		ArrayList<ItemVO> cartlist = CartDAO.getInstance().getCartList(request);
 		System.out.println("CARTLISTCONTROLLER :"+cartlist);
+
+
+		path = "cartlist.jsp";
 		int sum =0;
-		for(int i = 0; i < cartlist.size(); i++){
-			sum += cartlist.get(i).getBuy_Price();
+		if(cartlist!=null){
+			for(int i = 0; i < cartlist.size(); i++){
+				sum += cartlist.get(i).getBuy_Price();
+			}
+			request.setAttribute("sum",sum);
 		}
-		request.setAttribute("sum",sum);
-		if(cartlist==null){
-			System.out.println("장바구니가 비었습니다.");
-			path = "search_ok.jsp";
-		}else{
-			path = "cartlist.jsp";
-		}
-		
+
+
 		return new ModelAndView(path);
 	}
 
