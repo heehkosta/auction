@@ -39,7 +39,7 @@ public interface StringQuery {
 	String CATEGORY_LIST = "SELECT * From Item WHERE Category LIKE ?";
 			
 	//Keyword 테이블에서 Name로 검색
-	String SEARCH_BY_NAME_FROM_KEYWORD = "SELECT Name FROM Keyword WHERE Name Like ?";
+	String SEARCH_BY_NAME_FROM_KEYWORD = "SELECT Name FROM Keyword WHERE Name = ?";
 	
 	//Keyword 테이블에 Name과 Popularity 추가
 	String ADD_BY_KEYWORD_POPULARITY = "INSERT INTO Keyword (Name, Popularity) values (?,1)";

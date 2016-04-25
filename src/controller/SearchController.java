@@ -9,6 +9,7 @@ import pagingservice.ListVO;
 import pagingservice.PbService;
 import model.ItemDAO;
 import model.ItemVO;
+import model.KeywordDAO;
 
 
 public class SearchController implements Controller {
@@ -31,13 +32,14 @@ public class SearchController implements Controller {
 		
 		//ListVO lvo = PbService.getInstance().getPostingNumber(name, pageNo);
 		ArrayList<ItemVO> list = ItemDAO.getInstance().selectByName(name);
-		
+		////Keyword를 등록 또는 추가하는 부분
+		KeywordDAO.getInstance().addKeyword(name);
 		// test
 		for(ItemVO i : list) {
 			System.out.println("SearchController:37" + i.getName());
 		}
 		
-		
+
 		//[!] category 라는 리스트로 검색결과를 가져왔음에 주의할것.
 		if(list != null){
 			request.setAttribute("list", list);
