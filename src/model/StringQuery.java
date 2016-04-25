@@ -54,6 +54,9 @@ public interface StringQuery {
 	String POPULARITY_DESC_FROM_KEYWORD = "SELECT Name from Keyword order by Popularity DESC";
 >>>>>>> origin/master
 	
+	//RATING, REVIEW FEEDBACK쿼리
+	String FEEDBACK  = "INSERT INTO FeedBack (TargetName, Rating, Review) values(?,?,?)";
+	
 	//String SEARCH_ITEMID_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where ItemID like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+""; 
 	//String SEARCH_NAME_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where Name like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+"";  
 	//String SEARCH_BUY_PRICE_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where Buy_Price like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+"";  
