@@ -51,6 +51,8 @@ public class HandlerMapping {
 			controller = new CategoryController();
 		}else if(command.equals("keyword")){
 			controller = new KeywordController();
+		}else if(command.equals("feedback")){
+			controller = new FeedBackController();
 		}
 
 		return controller;

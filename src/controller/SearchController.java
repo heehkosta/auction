@@ -17,10 +17,7 @@ public class SearchController implements Controller {
 	@Override
 	public ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
-		
-		
-		
+
 		String path = "search_fail.jsp";
 		String name = request.getParameter("textbox");
 		//String pageNo = "1";
