@@ -47,12 +47,7 @@ public interface StringQuery {
 	//Keyword 테이블에 Name에 따른 Popularity 수치 증가
 	String PLUS_POPULARITY_FROM_KEYWORD = "UPDATE Keyword set Popularity=Popularity+1 where Name = ?";
 	
-<<<<<<< HEAD
-
-=======
-	//Keyword 테이블에서 Popularity로 내림차순 정렬결과 검색
-	String POPULARITY_DESC_FROM_KEYWORD = "SELECT Name from Keyword order by Popularity DESC";
->>>>>>> origin/master
+	
 	
 	//String SEARCH_ITEMID_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where ItemID like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+""; 
 	//String SEARCH_NAME_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where Name like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+"";  
