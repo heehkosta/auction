@@ -38,7 +38,7 @@ public class KeywordAjaxServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			System.out.println(json);
+		//	System.out.println(json);
 			out.print(json);
 			
 			

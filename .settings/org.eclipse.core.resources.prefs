@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//src/controller/CategoryController.java=UTF-8
 encoding//src/controller/SearchController.java=UTF-8
 encoding//src/model/ItemDAO.java=UTF-8
+encoding//src/model/KeywordDAO.java=UTF-8
 encoding//src/model/StringQuery.java=UTF-8

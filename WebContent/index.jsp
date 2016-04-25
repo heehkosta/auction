@@ -84,7 +84,7 @@
 				
 				
 				success:function(data){//list가 json 객체를 받았다.
-					alert(data.klist);
+				/* 	alert(data.klist); */
 					
 					var l = data.klist;
 					var availableTags = new Array();

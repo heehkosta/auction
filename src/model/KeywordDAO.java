@@ -26,7 +26,7 @@ public class KeywordDAO {
 		return dao;
 	}
 
-	//////////////////////공통로직////////////////////////////////////////////////////
+	//////////////////////怨듯넻濡쒖쭅////////////////////////////////////////////////////
 	public Connection getConnection() throws SQLException{
 		return ds.getConnection();
 	}
@@ -46,9 +46,9 @@ public class KeywordDAO {
 		closeAll(ps, conn);
 	}
 
-	////////////////////////////////Keyword 로직/////////////////////////////
+	////////////////////////////////Keyword 濡쒖쭅/////////////////////////////
 
-	////Keyword 테이블에 검색어를 추가 또는 검색어가 있을경우 횟수를 올려줌
+	////Keyword �뀒�씠釉붿뿉 寃��깋�뼱瑜� 異붽� �삉�뒗 寃��깋�뼱媛� �엳�쓣寃쎌슦 �슏�닔瑜� �삱�젮以�
 	public void addKeyword (String name) throws SQLException{
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -64,11 +64,11 @@ public class KeywordDAO {
 				searchName = rs.getString(1);
 			}
 
-			if(!searchName.equals(name)){ //입력한 검색어가 디비에 없는경우
+			if(!searchName.equals(name)){ //�엯�젰�븳 寃��깋�뼱媛� �뵒鍮꾩뿉 �뾾�뒗寃쎌슦
 				ps = conn.prepareStatement(StringQuery.ADD_BY_KEYWORD_POPULARITY);
 				ps.setString(1, name);
 				ps.executeUpdate();
-			}else{ //입력한 검색어가 디비에 있는경우
+			}else{ //�엯�젰�븳 寃��깋�뼱媛� �뵒鍮꾩뿉 �엳�뒗寃쎌슦
 				ps = conn.prepareStatement(StringQuery.PLUS_POPULARITY_FROM_KEYWORD);
 				ps.setString(1, name);
 				ps.executeUpdate();
@@ -78,7 +78,7 @@ public class KeywordDAO {
 		}
 	}
 
-	////////////Keyword테이블에서 검색횟수로 내림차순 정렬///////////////////
+	////////////Keyword�뀒�씠釉붿뿉�꽌 寃��깋�슏�닔濡� �궡由쇱감�닚 �젙�젹///////////////////
 	public ArrayList<String> descKeyword() throws SQLException{
 		ArrayList<String> klist = new ArrayList<String>();
 		Connection conn = null;
@@ -114,17 +114,17 @@ public class KeywordDAO {
 				clist.add(new KeywordVO(rs.getString(1), rs.getInt(2)));
 			}
 			for(int i =0; i < clist.size(); i++){
-				if(clist.get(i).getName().equals("티셔츠")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+				if(clist.get(i).getName().equals("�떚�뀛痢�")){
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='�떚�뀛痢�'");
 					ps.executeUpdate();
-				}else if(clist.get(i).getName().equals("티")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+				}else if(clist.get(i).getName().equals("�떚")){
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='�떚�뀛痢�'");
 					ps.executeUpdate();
-				}else if(clist.get(i).getName().equals("T셔츠")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+				}else if(clist.get(i).getName().equals("T�뀛痢�")){
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='�떚�뀛痢�'");
 					ps.executeUpdate();
 				}else if(clist.get(i).getName().equals("T shirt")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='�떚�뀛痢�'");
 					ps.executeUpdate();
 				}
 			}
