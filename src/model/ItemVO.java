@@ -12,7 +12,7 @@ public class ItemVO {
 	private String Location;
 	private String Country;
 	private String Category;
-		
+	
 	public ItemVO() {
 		super();
 	}
