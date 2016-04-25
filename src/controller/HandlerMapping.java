@@ -49,6 +49,8 @@ public class HandlerMapping {
 			controller = new UploadController();
 		}else if(command.equals("category")){
 			controller = new CategoryController();
+		}else if(command.equals("keyword")){
+			controller = new KeywordController();
 		}
 
 		return controller;

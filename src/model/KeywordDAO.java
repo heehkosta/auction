@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -47,6 +48,7 @@ public class KeywordDAO {
 	
 	////////////////////////////////Keyword 로직/////////////////////////////
 	
+	////Keyword 테이블에 검색어를 추가 또는 검색어가 있을경우 횟수를 올려줌
 	public void addKeyword (String name) throws SQLException{
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -75,4 +77,32 @@ public class KeywordDAO {
 			closeAll(rs, ps, conn);
 		}
 	}
+	
+	////////////Keyword테이블에서 검색횟수로 내림차순 정렬///////////////////
+	public ArrayList<String> descKeyword() throws SQLException{
+		ArrayList<String> klist = new ArrayList<String>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try{
+			conn = getConnection();
+			ps = conn.prepareStatement(StringQuery.POPULARITY_DESC_FROM_KEYWORD);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				klist.add(rs.getString(1));
+			}
+		}finally{
+			closeAll(rs, ps, conn);
+		}
+		
+		return klist;
+	}
 }
+
+
+
+
+
+
+
+
