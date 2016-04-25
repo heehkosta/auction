@@ -4,39 +4,48 @@ import pagingservice.CommonConstants;
 
 public interface StringQuery {
 	
-	//�뙋留� 臾쇳뭹�젙蹂�
+	////판매 물품 등록//
 	String SALES_MANAGER = "INSERT INTO Item (ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Category)"
 			+ " VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 	
-	//�쁽�옱 �떆媛꾩젙蹂� 李얘린
+	//현재 시간정보//
 	String SYSDATE = "SELECT now() from dual";
 	
-	//ItemID�쓽 理쒕�媛� 李얘린
+	//ItemID의 최대값 검색//
 	String MAX_ITEMID = "SELECT MAX(ItemID) from Item";
 
-	//�뙋留� 臾쇳뭹�쓣 ID�쑝濡� 李얘린
+	//ID로 상품검색//
 	String SEARCH_ITEMS_BY_ID = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country,Category FROM Item WHERE ItemID=? ";
 	
-	//�뙋留� 臾쇳뭹�쓣 NAME�쑝濡� 李얘린
+	//NAME으로 상품검색//
 	String SEARCH_NAME = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Category FROM Item WHERE binary(Name) LIKE ? ";
 	
-	//Name濡� 寃��깋�븳 臾쇳뭹 �젙蹂�
+	//Name으로 검색한 총 페이지의 수
 	String TOTAL_COUNT = "SELECT COUNT(-1) FROM Item where Name LIKE ?";
 	
-	//�럹�씠吏� 泥섎━�븯�뒗 荑쇰━
+	//페이징 처리를 위한 쿼리
 	String PAGE_LIST = "SELECT ItemID, Name, Buy_Price, "
 			+ "First_Bid, Started, Ends, SellerID, Description, "
 			+ "Location, Country, Category"
 			+ "from Item where name like ? limit ?,"+CommonConstants.CONTENT_NUMBER_PER_PAGE+"";
-	//移댄뀒怨좊━ 李얜뒗 荑쇰━
+	
+	//아이템 테이블에서 카테고리로 검색
 	String CATEGORY_LIST = "SELECT * From Item WHERE Category LIKE ?";
 			
+	//Keyword 테이블에서 Name로 검색
+	String SEARCH_BY_NAME_FROM_KEYWORD = "SELECT Name FROM Keyword WHERE Name Like ?";
+	
+	//Keyword 테이블에 Name과 Popularity 추가
+	String ADD_BY_KEYWORD_POPULARITY = "INSERT INTO Keyword (Name, Popularity) values (?,1)";
+	
+	//Keyword 테이블에 Name에 따른 Popularity 수치 증가
+	String PLUS_POPULARITY_FROM_KEYWORD = "UPDATE Keyword set Popularity=Popularity+1 where Name = ?";
 	
 	//String SEARCH_ITEMID_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where ItemID like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+""; 
 	//String SEARCH_NAME_LIST = "SELECT ItemID, Name, Buy_Price, First_Bid, Started, Ends, SellerID, Description, Location, Country, Latitude, Longitude FROM Item where Name like ? LIMIT ?,"+ CommonConstants.CONTENT_NUMBER_PER_PAGE+"";  
