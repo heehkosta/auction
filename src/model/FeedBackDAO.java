@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -21,12 +22,12 @@ public class FeedBackDAO {
 		}catch(NamingException e){
 			e.printStackTrace();
 		}
-		 
+
 	}
 	public static FeedBackDAO getInstance(){
 		return dao;
 	}
-	
+
 	public Connection getConnection() throws SQLException{
 		return ds.getConnection();
 	}
@@ -45,7 +46,7 @@ public class FeedBackDAO {
 		}
 		closeAll(ps, conn);
 	}
-	
+
 	public void posting(FeedBackVO vo)throws SQLException{
 		Connection conn = null;
 		java.sql.PreparedStatement ps = null;
@@ -54,19 +55,40 @@ public class FeedBackDAO {
 			conn = getConnection();
 			//하나의 게시글을 입력하는 쿼리문을 작성...이부분을 메타데이타화
 			//properties 파일-> 인터페이스 --> xml --> @annotation
-			
+
 			if(vo.getRating()>5){
 				System.out.println("5보다 작은 평점을 입력해주세요.");
 			}else{
-			ps = conn.prepareStatement(StringQuery.FEEDBACK);
-			ps.setString(1, vo.getTargetName());
-			ps.setFloat(2, vo.getRating());
-			ps.setString(3, vo.getReview());
-			ps.executeUpdate();
+				ps = conn.prepareStatement(StringQuery.FEEDBACK);
+				ps.setString(1, vo.getTargetName());
+				ps.setFloat(2, vo.getRating());
+				ps.setString(3, vo.getReview());
+				ps.executeUpdate();
 			}
 		}finally{
 			closeAll(ps, conn);
 		}
-		
+
+	}
+
+	public ArrayList<FeedBackVO> SearchFeedBack() throws SQLException{
+		ArrayList<FeedBackVO> flist = new ArrayList<FeedBackVO>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try{
+			conn = getConnection();
+			ps = conn.prepareStatement(StringQuery.SEARCH_FEEDBACK);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				flist.add(new FeedBackVO(rs.getString(1), 
+						rs.getFloat(2), 
+						rs.getString(3)));
+
+			}
+		}finally{
+			closeAll(rs, ps, conn);
+		}
+		return flist;
 	}
 }

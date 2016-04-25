@@ -99,6 +99,7 @@ public class KeywordDAO {
 	}
 
 	//////////////////////BestKeyword//////////////////////////////////////////
+	
 	public ArrayList<KeywordVO> bestKeyword() throws SQLException{
 		ArrayList<KeywordVO> blist = new ArrayList<KeywordVO>();
 		ArrayList<KeywordVO> clist = new ArrayList<KeywordVO>();
@@ -113,21 +114,24 @@ public class KeywordDAO {
 			while(rs.next()){
 				clist.add(new KeywordVO(rs.getString(1), rs.getInt(2)));
 			}
+			
 			for(int i =0; i < clist.size(); i++){
+				ps = conn.prepareStatement("UPDATE BestKeyword set Popularity = 0 where Name ='티셔츠'");
 				if(clist.get(i).getName().equals("티셔츠")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+(select Popularity from Keyword where Name ='티셔츠') where Name ='티셔츠'");
 					ps.executeUpdate();
 				}else if(clist.get(i).getName().equals("티")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+(select Popularity from Keyword where Name ='티') where Name ='티셔츠'");
 					ps.executeUpdate();
 				}else if(clist.get(i).getName().equals("T셔츠")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+(select Popularity from Keyword where Name ='T셔츠') where Name ='티셔츠'");
 					ps.executeUpdate();
 				}else if(clist.get(i).getName().equals("T shirt")){
-					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+1 where Name ='티셔츠'");
+					ps = conn.prepareStatement("UPDATE BestKeyword set Popularity=Popularity+(select Popularity from Keyword where Name ='T shirt') where Name ='티셔츠'");
 					ps.executeUpdate();
 				}
 			}
+			
 			ps = conn.prepareStatement("SELECT Name,Popularity FROM BestKeyword");
 			rs = ps.executeQuery();
 			while(rs.next()){

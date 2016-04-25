@@ -54,7 +54,6 @@ public class HandlerMapping {
 		}else if(command.equals("feedback")){
 			controller = new FeedBackController();
 		}
-
 		return controller;
 	}
 }
