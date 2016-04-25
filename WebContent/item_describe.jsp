@@ -103,7 +103,8 @@ $(function() {
     <div style="margin-top: 30px;">
 <p><b>올린 시간 </b>: ${item.started}</p>
 <p><b>종료 시간 </b>: ${item.ends}</p>
-<p><font color="red"><b>남은 시간 :</b></font></p><div id="defaultCountdown"></div>
+<p><font color="red"><b>남은 시간 :</b></font></p><div id="defaultCountdown"></div><br>
+${flist}
    
     <div style="margin-top: 30px;">
       <h4><b>상세설명</b></h4><p>
