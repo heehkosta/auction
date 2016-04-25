@@ -47,8 +47,6 @@ public interface StringQuery {
 	//Keyword 테이블에 Name에 따른 Popularity 수치 증가
 	String PLUS_POPULARITY_FROM_KEYWORD = "UPDATE Keyword set Popularity=Popularity+1 where Name = ?";
 	
-	
-	
 	//RATING, REVIEW FEEDBACK쿼리
 	String FEEDBACK  = "INSERT INTO FeedBack (TargetName, Rating, Review) values(?,?,?)";
 	
