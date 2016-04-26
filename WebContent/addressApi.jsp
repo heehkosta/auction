@@ -84,7 +84,75 @@ var roadAddress;
 
 </head>
 <body>
+<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="e0e0e0">
+  <tr>
+    <td height="40" bgcolor="#fafafa" style="padding-left:25px;"><b><span class="m_title24">주문자 정보</span></b></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" style="padding-top:20px; padding-bottom:20px;">
+    
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="e0e0e0">
+  <tr>
+    <td bgcolor="#FFFFFF" align="center">    
 
+    </td>
+  </tr>
+
+  <tr>
+    <td bgcolor="#FFFFFF" align="center">    
+			<table width="97%" border="0" cellspacing="0" cellpadding="5">
+			  <tr>
+				<td width="150" style="padding-left:9px;"><span class="m_title10">우편번호</span></td>
+				<td width="60">
+				<input type="text" name="member_zipcode" id="member_zipcode" readonly value=""  size="7" style=" height:24px; width:60px; border:1 solid #CCCCCC; 굴림; FONT-SIZE: 9pt" >
+                </td>
+				<td>
+			<table width="90" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td height="29" align="center" style="border:1 solid #CCCCCC" bgcolor="#E3E3E3"><a href="javascript:openZipcodelayer('M');"><span class="m_title04">우편번호 검색</span></a></td>
+			  </tr>
+			</table>
+
+				</td>
+			  </tr>
+			</table>  
+    </td>
+  </tr>
+  
+  <tr>
+    <td bgcolor="#FFFFFF" align="center">    
+<table width="97%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="150" style="padding-left:9px;"><span class="m_title10">주소 </span></td>
+    <td>
+<span class="m_title10">
+<input type="text" name="member_addr1" id="member_addr1" readonly Value=""  size="30" style="HEIGHT: 24px; WIDTH: 200px; border:1 solid #CCCCCC; 굴림; FONT-SIZE: 9pt">
+</span>
+    </td>
+  </tr>
+</table>    
+    </td>
+  </tr>
+  
+  <tr>
+    <td bgcolor="#FFFFFF" align="center">    
+<table width="97%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="150" style="padding-left:9px;"><span class="m_title10">나머지 주소 </span></td>
+    <td>
+    <span class="m_title10">
+    <input type="text" name="member_addr2" id="member_addr2" Value="" size="30" style="HEIGHT: 24px; WIDTH: 200px; border:1 solid #CCCCCC; 굴림; FONT-SIZE: 9pt">
+    </span>
+    </td>
+  </tr>
+</table>    
+    </td>
+  </tr>
+</table>   
+    
+    </td>
+  </tr>
+</table>
 
 <input type="text" id="sample4_postcode" placeholder="우편번호">
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
