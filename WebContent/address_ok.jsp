@@ -38,10 +38,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="index.html" style="color: white;">Home</a></li>
-					<li><a href="#" style="color: white;">Sell</a></li>
-					<li><a href="#" style="color: white;">Buy</a></li>
-					<li><a href="#" style="color: white;">Search</a></li>
+					<li><a href="index.jsp" style="color: white;">Home</a></li>
 				</ul>
 			</div>
 		</div>
