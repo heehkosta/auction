@@ -861,10 +861,9 @@ bgcolor="#FFFFFF">
 							       width="100%">
 							    <tr>
 								<td style="padding-right: 29px"><span class="top03"><a
-															href="http://www.dahong.co.kr/Nshopping/itemShopping_New.asp?Site=D"><font
-																								 color="#E82055">NEW10%</font></a></span></td>
+															href=#><font color="#E82055">NEW10%</font></a></span></td>
 								<td style="padding-right: 29px"><span class="top03"><a
-															href="http://www.dahong.co.kr/Nshopping/itemShopping_weekly.asp?Site=D">BEST</a></span></td>
+															href=#>BEST</a></span></td>
 								<td style="padding-right: 29px"><span class="top03"><a
 															href="DispatcherServlet.do?command=category&&category=TOP">TOP</a></span></td>
 								<td style="padding-right: 29px"><span class="top03"><a
@@ -896,9 +895,9 @@ bgcolor="#FFFFFF">
 	href="DispatcherServlet.do?command=category&&category=SUMMER">SUMMER</a></span>
 								</td>
 								<td style="padding-right: 29px"><span class="top03"><a
-															href="http://www.dahong.co.kr/Ncs/Recently_Review.asp?Site=D">REVIEW</a></span></td>
+															href=#>REVIEW</a></span></td>
 								<td align="right"><span class="top03"><a
-													  href="http://www.dahong.co.kr/my/myCouponBook_guest.asp">할인혜택</a></span></td>
+													  href=#>할인혜택</a></span></td>
 							    </tr>
 							</table>
 						    </td>
