@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>report</title>
+<!-- 2016-04-26 화 13:03 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">report</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 웹 프로젝트 리포트: 온라인 쇼핑몰</a></li>
+<li><a href="#sec-2">2. 문서의 목적</a></li>
+<li><a href="#sec-3">3. 문서의 대상</a></li>
+<li><a href="#sec-4">4. 업데이트와 차후 변화</a></li>
+<li><a href="#sec-5">5. 소개</a></li>
+<li><a href="#sec-6">6. 벤치마킹 대상 웹 사이트: 온라인 옷 쇼핑몰()</a>
+<ul>
+<li><a href="#sec-6-1">6.1. 잘 되어있는점</a></li>
+<li><a href="#sec-6-2">6.2. 개선할점</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7. 핵심기능</a>
+<ul>
+<li><a href="#sec-7-1">7.1. 검색</a></li>
+<li><a href="#sec-7-2">7.2. 구매</a></li>
+<li><a href="#sec-7-3">7.3. 기타</a></li>
+</ul>
+</li>
+<li><a href="#sec-8">8. 프로젝트 타임라인</a></li>
+<li><a href="#sec-9">9. 프로젝트 마일스톤</a></li>
+<li><a href="#sec-10">10. 배운점</a>
+<ul>
+<li><a href="#sec-10-1">10.1. MVC 팩토리 모델에서 웹프로젝트 작업의 순서</a></li>
+<li><a href="#sec-10-2">10.2. DAO 로직 테스트 방법론</a></li>
+<li><a href="#sec-10-3">10.3. DB테스트는 DAO테스트와 다르다는것을 이해</a></li>
+<li><a href="#sec-10-4">10.4. 알고리즘과 뷰단이 어떻게 연관되는지 설명할 수 있어야 한다.\\</a></li>
+<li><a href="#sec-10-5">10.5. 2주라면 그냥 좋은 사이트 따라가면 되는거다. 검색은 잘 만들어야 함.\\</a></li>
+<li><a href="#sec-10-6">10.6. 즉 중요한건 엉망이고 잘하고가 중요가 아니라, 무언가를 극복해 냈다는 자신감이다. \\</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 웹 프로젝트 리포트: 온라인 쇼핑몰</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+팀멤버:
+황 희[heehkosta [at] gmail.com](구매 및 검색 핵심기능 설계 및 연동)<br  />
+  안균석(백엔드 로직구현 및 DB연동)<br  />
+  이태규(데이터베이스 )<br  />
+  이은선(프론트엔드)<br  />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 문서의 목적</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+이 문서는 옥션 프로젝트의 기능과 목적에 대해 설명합니다. 이 문서는 다음의 <br  />
+  상세설명을 포함하고있습니다.
+</p>
+
+<ol class="org-ol">
+<li>유저 인터페이스
+</li>
+<li>핵심기능 필요조건
+</li>
+<li>비기능 필요조건
+</li>
+<li>프로젝트 스케쥴 / 마일스톤
+</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 문서의 대상</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+이 문서는 컴퓨터와 전산쪽 백그라운드가 있는 사람을 목표로하고있습니다. <br  />
+  기본적인 자바 웹 어플리케이션 개발 및 서버 데이터베이스 상호작용을 이해하면 도움이 됩니다.<br  />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 업데이트와 차후 변화</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+에자일 메써드에 기반하여, 이 제품은 개발이 진행됨에 따라 더 발전되는것을 목표로하고, <br  />
+  이 문서 역시 마찬가지입니다. 프로젝트 예정시간은 완벽을 목표로하지 않지만 마일스톤은 <br  />
+  제시간에 끝내야 합니다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 소개</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+이 제품은, 기존 쇼핑몰 사이트들의 디자인이 너무 장황한데에 기반하여 시작되었습니다. <br  />
+  너무 많은 광고와, 선택지에 휩쓸려 정작 자신이 쇼핑하기는 불편하고, <br  />
+  이를 개선하기위해 사용자가 원하는 기능에 최대한 초점을 맞추고 나머지를<br  />
+  억누르는 방식을 통해 쇼핑의 간편화를 최대한 도모한 제품입니다.<br  />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 벤치마킹 대상 웹 사이트: 온라인 옷 쇼핑몰(<a href="http://dahong.com">http://dahong.com</a>)</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 잘 되어있는점</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+상품을 보여주는데에 집중한 레이아웃
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 개선할점</h3>
+<div class="outline-text-3" id="text-6-2">
+<ol class="org-ol">
+<li>현재 이너웨어 및 스커트는 하위분류가 나와있지 않음
+</li>
+<li>검색창은 마우스를 올려 놓아야 활성화 되며, 사이즈가 작음
+</li>
+<li>검색 제안 기능이 없음
+</li>
+<li>실제 검색이나 판매결과에 상관없는 이미지(주문폭주! 단독특가! 등)
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 핵심기능</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> 검색</h3>
+<div class="outline-text-3" id="text-7-1">
+<ol class="org-ol">
+<li>이름으로 검색: 상품이름이 포함되어 있을경우 결과물을 테이블 형식으로 표시
+</li>
+<li>카테고리별로 검색
+</li>
+<li>키워드 제안
+</li>
+<li>주문 마감시간
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> 구매</h3>
+<div class="outline-text-3" id="text-7-2">
+<ol class="org-ol">
+<li>장바구니 기능 구현: 세션
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-7-3" class="outline-3">
+<h3 id="sec-7-3"><span class="section-number-3">7.3</span> 기타</h3>
+<div class="outline-text-3" id="text-7-3">
+<ol class="org-ol">
+<li>회원가입
+</li>
+<li>로그인
+</li>
+<li>로그아웃
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> 프로젝트 타임라인</h2>
+<div class="outline-text-2" id="text-8">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Date</th>
+<th scope="col" class="left">Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">4/12 - 4/13</td>
+<td class="left">* 주제 선정 및 데이터베이스 테이블 확정</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left">4/14 - 4/16</td>
+<td class="left">* 검색: 검색결과 테이블, 아이템 상세설명</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 프론트엔드: 인덱스-서블릿-데이터베이스-뷰 연동</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 백엔드:</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- 테이블별로 vo및 dao 확정</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- SearchController.java 구현</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- ItemController 구현</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 데이터베이스:</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- 검색 관련 쿼리문 구현, 유닛 테스트,</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- DAO, JDBC 동연</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 부가기능: 구글맵 item<sub>result</sub>.jsp 내부에 포함</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left">4/18 - 4/20</td>
+<td class="left">* 프론트엔드:</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">buy<sub>result</sub>.jsp,</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 백엔드:</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">BuyController.java 구현,</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">인덱스-서블릿-데이터베이스-뷰 연동</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 데이터베이스: 구매 관련 쿼리문 구현,</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">유닛테스트, DAO, JDBC 연동</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 부가기능: 장바구니, 로그인</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left">4/21 - 4/23</td>
+<td class="left">* 프론트엔드: sell<sub>result</sub>.jsp</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 백엔드:</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- SellController.java구현,</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- 인덱스-서블릿-데이터베이스-뷰 연동</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">* 데이터베이스:</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">- 구매관련 쿼리문 구현, 유닛테스트, DAO, JDBC 연동</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left">4/25 - 4/26</td>
+<td class="left">* 검색제안 구현</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> 프로젝트 마일스톤</h2>
+<div class="outline-text-2" id="text-9">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Date</th>
+<th scope="col" class="left">Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">4/16</td>
+<td class="left">유저 인증 기능 구현</td>
+</tr>
+
+<tr>
+<td class="left">4/19</td>
+<td class="left">검색기능 구현</td>
+</tr>
+
+<tr>
+<td class="left">4/22</td>
+<td class="left">판매기능 구현</td>
+</tr>
+
+<tr>
+<td class="left">4/26</td>
+<td class="left">부가기능 구현 및 테스팅</td>
+</tr>
+
+<tr>
+<td class="left">4/27</td>
+<td class="left">프리젠테이션</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> 배운점</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-sec-10-1" class="outline-3">
+<h3 id="sec-10-1"><span class="section-number-3">10.1</span> MVC 팩토리 모델에서 웹프로젝트 작업의 순서</h3>
+<div class="outline-text-3" id="text-10-1">
+<ol class="org-ol">
+<li>데이터베이스 테이블 작성
+</li>
+<li>DAO(Data Access Object)작성
+</li>
+<li>View와 연결
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-10-2" class="outline-3">
+<h3 id="sec-10-2"><span class="section-number-3">10.2</span> DAO 로직 테스트 방법론</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+커넥션풀을 활용한 웹 프로젝트 작성시에, 프로그래머는 작업의 상당량을 톰캣에<br  />
+   위임하기에, 데이터베이스와 DAO로직 테스팅을 하기가 어렵다. <br  />
+   이유는 데이터 소스 방식시 디스패쳐와 서블릿을 모두 통과해야 하기때문이다.<br  />
+   즉 테스트를 하려면 View와 Controller, 그리고 DispatcherServlet 모두 <br  />
+   구현을 해야한다는 얘기다. <br  />
+</p>
+
+<p>
+가능은하겠지만, 작업이 복잡해 짐에따라 디버깅이 배로 어려워지고, <br  />
+   시간낭비가 심하므로 영리한 선택이 아니다.<br  />
+</p>
+
+<p>
+따라서, DB와 DAO 작성시에는 독립된 main 메써드를 만들어서 테스트 해야한다.<br  />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-10-3" class="outline-3">
+<h3 id="sec-10-3"><span class="section-number-3">10.3</span> DB테스트는 DAO테스트와 다르다는것을 이해</h3>
+<div class="outline-text-3" id="text-10-3">
+<p>
+DB상에서 쿼리가 돌아간다고 해서 테스트를 통과했다고 생각해선 안된다. <br  />
+   쿼리 완성후 반드시 DAO에서 별도의 main함수에서 비즈니스 로직을 테스트 해야한다.<br  />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-10-4" class="outline-3">
+<h3 id="sec-10-4"><span class="section-number-3">10.4</span> 알고리즘과 뷰단이 어떻게 연관되는지 설명할 수 있어야 한다.\\</h3>
+<div class="outline-text-3" id="text-10-4">
+<p>
+알고리즘이 별로 없다면 뷰단이 확 나와야 한다.<br  />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-10-5" class="outline-3">
+<h3 id="sec-10-5"><span class="section-number-3">10.5</span> 2주라면 그냥 좋은 사이트 따라가면 되는거다. 검색은 잘 만들어야 함.\\</h3>
+</div>
+
+<div id="outline-container-sec-10-6" class="outline-3">
+<h3 id="sec-10-6"><span class="section-number-3">10.6</span> 즉 중요한건 엉망이고 잘하고가 중요가 아니라, 무언가를 극복해 냈다는 자신감이다. \\</h3>
+<div class="outline-text-3" id="text-10-6">
+<p>
+그냥 완벽하고 깔끔하게 하면 된다.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2016-04-26 화 13:03</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
