@@ -22,6 +22,7 @@ public class CartListController implements Controller {
 			count += 1;
 		}
 		System.out.println("장바구니에 담긴 물품수 : "+count);
+		request.setAttribute("count", count);
 
 
 		path = "cartlist.jsp";
