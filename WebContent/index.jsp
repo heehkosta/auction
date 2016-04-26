@@ -467,6 +467,20 @@ style="padding-right: 5px;">
 					    <td width="420" align="right" valign="top">
 						<!-- 상단 우측 메뉴 시작-->
 						
+						<c:choose>
+					    <c:when test="${sessionScope.vo!=null}">
+						<a href="front.do?command=logout" >로그 아웃</a><br>
+						<a href="update.jsp" >회원 정보 수정</a><br>
+					    </c:when>
+					    <c:otherwise>
+						<a href="login.jsp" >로그인 </a><br>
+						<a href="join1.html" >회원 가입</a><br>
+					    </c:otherwise>
+						</c:choose> 
+						
+						
+						
+						
 						
 						<!-- 관심상품 ------------------------------------------------------------------------------------------------------------------------------------>
 					<!-- 		    </div>
@@ -520,11 +534,11 @@ style="padding-right: 5px;">
 	
 													    <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
 													</div>
-													<img src="images_2015/top/topmenu_s_05.gif"
+													<!-- <img src="images_2015/top/topmenu_s_05.gif"
 													     onMouseOver="div_cart_onoff(1)"
 													     onMouseOut="div_cart_onoff(0)"
 													     onclick="javascript:location='DispatcherServlet.do?command=cartlist'"
-													     style="cursor: hand" />
+													     style="cursor: hand" /> -->
 												    </div>
 												</td>
 												<td align="center"
@@ -790,11 +804,11 @@ bgcolor="#FFFFFF">
 	
 													    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
 													</div>
-													<img src="images_2015/top/topmenu_s_06.gif"
+													<!-- <img src="images_2015/top/topmenu_s_06.gif"
 													     onMouseOver="div_menu_onoff(1)"
 													     onMouseOut="div_menu_onoff(0)"
 													     onclick="javascript:location='#'"
-													     style="cursor: hand" />
+													     style="cursor: hand" /> -->
 												    </div>
 												</td>
 											    </tr>

@@ -1,9 +1,7 @@
-/servlet/
-/model/
-<<<<<<< HEAD
+/.DS_Store
 /controller/
-=======
->>>>>>> origin/master
 /filter/
 /front/
+/model/
 /pagingservice/
+/servlet/
