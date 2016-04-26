@@ -3,20 +3,23 @@ package model;
 public class FeedBackVO {
 
 	private String TargetName;
+	private int ItemID;
 	private Float Rating;
 	private String Review;
-	
+
+
 	public FeedBackVO() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
-	public FeedBackVO(String targetName, Float rating, String review) {
+	public FeedBackVO(String targetName, int itemID, Float rating, String review) {
 		super();
-
 		TargetName = targetName;
+		ItemID = itemID;
 		Rating = rating;
 		Review = review;
 	}
+
 	public String getTargetName() {
 		return TargetName;
 	}
@@ -24,6 +27,15 @@ public class FeedBackVO {
 	public void setTargetName(String targetName) {
 		TargetName = targetName;
 	}
+
+	public int getItemID() {
+		return ItemID;
+	}
+
+	public void setItemID(int itemID) {
+		ItemID = itemID;
+	}
+
 
 	public Float getRating() {
 		return Rating;
@@ -43,8 +55,9 @@ public class FeedBackVO {
 
 	@Override
 	public String toString() {
-		return "FeedBackVO [TargetName=" + TargetName + ", Rating=" + Rating
-				+ ", Review=" + Review + "]";
+		return "FeedBackVO [TargetName=" + TargetName + ", ItemID=" + ItemID
+				+ ", Rating=" + Rating + ", Review=" + Review + "]";
 	}
+
 
 }

@@ -81,9 +81,10 @@ public class FeedBackDAO {
 			ps = conn.prepareStatement(StringQuery.SEARCH_FEEDBACK);
 			rs = ps.executeQuery();
 			while(rs.next()){
-				flist.add(new FeedBackVO(rs.getString(1), 
-						rs.getFloat(2), 
-						rs.getString(3)));
+				flist.add(new FeedBackVO(rs.getString(1),
+						rs.getInt(2),
+						rs.getFloat(3), 
+						rs.getString(4)));
 
 			}
 		}finally{
