@@ -772,211 +772,8 @@ style="padding-right: 4px"><span class="top04">
 						       onMouseOver="div_search_onoff(1)">
 						      <!-- 상품검색 ------------------------------------------------------------------------------------------------------------------------------------>
 
-						      <!-- <table width="420" border="0" cellpadding="0"
-							     cellspacing="0" bgcolor="#ffffff">
-							<tr>
-							  <td height="100" align="right">
-							    <table border="0" cellspacing="0"
-								   cellpadding="0" width="254">
-							      <tr>
-								<td height="90" align="center"
-								    background="images_2015/top/topmenu_s_0c.gif"><table
-														     width="147" border="0" cellspacing="0"
-														     cellpadding="0">
-								    <tr>
-								      <script language="JavaScript"
-									      type="TEXT/JAVASCRIPT">
-									function SearchOk() {
-									if (document.search.textfield.value.length == 0) {
-									alert("상품명을 입력해 주세요");
-									document.search.textfield
-									.focus();
-									return;
-									}
-
-									document.search
-									.submit();
-									}
-
-									function isSerchEnter() {
-									if (event.keyCode == 13)
-									SearchOk()
-									}
-								      </script>
-								      <form name="search" method="post"
-									    action="DispatcherServlet.do?"
-									    style="MARGIN: 0px">
-									<td height="23"
-									    background="images_2013/top/top_search_bg.jpg">&nbsp;
-									  <input type="hidden" name="command"
-										 value="search"> <input
-												    name="textfield" type="text"
-												    class="text"
-												    style="border-top: 0px dotted #FFFFFF; border-bottom: 0px dotted #FFFFFF; border-left: 0px dotted #FFFFFF; border-right: 0px dotted #FFFFFF; color: #333333; FONT-FAMILY: 굴림; FONT-SIZE: 9pt"
-												    onKeyPress="isSerchEnter()"
-												    size="20" maxlength="30">
-									</td>
-
-									<td width="23">
-									  <button type="submit" form="search"
-										  value="Submit">
-									    <img
-									       src="images_2013/top/top_search_but.jpg"
-									       width="23" height="23"
-									       onClick="javascript:SearchOk();"
-									       style="cursor: hand" ALT="" />
-									  </button>
-									</td>
-								      </form>
-								    </tr>
-								</table></td>
-							      </tr>
-							    </table>
-							  </td>
-							</tr>
-						      </table>
-
-
-						      상품검색 ----------------------------------------------------------------------------------------------------------------------------------
-						    </div>
-
-						    <img src="images_2015/top/topmenu_s_00.gif"
-							 border="0" style="cursor: hand"
-							 onclick="javascript:location='#'"
-							 onMouseOver="div_search_onoff(1)"
-							 onMouseOut="div_search_onoff(0)" />
-						  </div>
-						</td>
-
-						<td align="center"
-						    style="padding-left: 4px; padding-right: 4px;"><div
-												      style="position: relative; z-index: 100">
-						    <div
-						       style="position: absolute; left: -190px; top: 46px; display: none"
-						       id="div_event" onmouseout="div_event_onoff(0)"
-						       onMouseOver="div_event_onoff(1)">
-						      디스토리 & 이벤트 ----------------------------------------------------------------------------------------------------------------------------------
-
-						      <table width="420" border="0" cellpadding="0"
-							     cellspacing="0" bgcolor="#FFFFFF">
-							<tr>
-							  <td height="90" align="right">
-							    <table border="0" cellspacing="0"
-								   cellpadding="0" width="254" height="100">
-							      <tr>
-								<td><a
-								       href="/Ncommunity/dstory_list.asp"><img
-													     src="images_2015/top/topmenu_s_1c.gif"
-													     width="254" height="90" border="0"></a></td>
-							      </tr>
-							    </table>
-							  </td>
-							</tr>
-						      </table>
-
-						      디스토리 & 이벤트 ----------------------------------------------------------------------------------------------------------------------------------
-						    </div>
-						    <img src="images_2015/top/topmenu_s_02.gif"
-							 border="0" style="cursor: hand"
-							 onclick="javascript:location='/Ncommunity/dstory_list.asp'"
-							 onMouseOver="div_event_onoff(1)"
-							 onMouseOut="div_event_onoff(0)" />
-						</div></td>
-						<td align="center"
-						    style="padding-left: 4px; padding-right: 4px;">
-						  <div style="position: relative; z-index: 100">
-						    <div
-						       style="position: absolute; left: -240px; top: 46px; display: none"
-						       id="div_notice"
-						       onmouseout="div_notice_onoff(0)"
-						       onMouseOver="div_notice_onoff(1)">
-						      쿠폰존 & 멤버쉽 ----------------------------------------------------------------------------------------------------------------------------------
-
-						      <table width="420" border="0" cellpadding="0"
-							     cellspacing="0" bgcolor="#FFFFFF">
-							<tr>
-							  <td height="90" align="right">
-							    <table border="0" cellspacing="0"
-								   cellpadding="0" width="254" height="100">
-							      <tr>
-								<td><a
-								       href="/my/myCouponBook_guest.asp"><img
-													    src="images_2015/top/topmenu_s_2c.gif"
-													    width="254" height="90" border="0"></a></td>
-							      </tr>
-							    </table>
-							  </td>
-							</tr>
-						      </table>
-
-						      쿠폰존 & 멤버쉽 ----------------------------------------------------------------------------------------------------------------------------------
-						    </div>
-						    <img src="images_2015/top/topmenu_s_03.gif"
-							 onMouseOver="div_notice_onoff(1)"
-							 onMouseOut="div_notice_onoff(0)"
-							 onclick="javascript:location='/my/myCouponBook_guest.asp'"
-							 style="cursor: hand" />
-						  </div>
-						</td>
-
-						<td align="center"
-						    style="padding-left: 4px; padding-right: 4px;">
-						  <div style="position: relative; z-index: 100">
-						    <div
-						       style="position: absolute; left: -290px; top: 46px; display: none"
-						       id="div_zzim" onmouseout="div_zzim_onoff(0)"
-						       onMouseOver="div_zzim_onoff(1)">
-						      관심상품 ----------------------------------------------------------------------------------------------------------------------------------
-
-						      <table width="420" border="0" cellpadding="0"
-							     cellspacing="0" bgcolor="#FFFFFF">
-							<tr>
-							  <td height="100" align="right">
-							    <table border="0" cellspacing="0"
-								   cellpadding="0" width="254" height="100">
-							      <tr>
-								<td><table width="100%" border="0"
-									   cellspacing="0" cellpadding="0">
-								    <tr>
-								      <td height="90" align="center"
-									  valign="bottom"
-									  background="images_2015/top/topmenu_s_3c.gif"><table
-															   width="100" border="0"
-															   cellspacing="0" cellpadding="0">
-									  <tr>
-									    <td height="34" align="center"
-										valign="top"><a
-												href="/my/myzzim2.asp"><span
-															  class="top08">[ <span
-																	     id="div_FavoritesCnt">0</span> ]
-									    </span></a></td>
-									  </tr>
-								      </table></td>
-								    </tr>
-								</table></td>
-							      </tr>
-							    </table>
-							  </td>
-							</tr>
-						      </table>
-
-						    <!--   <!-- 관심상품 ------------------------------------------------------------------------------------------------------------------------------------>
-						  <!--   </div>
-						    <img src="images_2015/top/topmenu_s_04.gif"
-							 onMouseOver="div_zzim_onoff(1)"
-							 onMouseOut="div_zzim_onoff(0)"
-							 onclick="javascript:location='/my/myzzim2.asp'"
-							 style="cursor: hand" />
-						  </div>
-						</td>
-						<td align="center"
-						    style="padding-left: 4px; padding-right: 4px;">
-						  <div style="position: relative; z-index: 100">
-						    <div
-						       style="position: absolute; left: -340px; top: 46px; display: none"
-						       id="div_cart" onmouseout="div_cart_onoff(0)"
-						       onMouseOver="div_cart_onoff(1)"> -->
-						      장바구니 ----------------------------------------------------------------------------------------------------------------------------------
+						     
+						      <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0" bgcolor="#FFFFFF">
@@ -1010,8 +807,8 @@ style="padding-right: 4px"><span class="top04">
 							</tr>
 						      </table>
 
-						      장바구니 ----------------------------------------------------------------------------------------------------------------------------------
-						    </div> -->
+						      <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
+						    </div>
 						    <img src="images_2015/top/topmenu_s_05.gif"
 							 onMouseOver="div_cart_onoff(1)"
 							 onMouseOut="div_cart_onoff(0)"
@@ -1028,7 +825,7 @@ style="padding-right: 4px"><span class="top04">
 						       style="position: absolute; left: -390px; top: 46px; display: none"
 						       id="div_menu" onmouseout="div_menu_onoff(0)"
 						       onMouseOver="div_menu_onoff(1)">
-						    <!--   <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
+						      <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
 
 						      <table width="420" border="0" cellpadding="0"
 							     cellspacing="0"
@@ -1078,7 +875,7 @@ style="padding-right: 4px"><span class="top04">
 									     id="div_allmenu"
 									     onmouseout="div_allmenu_onoff(0)"
 									     onMouseOver="div_allmenu_onoff(1)">
-									    메뉴 ----------------------------------------------------------------------------------------------------------------------------------
+									    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
 									    <table width="420" border="0"
 										   cellpadding="0" cellspacing="0"
 										   bgcolor="#E2E2E2">
@@ -1103,7 +900,7 @@ style="padding-right: 4px"><span class="top04">
 											    <td width="175"
 												valign="top" height="25"><span
 															    class="top09"><font
-																	     color="FF0066">DAHONG</font></span></td> -->
+																	     color="FF0066">DAHONG</font></span></td>
 											    <!-- 사장님 지시 사항으로 히든처리
 												 <td width="20%" valign="top"><span class="top09"><font color="#B18BD8">GIRLS</font></span></td>
 												 -->
