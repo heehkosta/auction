@@ -16,6 +16,12 @@ public class CartListController implements Controller {
 		String path = "";
 		ArrayList<ItemVO> cartlist = CartDAO.getInstance().getCartList(request);
 		System.out.println("CARTLISTCONTROLLER :"+cartlist);
+		
+		int count = 0;
+		for(int i =0; i<cartlist.size(); i++){
+			count += 1;
+		}
+		System.out.println("장바구니에 담긴 물품수 : "+count);
 
 
 		path = "cartlist.jsp";
