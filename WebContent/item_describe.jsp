@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- BOOTSTRAP SECTION -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -104,7 +105,14 @@ $(function() {
 <p><b>올린 시간 </b>: ${item.started}</p>
 <p><b>종료 시간 </b>: ${item.ends}</p>
 <p><font color="red"><b>남은 시간 :</b></font></p><div id="defaultCountdown"></div><br>
-${flist}
+<c:forEach items="${flist}" var="list">
+<c:if test="${list.itemID == item.itemID}">
+${list.targetName}<br>
+${list.rating}<br>
+${list.review}<br>
+<tr>
+</c:if>
+</c:forEach>
    
     <div style="margin-top: 30px;">
       <h4><b>상세설명</b></h4><p>
