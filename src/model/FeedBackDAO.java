@@ -71,7 +71,7 @@ public class FeedBackDAO {
 
 	}
 
-	public ArrayList<FeedBackVO> SearchFeedBack() throws SQLException{
+	public ArrayList<FeedBackVO> SearchFeedBack(int id) throws SQLException{
 		ArrayList<FeedBackVO> flist = new ArrayList<FeedBackVO>();
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -79,6 +79,7 @@ public class FeedBackDAO {
 		try{
 			conn = getConnection();
 			ps = conn.prepareStatement(StringQuery.SEARCH_FEEDBACK);
+			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				flist.add(new FeedBackVO(rs.getString(1),

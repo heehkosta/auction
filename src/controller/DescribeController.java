@@ -18,11 +18,11 @@ public class DescribeController implements Controller {
 			HttpServletResponse response) throws Exception {
 		String path = "describe_fail.jsp";
 		String id = request.getParameter("id");
-
+		int id2 = Integer.parseInt(request.getParameter("id"));
 		System.out.println("Describe: 20" + id);
 
 		ItemVO item = ItemDAO.getInstance().selectByID(id);
-		ArrayList<FeedBackVO> flist = FeedBackDAO.getInstance().SearchFeedBack();
+		ArrayList<FeedBackVO> flist = FeedBackDAO.getInstance().SearchFeedBack(id2);
 		System.out.println("DescribeController:24" + item);
 		System.out.println("DescribeController:26" + flist);
 		request.setAttribute("flist", flist);

@@ -106,12 +106,10 @@ $(function() {
 <p><b>종료 시간 </b>: ${item.ends}</p>
 <p><font color="red"><b>남은 시간 :</b></font></p><div id="defaultCountdown"></div><br>
 <c:forEach items="${flist}" var="list">
-<c:if test="${list.itemID == item.itemID}">
 ${list.targetName}<br>
 ${list.rating}<br>
 ${list.review}<br>
 <tr>
-</c:if>
 </c:forEach>
    
     <div style="margin-top: 30px;">
