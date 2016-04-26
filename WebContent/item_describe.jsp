@@ -105,6 +105,7 @@ $(function() {
 <p><b>올린 시간 </b>: ${item.started}</p>
 <p><b>종료 시간 </b>: ${item.ends}</p>
 <p><font color="red"><b>남은 시간 :</b></font></p><div id="defaultCountdown"></div><br>
+상품의 평점 평균 : ${avg} <br>
 <c:forEach items="${flist}" var="list">
 ${list.targetName}<br>
 ${list.rating}<br>
