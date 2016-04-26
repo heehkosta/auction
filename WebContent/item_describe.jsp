@@ -27,6 +27,17 @@
 <!-- //////////////////////카운트다운 시작////////////////////////////////////// -->
 <style type="text/css">
 #defaultCountdown { width: 240px; height: 45px; }
+span.star-prototype, span.star-prototype > * {
+    height: 16px; 
+    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16px repeat-x;
+    width: 80px;
+    display: inline-block;
+}
+ 
+span.star-prototype > * {
+    background-position: 0 0;
+    max-width:80px; 
+}
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="./js/jquery.plugin.js"></script>
@@ -36,6 +47,14 @@ $(function () {
 	var austDay = new Date();
 	austDay = new Date(2016,3,30);
 	$('#defaultCountdown').countdown({until: austDay});
+	
+	/*////////////////////평점을 별로 바꾸는 부분/////////////////////// */
+	$.fn.generateStars = function() {
+	    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+	};
+
+	// 숫자 평점을 별로 변환하도록 호출하는 함수
+	$('.star-prototype').generateStars();
 });
 </script>
 <!-- //////////////////////카운트다운 종료////////////////////////////////////// -->
@@ -105,10 +124,10 @@ $(function() {
 <p><b>올린 시간 </b>: ${item.started}</p>
 <p><b>종료 시간 </b>: ${item.ends}</p>
 <p><font color="red"><b>남은 시간 :</b></font></p><div id="defaultCountdown"></div><br>
-상품의 평점 평균 : ${avg} <br>
+상품의 평점 평균 :  <br> <span class="star-prototype">${avg}</span>${avg}<br><br>
 <c:forEach items="${flist}" var="list">
 ${list.targetName}<br>
-${list.rating}<br>
+<span class="star-prototype">${list.rating}</span><br>
 ${list.review}<br>
 <tr>
 </c:forEach>
