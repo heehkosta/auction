@@ -775,45 +775,11 @@ style="padding-right: 4px"><span class="top04">
 						     
 						      <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
 
-						      <table width="420" border="0" cellpadding="0"
-							     cellspacing="0" bgcolor="#FFFFFF">
-							<tr>
-							  <td height="100" align="right">
-							    <table border="0" cellspacing="0"
-								   cellpadding="0" width="254" height="100">
-							      <tr>
-								<td><table width="100%" border="0"
-									   cellspacing="0" cellpadding="0">
-								    <tr>
-								      <td height="90" align="center"
-									  valign="bottom"
-									  background="images_2015/top/topmenu_s_4c.gif"><table
-															   width="100" border="0"
-															   cellspacing="0" cellpadding="0">
-									  <tr>
-									    <td height="34" align="center"
-										valign="top"><a
-												href="DispatcherServlet.do?command=cartlist"><span
-																		class="top08">[ <span
-																				   id="div_CartCnt">0</span> ]
-									    </span></a></td>
-									  </tr>
-								      </table></td>
-								    </tr>
-								</table></td>
-							      </tr>
-							    </table>
-							  </td>
-							</tr>
-						      </table>
+						      
 
 						      <!-- 장바구니 ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
-						    <img src="images_2015/top/topmenu_s_05.gif"
-							 onMouseOver="div_cart_onoff(1)"
-							 onMouseOut="div_cart_onoff(0)"
-							 onclick="javascript:location='DispatcherServlet.do?command=cartlist'"
-							 style="cursor: hand" />
+						    
 						  </div>
 						</td>
 						<td align="center"
@@ -845,19 +811,7 @@ style="padding-right: 4px"><span class="top04">
 								      <td align="center" valign="bottom"><table
 													    width="100%" border="0"
 													    cellspacing="0" cellpadding="0">
-									  <tr>
-									    <td><a
-										   href="/customer/Tracking.asp"><img
-														    src="images_2015/top/topmenu_s_5c_01.gif"
-														    width="99" height="21" border="0"></a></td>
-									    <td><a
-										   href="/Ncs/message1.asp"><img
-													       src="images_2015/top/topmenu_s_5c_02.gif"
-													       width="73" height="21" border="0"></a></td>
-									    <td><a href="/my/mydahong.asp"><img
-													      src="images_2015/top/topmenu_s_5c_03.gif"
-													      width="82" height="21" border="0"></a></td>
-									  </tr>
+
 								      </table></td>
 								    </tr>
 								    <tr>
@@ -870,207 +824,8 @@ style="padding-right: 4px"><span class="top04">
 									  onMouseOut="div_allmenu_onoff(0)">
 									<div
 									   style="position: relative; z-index: 100">
-									  <div
-									     style="position: absolute; left: -148px; top: 34px; display: none"
-									     id="div_allmenu"
-									     onmouseout="div_allmenu_onoff(0)"
-									     onMouseOver="div_allmenu_onoff(1)">
-									    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
-									    <table width="420" border="0"
-										   cellpadding="0" cellspacing="0"
-										   bgcolor="#E2E2E2">
-									      <tr>
-										<td width="1" align="center"
-										    valign="bottom"></td>
-										<td align="center" valign="top"
-										    bgcolor="#FFFFFF">
-										  <table width="380" border="0"
-											 cellspacing="0" cellpadding="0">
-										    <tr>
-										      <td height="25">&nbsp;</td>
-										    </tr>
-										    <tr>
-										      <td align="center">
+									
 
-
-											<table width="380" border="0"
-											       cellspacing="0"
-											       cellpadding="0">
-											  <tr>
-											    <td width="175"
-												valign="top" height="25"><span
-															    class="top09"><font
-																	     color="FF0066">DAHONG</font></span></td>
-											    <!-- 사장님 지시 사항으로 히든처리
-												 <td width="20%" valign="top"><span class="top09"><font color="#B18BD8">GIRLS</font></span></td>
-												 -->
-											    <!-- 사장님 지시 사항으로 히든처리
-												 <td width="175" valign="top"><span class="top09"><font color="#9CA970">SECOND LEEDS</font></span></td>
-												 -->
-											    <td width="175"
-												valign="top"><span
-														class="top09">MYPAGE</span></td>
-											    <td width="105"
-												valign="top"><span
-														class="top09">C/S</span></td>
-											  </tr>
-											  <tr>
-											    <td valign="top"><span
-														class="top10"> <a
-																  href="/Nshopping/itemShopping_New.asp?Site=D">NEW
-												  10%</a><br> <a
-														 href="/Nshopping/itemShopping_weekly.asp?Site=D">BEST
-												  SELLER</a><br> <a
-														    href="/Nshopping/ItemShopping_main.asp?a=1&Site=D">TOP</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_main.asp?a=318&Site=D">SHIRTS
-												  &amp; BLOUSE</a><br> <a
-															  href="/Nshopping/ItemShopping_main.asp?a=3&Site=D">OUTER</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_main.asp?a=321&Site=D">SKIRT</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_main.asp?a=4&Site=D">DRESS</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_main.asp?a=5&Site=D">PANTS</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_main.asp?a=6&Site=D">BAG
-												  &amp; SHOES</a><br> <a
-															 href="/Nshopping/ItemShopping_main.asp?a=8&Site=D">ACC</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_main.asp?a=9&Site=D">INNER</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_main.asp?a=41&Site=D">BIKINI</a><br>
-												<a
-												   href="/Ncs/Recently_Review.asp?Site=D">상품후기</a><br>
-												<a
-												   href="/Nshopping/ItemShopping_express.asp?Site=D">당일발송</a><br>
-												<a
-												   href="/Nshopping/promotion_list.asp">기획전
-												  리스트</a>
-											    </span></td>
-											    <!-- 사장님 지시 사항으로 히든처리
-												 <td valign="top">
-												   <span class="top10">
-												     <a href="/Nshopping/itemShopping_New.asp?Site=A">NEW 10%</a><br>
-												     <a href="/Nshopping/itemShopping_weekly.asp?Site=A">BEST SELLER</a><br>
-												     <a href="/Nshopping/ItemShopping_main.asp?a=60&Site=A">TOP</a><br>
-												     <a href="/Nshopping/ItemShopping_main.asp?a=61&Site=A">KNIT</a><br>
-												     <a href="/Nshopping/ItemShopping_main.asp?a=62&Site=A">OUTER</a><br>
-												     <a href="/Nshopping/ItemShopping_main.asp?a=63&Site=A">DRESS</a><br>
-												     <a href="/Nshopping/ItemShopping_main.asp?a=64&Site=A">BOTTOM</a><br>
-												     <a href="/Nshopping/ItemShopping_main.asp?a=65&Site=A">BAG &amp; SHOES</a><br>
-												     <a href="/Nshopping/ItemShopping_main.asp?a=67&Site=A">ACC</a><br>
-												     <a href="/Ncs/Recently_Review.asp?Site=A">상품후기</a>                                            
-												   </span>                                              
-												 </td>
-												 
-											    <td valign="top">
-											      <span class="top10">
-												<a href="/Nshopping/itemShopping_New.asp?Site=L">NEW 10%</a><br>
-												<a href="/Nshopping/itemShopping_weekly.asp?Site=L">BEST SELLER</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=104&Site=L">TOP</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=108&Site=L">BLOUSE</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=111&Site=L">OUTER</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=116&Site=L">DRESS &amp; SKIRT</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=118&Site=L">PANTS</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=123&Site=L">BAG &amp; SHOES</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=126&Site=L">ACC</a><br>
-												<a href="/Nshopping/ItemShopping_main.asp?a=324&Site=L">SUMMER</a><br>
-												<a href="/Ncs/Recently_Review.asp?Site=L">상품후기</a></p>
-</span>                                            
-</td>
--->
-											    <td valign="top"><span
-														class="top10"> <a
-																  href="/my/myzzim2.asp">관심상품
-												  리스트</a><br> <a
-														    href="/cart/mycart.asp">장바구니</a><br>
-												<a href="/my/MyOrder.asp">주문조회(후기작성)</a><br>
-												<a
-												   href="/my/myMessage_qna.asp">내
-												  게시글조회</a><br> <a
-															href="/my/ModifyForm.asp">개인정보수정</a><br>
-												<a href="/my/myCash.asp">예치금조회</a><br>
-												<a
-												   href="/my/myEmoney.asp">적립금조회</a><br>
-												<a
-												   href="/my/myCoupon.asp">할인쿠폰조회</a><br>
-												<br>
-											      </span> <span class="top09">SNS</span><br>
-											      <span class="top10">
-												<a
-												   href="https://www.facebook.com/dahongmall"
-												   target="_blank">페이스북</a><br>
-												<a
-												   href="https://www.instagram.com/love_dahong/"
-												   target="_blank">인스타그램</a><br>
-												<a
-												   href="https://story.kakao.com/ch/dahong"
-												   target="_blank">카카오스토리</a>
-											    </span></td>
-											    <td valign="top"><span
-														class="top10"> <a
-																  href="/Member/LoginForm.asp">로그인</a><br>
-
-												<a
-												   href="/member/AgreementJob.asp">회원가입</a><br>
-												<a
-												   href="/Ncommunity/dstory_list.asp">디스토리
-												  &amp; 이벤트</a><br> <a
-															  href="/my/myCouponBook_guest.asp">할인혜택</a><br>
-												<a
-												   href="/customer/Tracking.asp">주문/배송조회</a><br>
-												<a
-												   href="/Ncs/message1.asp">질문과답변</a><br>
-												<a
-												   href="/Ncs/FaqList.asp?Select=1">자주묻는질문</a><br>
-												<a href="/Ncs/notice.asp">공지사항</a><br>
-												<a
-												   href="/Nshopping/Shopping_OnlyYou.asp">개인결제</a><br>
-												<a
-												   href="/NShopping/itemshopping_today.asp">최근본상품</a><br>
-												<a
-												   href="/introduction/introduction3.asp">이용약관</a><br>
-												<a
-												   href="/introduction/introduction2.asp">개인정보취급방침</a><br>
-												<a
-												   href="/Ncommunity/Model_Register.asp">모델지원</a><br>
-												<a
-												   href="/introduction/Recruit.asp">채용공고</a><br>
-												<a
-												   href="mailto:tmdwnekdk@hanmail.net">제휴문의</a><br>
-												<a
-												   href="/Ncommunity/celeb_list.asp">연예인협찬</a><br>
-											    </span></td>
-											  </tr>
-											</table>
-
-										      </td>
-										    </tr>
-										    <tr>
-										      <td>&nbsp;</td>
-										    </tr>
-										  </table>
-										</td>
-										<td width="1" height="450"
-										    align="center" valign="bottom"></td>
-									      </tr>
-									      <tr>
-										<td height="1" align="center"
-										    valign="bottom"></td>
-										<td height="1" align="center"
-										    valign="bottom"></td>
-										<td height="1" align="center"
-										    valign="bottom"></td>
-									      </tr>
-									    </table>
-									  </div>
-									  <img
-									     src="images_2015/top/topmenu_s_5c_04.gif"
-									     onMouseOver="div_allmenu_onoff(1)"
-									     onMouseOut="div_allmenu_onoff(0)"
-									     onclick="javascript:location='#'"
-									     style="cursor: hand" />
 									</div>
 								      </td>
 								    </tr>
@@ -1083,11 +838,37 @@ style="padding-right: 4px"><span class="top04">
 
 						      <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
 						    </div>
-						    <img src="images_2015/top/topmenu_s_06.gif"
-							 onMouseOver="div_menu_onoff(1)"
-							 onMouseOut="div_menu_onoff(0)"
-							 onclick="javascript:location='#'"
-							 style="cursor: hand" />
+						   <table width="420" border="0" cellpadding="0"
+							     cellspacing="0" bgcolor="#FFFFFF">
+							<tr>
+							  <td height="100" align="right">
+							    <table border="0" cellspacing="0"
+								   cellpadding="0" width="254" height="100">
+							      <tr>
+								<td><table width="100%" border="0"
+									   cellspacing="0" cellpadding="0">
+								    <tr>
+								      <td height="90" align="center"
+									  valign="bottom"
+									  background="images_2015/top/topmenu_s_4c.gif"><table
+															   width="100" border="0"
+															   cellspacing="0" cellpadding="0">
+									  <tr>
+									    <td height="34" align="center"
+										valign="top"><a
+												href="DispatcherServlet.do?command=cartlist"><span
+																		class="top08">[ <span
+																				   id="div_CartCnt">${count }</span> ]
+									    </span></a></td>
+									  </tr>
+								      </table></td>
+								    </tr>
+								</table></td>
+							      </tr>
+							    </table>
+							  </td>
+							</tr>
+						      </table>
 						  </div>
 						</td>
 					      </tr>
