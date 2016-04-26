@@ -520,7 +520,7 @@ style="padding-right: 5px;">
 	valign="top"><a
 	href="DispatcherServlet.do?command=cartlist"><span
 	class="top08">[ <span
-			    id="div_CartCnt">0</span> ]
+			    id="div_CartCnt">${count}</span> ]
 	</span></a></td>
 																	    </tr>
 																	    </table></td>
@@ -804,11 +804,11 @@ bgcolor="#FFFFFF">
 	
 													    <!-- 메뉴 ------------------------------------------------------------------------------------------------------------------------------------>
 													</div>
-													<!-- <img src="images_2015/top/topmenu_s_06.gif"
+													<img src="images_2015/top/topmenu_s_06.gif"
 													     onMouseOver="div_menu_onoff(1)"
 													     onMouseOut="div_menu_onoff(0)"
 													     onclick="javascript:location='#'"
-													     style="cursor: hand" /> -->
+													     style="cursor: hand" />
 												    </div>
 												</td>
 											    </tr>

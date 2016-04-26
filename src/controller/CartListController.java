@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.CartDAO;
 import model.ItemVO;
@@ -22,7 +23,11 @@ public class CartListController implements Controller {
 			count += 1;
 		}
 		System.out.println("장바구니에 담긴 물품수 : "+count);
-		request.setAttribute("count", count);
+		
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("count", count);
+
 
 
 		path = "cartlist.jsp";
