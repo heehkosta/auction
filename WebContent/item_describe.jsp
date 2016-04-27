@@ -125,9 +125,17 @@ $(function() {
 <c:forEach items="${flist}" var="list">
 ${list.targetName}<br>
 <span class="star-prototype">${list.rating}</span><br>
-${list.review}<br>
-<tr>
+${list.review}<br><br>
 </c:forEach>
+<br>
+<form action="DispatcherServlet.do">
+<input type="hidden" name="command" value="addreview">
+<input type="hidden" name="itemid" value="${item.itemID}">
+아이디 : <input type="text" name="tname"><br><br>
+&nbsp; 평점 :  &nbsp; <input type="number" name="rating"><br><br>
+<textarea rows="3" cols="35" name="review"></textarea><br><br>
+<input type="submit" value="입력">
+</form>
    
     <div style="margin-top: 30px;">
       <h4><b>상세설명</b></h4><p>

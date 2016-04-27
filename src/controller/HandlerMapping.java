@@ -53,6 +53,8 @@ public class HandlerMapping {
 			controller = new KeywordController();
 		}else if(command.equals("feedback")){
 			controller = new FeedBackController();
+		}else if(command.equals("addreview")){
+			controller = new AddReviewController();
 		}
 		return controller;
 	}

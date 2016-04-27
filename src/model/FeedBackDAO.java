@@ -59,10 +59,11 @@ public class FeedBackDAO {
 			if(vo.getRating()>5){
 				System.out.println("5보다 작은 평점을 입력해주세요.");
 			}else{
-				ps = conn.prepareStatement(StringQuery.FEEDBACK);
+				ps = conn.prepareStatement(StringQuery.ADD_FEEDBACK);
 				ps.setString(1, vo.getTargetName());
-				ps.setFloat(2, vo.getRating());
-				ps.setString(3, vo.getReview());
+				ps.setInt(2, vo.getItemID());
+				ps.setFloat(3, vo.getRating());
+				ps.setString(4, vo.getReview());
 				ps.executeUpdate();
 			}
 		}finally{
@@ -71,6 +72,7 @@ public class FeedBackDAO {
 
 	}
 
+	/////ID로 상품의 리뷰를 가저오는 로직//////////////
 	public ArrayList<FeedBackVO> SearchFeedBack(int id) throws SQLException{
 		ArrayList<FeedBackVO> flist = new ArrayList<FeedBackVO>();
 		Connection conn = null;
